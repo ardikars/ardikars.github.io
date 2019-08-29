@@ -1,5 +1,5 @@
 ---
-title: Ardikars.Github.Io
+title: Ardika Rommy Sanjaya
 timezone: UTC
 collections:
   posts:
@@ -31,49 +31,49 @@ social_networks:
 - name: instagram
   url: https://www.instagram.com/ardikars/
 - name: google-plus
-  url: ''
+  url: 
 - name: linkedin
-  url: ''
+  url: 
 - name: skype
-  url: ''
+  url: 
 - name: github
   url: https://github.com/ardikars
 - name: codepen
-  url: ''
+  url: 
 - name: stack-overflow
-  url: ''
+  url: 
 - name: dribbble
-  url: ''
+  url: 
 - name: behance
-  url: ''
+  url: 
 - name: pinterest
-  url: ''
+  url: 
 - name: tumblr
-  url: ''
+  url: 
 - name: youtube
-  url: ''
+  url: 
 - name: vimeo
-  url: ''
+  url: 
 - name: vine
-  url: ''
+  url: 
 - name: 500px
-  url: ''
+  url: 
 - name: flickr
-  url: ''
+  url: 
 - name: spotify
-  url: ''
+  url: 
 - name: steam
-  url: ''
+  url: 
 - name: wordpress
-  url: ''
+  url: 
 - name: xing
-  url: ''
+  url: 
 - name: bitcoin
-  url: ''
+  url: 
 - name: pocket
-  url: ''
+  url: 
 - name: applemusic
-  url: ''
+  url: 
 show_categories: 1
 show_tags: 1
 show_email: 1
@@ -81,8 +81,8 @@ show_rss: 1
 show_comments: 1
 show_menu: 1
 fixed_sidebar: 1
-url: ''
-baseurl: ''
+url: 
+baseurl: 
 include:
 - _pages
 permalink: "/:categories/:title.html"
