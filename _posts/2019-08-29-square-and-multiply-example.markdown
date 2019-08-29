@@ -8,16 +8,18 @@ tags:
 layout: post
 ---
 
+11^37 = ?
+
 37 = 100101 in binary
 
-* 1 -> fist one list number          = N
+* 1 -> fist one list number          = 11
 
-* 0 -> square                                    = (N)^2
+* 0 -> square                                    = (11)^2
 
-* 0 -> square                                    = ((N)^2)^2
+* 0 -> square                                    = ((11)^2)^2
 
-* 1 -> square \+ multiply              = (((N)^2)^2)^2\*N
+* 1 -> square \+ multiply              = (((11)^2)^2)^2\*11
 
-* 0 -> square                                    = ((((N)^2)^2)^2\*N)^2
+* 0 -> square                                    = ((((11)^2)^2)^2\*11)^2
 
-* 1 -> square \+ multiply              = (((((N)^2)^2)^2\*N)^2)^2\*N
+* 1 -> square \+ multiply              = (((((11)^2)^2)^2\*11)^2)^2\*11
