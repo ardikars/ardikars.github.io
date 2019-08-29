@@ -24,55 +24,17 @@ twitter_handler:
 analytics_code: 
 disqus: 
 social_networks:
-- name: facebook
-  url: https://facebook.com/ardikars
 - name: twitter
   url: https://twitter.com/ardikars
 - name: instagram
   url: https://www.instagram.com/ardikars/
-- name: google-plus
-  url: 
 - name: linkedin
-  url: 
-- name: skype
-  url: 
+  url: https://www.linkedin.com/in/ardika-rommy-sanjaya-85a1a673/
 - name: github
   url: https://github.com/ardikars
-- name: codepen
-  url: 
 - name: stack-overflow
   url: 
-- name: dribbble
-  url: 
-- name: behance
-  url: 
-- name: pinterest
-  url: 
-- name: tumblr
-  url: 
-- name: youtube
-  url: 
-- name: vimeo
-  url: 
-- name: vine
-  url: 
-- name: 500px
-  url: 
-- name: flickr
-  url: 
-- name: spotify
-  url: 
-- name: steam
-  url: 
-- name: wordpress
-  url: 
-- name: xing
-  url: 
 - name: bitcoin
-  url: 
-- name: pocket
-  url: 
-- name: applemusic
   url: 
 show_categories: 1
 show_tags: 1
