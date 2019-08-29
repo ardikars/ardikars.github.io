@@ -1,16 +1,16 @@
 ---
-layout: post
-date: 2016-03-20 12:36
-title: "Documentation - Configuration & First Steps"
-description: Basic information about the Steve.
-comments: false
-category: 
+title: Documentation - Configuration & First Steps
+date: 2016-03-20 12:36:00 Z
+categories:
 - docs
 - help
 tags:
 - documentation
 - steve
 - jekyll
+layout: post
+description: Basic information about the Steve.
+comments: false
 ---
 
 ### Configuration
