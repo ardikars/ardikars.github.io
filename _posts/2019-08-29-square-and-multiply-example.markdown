@@ -23,3 +23,20 @@ layout: post
 * 0 -> square                                    = ((((11)^2)^2)^2\*11)^2
 
 * 1 -> square \+ multiply              = (((((11)^2)^2)^2\*11)^2)^2\*11
+
+
+
+
+### Simple implementation in python
+
+```python
+# x ^ h mod n
+def modPow(x, h, n):
+    y = 1
+    h = bin(h)[2:] # convert h into binary
+    for i in range(len(h)):
+        y = (y ** 2) % n
+        if h[i] == '1':
+            y = (y * x) % n
+    return y
+```
