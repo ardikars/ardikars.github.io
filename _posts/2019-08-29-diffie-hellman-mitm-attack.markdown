@@ -31,6 +31,7 @@ Eb = Spoofed Bob public key will sent to Alice (public)
 ```text
 p = 23, g = 5
 ```
+```markdown
 | a = 4                                      | b = 3                                         |
 |--------------------------------------------|-----------------------------------------------|
 | A = g ^ a mod p = 5 ^ 4 mod 23 = 4         | B = g ^ b mod p = 5 ^ 3 mod 23 = 10           |
@@ -38,7 +39,8 @@ p = 23, g = 5
 | Bob public key (B) is 10                   | Alice public key (A) is 4                     |
 | Compute shared key from Bob pubic key (B)  | Compute shared key from Alice public key (A)  |
 | Sa = B ^ a mod p = 10 ^ 4 mod 23 = 18      | Sb = A ^ b mod p = 4 ^ 3 mod 23 = 18          |
-									  		
+```
+								  		
 ```text
 Sa == Sb
 Discrete logarithm problem (A = g ^ ? mod p && B ^ ? mod p)
@@ -49,9 +51,11 @@ Discrete logarithm problem (A = g ^ ? mod p && B ^ ? mod p)
 ```text
 p = 23, g = 5
 ```
-| a = 4                                            | eA = 6, eB = 9                                | b = 3	                                            |	
+
+```markdown
+| a = 4                                            | eA = 6, eB = 9                                | b = 3                                              |	
 |--------------------------------------------------|-----------------------------------------------|----------------------------------------------------|
-| A = g ^ a mod p = 5 ^ 4 mod 23 = 4               | Eb = g ^ eB mod p = 5 ^ 9 mod 23 = 11         | -   	                                            |	
+| A = g ^ a mod p = 5 ^ 4 mod 23 = 4               | Eb = g ^ eB mod p = 5 ^ 9 mod 23 = 11         | -                                                  |	
 | Sent Alice public key (A) to Bob (Eve)           | Sent Spoofed Bob public key (Ea) to Alice     | -                                                  |
 | Bob (Eve) public key (Eb) is 11                  | Alice public key (A) is 4                     | -                                                  |
 | Compute shared key from Bob (Eve) pubic key (Eb) | Compute shared key from Alice public key (A)  | -                                                  |
@@ -61,6 +65,7 @@ p = 23, g = 5
 | -                                                | Bob public key (B) is 10                      | Alice (Eve) public key (Ea) is 8                   |
 | -                                                | Compute shared key from Bob public key (B)    | Compute shared key from Alice (Eve) pubic key (Ea) |
 | -                                                | Sb = B ^ eA mod p = 10 ^ 6 mod 23 = 6         | Sbe = Ea ^ b mod p = 8 ^ 3 mod 23 = 6              |
+```
 
 (Now Eve can intercept all data between Alice and Bob)
 												 
