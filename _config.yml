@@ -26,16 +26,10 @@ disqus:
 social_networks:
 - name: twitter
   url: https://twitter.com/ardikars
-- name: instagram
-  url: https://www.instagram.com/ardikars/
 - name: linkedin
   url: https://www.linkedin.com/in/ardika-rommy-sanjaya-85a1a673/
 - name: github
   url: https://github.com/ardikars
-- name: stack-overflow
-  url: 
-- name: bitcoin
-  url: 
 show_categories: 1
 show_tags: 1
 show_email: 1
