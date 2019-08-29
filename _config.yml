@@ -1,23 +1,23 @@
 # General Settings
-name: Steve Austin
-job_title: UI/UX Engineer
-email: youremail@gmail.com
-description: I build great products at Google, currently Google Maps. I also enjoy capturing moments with my camera and discovering new music. Follow me Twitter or drop me a line.
-avatar: https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg
+name: Ardika Rommy Sanjaya
+job_title: Software Engineer
+email: contact@ardikars
+description: Network Analyst
+avatar: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbH_wyHENYr7LP6eFohWDOShipXov_vgkmBvf1Po4GWFxLZbki
 favicon: /favicon.ico
-twitter_handler: your_handler
-analytics_code: UA-XXXXXXX-2
-disqus: your_disqus_site
+twitter_handler:
+analytics_code:
+disqus:
 
 # Social Accounts
 social_networks:
--  { name: facebook, url: 'http://facebook.com' }
--  { name: twitter, url: 'http://twitter.com' }
--  { name: instagram, url: '' }
+-  { name: facebook, url: 'https://facebook.com/ardikars' }
+-  { name: twitter, url: 'https://twitter.com/ardikars' }
+-  { name: instagram, url: 'https://www.instagram.com/ardikars/' }
 -  { name: google-plus, url: '' }
 -  { name: linkedin, url: '' }
 -  { name: skype, url: '' }
--  { name: github, url: '' }
+-  { name: github, url: 'https://github.com/ardikars' }
 -  { name: codepen, url: '' }
 -  { name: stack-overflow, url: '' }
 -  { name: dribbble, url: '' }
