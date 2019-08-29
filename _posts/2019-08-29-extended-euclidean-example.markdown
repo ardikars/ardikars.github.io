@@ -1,5 +1,5 @@
 ---
-title: Diffie Hellman MITM Attack
+title: Extended Euclidean Example
 date: 2019-08-29 10:41:00 Z
 categories:
 - docs
