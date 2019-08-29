@@ -69,4 +69,4 @@ p = 23, g = 5
 
 (Now Eve can intercept all data between Alice and Bob)
 
-[Klik di sini untuk tampilan yang lebih manusiawi](https://github.com/ardikars/ardikars.github.io/blob/master/_posts/2019-08-29-diffie-hellman-mitm-attack.markdown)
+[Click here for original markdown](https://github.com/ardikars/ardikars.github.io/blob/master/_posts/2019-08-29-diffie-hellman-mitm-attack.markdown)
