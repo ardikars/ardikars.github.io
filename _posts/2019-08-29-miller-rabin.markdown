@@ -8,4 +8,4 @@ tags:
 layout: post
 ---
 
-\[read more\](https://www.geeksforgeeks.org/primality-test-set-3-miller-rabin)
+[read more](https://www.geeksforgeeks.org/primality-test-set-3-miller-rabin)
