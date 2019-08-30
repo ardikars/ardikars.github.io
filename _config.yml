@@ -1,7 +1,6 @@
 ---
 title: Ardika Rommy Sanjaya
 timezone: UTC
-encoding: UTF-8
 collections:
   posts:
     title: Posts
@@ -15,6 +14,7 @@ defaults:
     type: posts
   values:
     comments: 'true'
+encoding: UTF-8
 name: Ardika Rommy Sanjaya
 job_title: Software Engineer
 email: contact@ardikars
