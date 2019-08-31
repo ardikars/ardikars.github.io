@@ -1,6 +1,6 @@
 ---
 title: ARP - MITM Detection Method
-date: 2019-08-31 03:39:00 Z
+date: 2019-08-31 17:45:00 Z
 categories:
 - docs
 tags:
@@ -8,9 +8,9 @@ tags:
 layout: post
 ---
 
-Sedikit tengan ARP,
+Sedikit tengan ARP
 
-ARP merupakan protokol yang digunakan untuk memetakan alamat fisik (MAC) dan logic (IP). Penyerang dapat memalsukan peta (ARP table) tersebut sehingga ia dapat menguasai komunikasi yang bergantung pada routing di peta tersebut.
+ARP merupakan protokol yang digunakan untuk memetakan alamat fisik (MAC) dan logika (IP). Proses pemetaan ini sering dimanfaatkan oleh penyerang dengan cara memalsukan isi dari peta (ARP table) tersebut sehingga ia dapat menguasai komunikasi yang bergantung pada isi dari peta tersebut (routing).
 
 Berikut metode yang saya gunakan untuk mendeteksi proses pemalsuan tersebut.
 
@@ -18,9 +18,9 @@ Disini saya menggunakan TCP-Syn untuk memancing penyerang. Kenapa? Karena jika m
 
 Dengan menggunakan TCP-Syn dengan port yang kita buat acak, pengerang tentu tidak dapat menebak port tersebut dan memblok nya.
 
-Berikut coret2 saya dahulu kala.
-
 <!--more-->
+
+Di bawah ini adalah coret2 saya dahulu kala.
 
 <figure class="aligncenter">
     <img src="/uploads/2019-08-31-arp-mitm-detaction-method-1.png" />
