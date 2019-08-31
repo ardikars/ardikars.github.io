@@ -18,6 +18,7 @@ gcd(11, 17) == 1
 
 ```
 
+<!--more-->
 
 ### Implementation in python [(src)](https://en.wikibooks.org/wiki/Algorithm_Implementation/Mathematics/Extended_Euclidean_algorithm)
 ```python

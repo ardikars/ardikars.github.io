@@ -20,6 +20,8 @@ Key Generation
 
 5. Compute the secret exponent d, 1 < d < phi, such that (e \* d) mod phi = 1, (7 \* d) mod 20 = 1,  d = 3
 
+<!--more-->
+
 6. The public key is (7, 33) and the private key (3, 33).
 
 

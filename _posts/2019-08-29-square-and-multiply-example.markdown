@@ -25,7 +25,7 @@ layout: post
 * 1 -> square \+ multiply              = (((((11)^2)^2)^2\*11)^2)^2\*11
 
 
-
+<!--more-->
 
 ### Simple implementation in python
 
