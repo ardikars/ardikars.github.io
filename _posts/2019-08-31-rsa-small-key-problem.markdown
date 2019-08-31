@@ -29,7 +29,7 @@ floor(sqrt(n)) = floor(sqrt(33)) = 5
 
 33 mod 5 = 3 << not 0
 
-33 mod 4 = 1 << not 0
+33 mod 4 = 1 << no need to test (except for 2 all other prime numbers are odd)
 
 33 mod 3 = 0 << we got p = 3
 
