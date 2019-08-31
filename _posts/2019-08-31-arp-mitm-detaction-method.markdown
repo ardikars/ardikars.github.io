@@ -9,13 +9,17 @@ layout: post
 ---
 
 <figure class="aligncenter">
-    <img src="uploads/2019-08-31-arp-mitm-detaction-method-1.png" />
+    <img src="/uploads/2019-08-31-arp-mitm-detaction-method-1.png" />
 </figure>
 
 <figure class="aligncenter">
-    <img src="uploads/2019-08-31-arp-mitm-detaction-method-2.png" />
+    <img src="/uploads/2019-08-31-arp-mitm-detaction-method-2.png" />
 </figure>
 
 <figure class="aligncenter">
-    <img src="uploads/2019-08-31-arp-mitm-detaction-method-3.png" />
+    <img src="/uploads/2019-08-31-arp-mitm-detaction-method-3.png" />
+</figure>
+
+<figure class="aligncenter">
+    <img src="/uploads/2019-08-31-arp-mitm-detaction-method-4.png" />
 </figure>
