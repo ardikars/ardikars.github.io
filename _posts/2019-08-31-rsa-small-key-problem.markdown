@@ -1,6 +1,11 @@
 ---
 title: RSA Small Key Problem
 date: 2019-08-31 03:39:00 Z
+categories:
+- docs
+tags:
+- documentation
+layout: post
 ---
 
 Given public key = (7, 33).
