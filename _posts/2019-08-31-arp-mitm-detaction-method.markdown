@@ -8,6 +8,20 @@ tags:
 layout: post
 ---
 
+Sedikit tengan ARP,
+
+ARP merupakan protokol yang digunakan untuk memetakan alamat fisik (MAC) dan logic (IP). Penyerang dapat memalsukan peta (ARP table) tersebut sehingga ia dapat menguasai komunikasi yang bergantung pada routing di peta tersebut.
+
+Berikut metode yang saya gunakan untuk mendeteksi proses pemalsuan tersebut.
+
+Disini saya menggunakan TCP-Syn untuk memancing penyerang. Kenapa? Karena jika menggunakan protokol seperti ICMP maka penyerang bisa saja membuat firewall untuk mem-blok semua paket ICMP yang datang.
+
+Dengan menggunakan TCP-Syn dengan port yang kita buat acak, pengerang tentu tidak dapat menebak port tersebut dan memblok nya.
+
+Berikut coret2 saya dahulu kala.
+
+<!--more-->
+
 <figure class="aligncenter">
     <img src="/uploads/2019-08-31-arp-mitm-detaction-method-1.png" />
 </figure>
