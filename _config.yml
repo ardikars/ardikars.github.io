@@ -36,7 +36,7 @@ show_categories: 1
 show_tags: 1
 show_email: 1
 show_rss: 0
-show_comments: 1
+show_comments: 0
 show_menu: 1
 fixed_sidebar: 1
 url: 
@@ -45,7 +45,7 @@ include:
 - _pages
 permalink: "/:categories/:title.html"
 category_dir: categories
-paginate: 10
+paginate: 3
 paginate_path: "/page:num/"
 markdown: kramdown
 excerpt_separator: "<!--more-->"
