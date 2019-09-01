@@ -1,5 +1,5 @@
 ---
-title: Square and Multiply Example
+title: Square and Multiply
 date: 2019-08-29 14:35:00 Z
 categories:
 - docs
