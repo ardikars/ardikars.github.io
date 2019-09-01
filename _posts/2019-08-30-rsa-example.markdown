@@ -1,5 +1,5 @@
 ---
-title: RSA Example
+title: RSA Algorithm
 date: 2019-08-30 05:34:00 Z
 categories:
 - docs
