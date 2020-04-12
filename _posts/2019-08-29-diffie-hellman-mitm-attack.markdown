@@ -2,9 +2,11 @@
 title: Diffie Hellman MITM Attack
 date: 2019-08-29 10:41:00 Z
 categories:
-- docs
+- cryptography
+- security
 tags:
 - documentation
+- math
 layout: post
 ---
 

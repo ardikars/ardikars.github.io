@@ -21,9 +21,9 @@ email: contact@ardikars
 description: Catatan suka2, nulisnya suka2.
 avatar: https://pbs.twimg.com/profile_images/1013821278862471168/GeIWLRAa_400x400.jpg
 favicon: "/favicon.ico"
-twitter_handler: 
-analytics_code: 
-disqus: 
+twitter_handler:
+analytics_code:
+disqus:
 social_networks:
 - name: twitter
   url: https://twitter.com/ardikars
@@ -38,8 +38,8 @@ show_rss: 0
 show_comments: 0
 show_menu: 1
 fixed_sidebar: 1
-url: 
-baseurl: 
+url:
+baseurl:
 include:
 - _pages
 permalink: "/:categories/:title.html"

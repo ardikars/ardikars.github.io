@@ -2,7 +2,8 @@
 title: RSA Algorithm
 date: 2019-08-30 05:34:00 Z
 categories:
-- docs
+- cryptography
+- security
 tags:
 - documentation
 layout: post

@@ -2,9 +2,11 @@
 title: RSA Small Key Problem
 date: 2019-08-31 03:39:00 Z
 categories:
-- docs
+- cryptography
+- security
 tags:
 - documentation
+- math
 layout: post
 ---
 
