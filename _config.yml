@@ -1,0 +1,53 @@
+---
+title: Ardika Rommy Sanjaya
+timezone: UTC
+collections:
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
+defaults:
+  - scope:
+      path: ''
+      type: posts
+    values:
+      comments: 'false'
+encoding: UTF-8
+name: Ardika Rommy Sanjaya
+job_title: Software Engineer
+email: contact@ardikars
+description: Catatan suka2, nulisn suka2.
+avatar: https://pbs.twimg.com/profile_images/1013821278862471168/GeIWLRAa_400x400.jpg
+favicon: "/favicon.ico"
+twitter_handler:
+analytics_code:
+disqus:
+social_networks:
+  - name: twitter
+    url: https://twitter.com/ardikars
+  - name: linkedin
+    url: https://www.linkedin.com/in/ardika-rommy-sanjaya-85a1a673/
+  - name: github
+    url: https://github.com/ardikars
+show_categories: 1
+show_tags: 1
+show_email: 1
+show_rss: 0
+show_comments: 0
+show_menu: 1
+fixed_sidebar: 1
+url:
+baseurl:
+include:
+  - _pages
+permalink: "/post/:categories/:title.html"
+category_dir: categories
+paginate: 5
+paginate_path: "/page:num/"
+markdown: kramdown
+excerpt_separator: "<!--more-->"
+sass:
+  sass_dir: assets/partials
+  style: compressed
