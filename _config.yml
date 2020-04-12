@@ -18,7 +18,7 @@ encoding: UTF-8
 name: Ardika Rommy Sanjaya
 job_title: Software Engineer
 email: contact@ardikars
-description: Catatan suka2, nulisnya suka2.
+description: Catatan suka2, nulisn suka2.
 avatar: https://pbs.twimg.com/profile_images/1013821278862471168/GeIWLRAa_400x400.jpg
 favicon: "/favicon.ico"
 twitter_handler:
@@ -42,7 +42,7 @@ url:
 baseurl:
 include:
 - _pages
-permalink: "/:categories/:title.html"
+permalink: "/posts/:categories/:title.html"
 category_dir: categories
 paginate: 5
 paginate_path: "/page:num/"
