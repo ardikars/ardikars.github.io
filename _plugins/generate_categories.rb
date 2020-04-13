@@ -46,7 +46,8 @@
 module Jekyll
 
     # make sure this is the same as baseurl in _config.yaml
-    BASEURL =  Jekyll.configuration({})['baseurl'] == nil ? "" : BASEURL
+    BASEURL =  Jekyll.configuration({})['baseurl']
+    BASEURL = BASEURL == nil ? "" : BASEURL
 
   # The CategoryIndex class creates a single category page for the specified category.
   class CategoryIndex < Page
@@ -132,7 +133,7 @@ module Jekyll
     # Returns string
     def category_links(categories)
       categories = categories.sort!.map do |item|
-        '<a href="'+BASEURL+'/'+item+'/">'+item+'</a>'
+        '<a href="'+BASEURL+item+'/">'+item+'</a>'
       end
 
       connector = "and"
