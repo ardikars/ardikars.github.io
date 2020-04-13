@@ -43,7 +43,7 @@ baseurl:
 include:
   - _pages
 permalink: "/post/:categories/:title.html"
-category_dir: categories
+category_dir: category
 paginate: 5
 paginate_path: "/page:num/"
 markdown: kramdown
