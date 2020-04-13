@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Posts Tagged - mitm | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
-    <meta property="og:title" content="Posts Tagged - mitm | Ardika Rommy Sanjaya &mdash; Software Engineer " />
-    <meta name="twitter:title" content="Posts Tagged - mitm | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <title>Posts Tagged - cryptography | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
+    <meta property="og:title" content="Posts Tagged - cryptography | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <meta name="twitter:title" content="Posts Tagged - cryptography | Ardika Rommy Sanjaya &mdash; Software Engineer " />
 
     <meta name="description" content="Catatan suka2, nulisn suka2.">
     <meta name="description" property="og:description" content="Catatan suka2, nulisn suka2." />
@@ -17,7 +17,7 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     
-    <meta property="og:url" content="/tag/mitm/" />
+    <meta property="og:url" content="/tag/cryptography/" />
 
     <meta property="og:image" content="" />
     <meta name="twitter:image" content="" />
@@ -96,7 +96,7 @@
     
     <link rel="stylesheet" href="/assets/css/main.css">
 
-    <link rel="canonical" href="/tag/mitm/">
+    <link rel="canonical" href="/tag/cryptography/">
 
     <link rel="alternate" type="application/rss+xml" title="Ardika Rommy Sanjaya" href="/feed.xml">
 </head>
@@ -197,58 +197,102 @@
 </div>
 
 
-                <h1>Posts Tagged - mitm</h1>
+                <h1>Posts Tagged - cryptography</h1>
 
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
 
     
         
         <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
             <header class="post-header">
                 <ul>
-                    <li><time datetime="2019-08-31T17:45:00+00:00" itemprop="datePublished">31 Aug, 2019</time></li>
+                    <li><time datetime="2019-08-30T05:34:00+00:00" itemprop="datePublished">30 Aug, 2019</time></li>
                     
                 </ul>
-                <h2 itemprop="name headline"><a href="/post/security/arp-mitm-detaction-method.html">ARP - MITM Detection Method</a></h2>
+                <h2 itemprop="name headline"><a href="/post/cryptography/rsa-example.html">RSA Algorithm</a></h2>
             </header>
 
             <div class="post-content">
-                <p>Sedikit tengan ARP</p>
+                <p>Key Generation</p>
 
-<p>ARP merupakan protokol yang digunakan untuk memetakan alamat fisik (MAC) dan logika (IP). Proses pemetaan ini sering dimanfaatkan oleh penyerang dengan cara memalsukan isi dari peta (ARP table) tersebut sehingga ia dapat menguasai komunikasi yang bergantung pada isi dari peta tersebut (routing).</p>
-
-<p>Berikut metode yang saya gunakan untuk mendeteksi proses pemalsuan tersebut.</p>
-
-<p>Disini saya menggunakan TCP-Syn untuk memancing penyerang. Kenapa? Karena jika menggunakan protokol seperti ICMP maka penyerang bisa saja membuat firewall untuk mem-blok semua paket ICMP yang datang.</p>
-
-<p>Dengan menggunakan TCP-Syn dengan port yang kita buat acak, pengerang tentu tidak dapat menebak port tersebut dan memblok nya.</p>
+<ol>
+  <li>
+    <p>Generate two random primes, p and q, e.g p=3, q=11.</p>
+  </li>
+  <li>
+    <p>Compute n = pq, n = 3 * 11 = 33.</p>
+  </li>
+  <li>
+    <p>Compute phi = (p-1)(q-1) = (3-1)(11-1) = 20</p>
+  </li>
+  <li>
+    <p>Choose an integer e, 1 &lt; e &lt; phi, such that gcd(e, phi) = 1, e.g e = 7, gcd(7, 20) = 1</p>
+  </li>
+  <li>
+    <p>Compute the secret exponent d, 1 &lt; d &lt; phi, such that (e * d) mod phi = 1, (7 * d) mod 20 = 1,  d = 3</p>
+  </li>
+</ol>
 
 
 
                 
-                    <p><a href="/post/security/arp-mitm-detaction-method.html" role="button">Read More</a></p>
+                    <p><a href="/post/cryptography/rsa-example.html" role="button">Read More</a></p>
                 
             </div>
 
             <footer class="post-footer">
                 <div class="share">Share
                     <ul class="social-networks">
-                        <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=ARP - MITM Detection Method&p[summary]=Sedikit tengan ARP
+                        <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=RSA Algorithm&p[summary]=Key Generation
 
-ARP merupakan protokol yang digunakan untuk memetakan alamat fisik (MAC) dan logika (IP). Proses pemetaan ini sering ...&p[url]=/post/security/arp-mitm-detaction-method.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                        <li class="share-twitter"><a href="http://twitter.com/share?url=/post/security/arp-mitm-detaction-method.html&text=Sedikit tengan ARP
 
-ARP merupakan protokol yang digunakan untuk memetakan alamat fisik (MAC) dan logika (IP). Proses pemetaan ini sering ...&hashtags=mitm,security,networking," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+  
+    Generate two random primes, p and q, e.g p=3, q=11.
+  
+  
+    Compute n = pq, n = 3 * 11 = 33.
+  
+  
+    Compute ...&p[url]=/post/cryptography/rsa-example.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                        <li class="share-twitter"><a href="http://twitter.com/share?url=/post/cryptography/rsa-example.html&text=Key Generation
+
+
+  
+    Generate two random primes, p and q, e.g p=3, q=11.
+  
+  
+    Compute n = pq, n = 3 * 11 = 33.
+  
+  
+    Compute ...&hashtags=cryptography,security,math,algorithm," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
                     </ul>
                 </div>
                 
                 <div class="tags">
                     <ul>
                         
-                        <li><a href="/tag/mitm">mitm</a></li>
+                        <li><a href="/tag/cryptography">cryptography</a></li>
                         
                         <li><a href="/tag/security">security</a></li>
                         
-                        <li><a href="/tag/networking">networking</a></li>
+                        <li><a href="/tag/math">math</a></li>
+                        
+                        <li><a href="/tag/algorithm">algorithm</a></li>
                         
                     </ul>
                 </div>
@@ -261,17 +305,56 @@ ARP merupakan protokol yang digunakan untuk memetakan alamat fisik (MAC) dan log
     
         
     
-
-    
-        
-    
-        
-    
         
     
 
     
         
+        <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <ul>
+                    <li><time datetime="2019-08-29T15:23:00+00:00" itemprop="datePublished">29 Aug, 2019</time></li>
+                    
+                </ul>
+                <h2 itemprop="name headline"><a href="/post/math/miller-rabin.html">Miller Rabin</a></h2>
+            </header>
+
+            <div class="post-content">
+                <p><a href="https://www.geeksforgeeks.org/primality-test-set-3-miller-rabin">read more</a></p>
+
+
+                
+                    <p><a href="/post/math/miller-rabin.html" role="button">Read More</a></p>
+                
+            </div>
+
+            <footer class="post-footer">
+                <div class="share">Share
+                    <ul class="social-networks">
+                        <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Miller Rabin&p[summary]=read more
+&p[url]=/post/math/miller-rabin.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                        <li class="share-twitter"><a href="http://twitter.com/share?url=/post/math/miller-rabin.html&text=read more
+&hashtags=cryptography,security,math,algorithm," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+                    </ul>
+                </div>
+                
+                <div class="tags">
+                    <ul>
+                        
+                        <li><a href="/tag/cryptography">cryptography</a></li>
+                        
+                        <li><a href="/tag/security">security</a></li>
+                        
+                        <li><a href="/tag/math">math</a></li>
+                        
+                        <li><a href="/tag/algorithm">algorithm</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </footer>
+        </article>
+        
     
         
     
@@ -282,6 +365,91 @@ ARP merupakan protokol yang digunakan untuk memetakan alamat fisik (MAC) dan log
 
     
         
+        <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <ul>
+                    <li><time datetime="2019-08-29T14:35:00+00:00" itemprop="datePublished">29 Aug, 2019</time></li>
+                    
+                </ul>
+                <h2 itemprop="name headline"><a href="/post/math/square-and-multiply-example.html">Square and Multiply</a></h2>
+            </header>
+
+            <div class="post-content">
+                <p>11^37 = ?</p>
+
+<p>37 = 100101 in binary</p>
+
+<ul>
+  <li>
+    <p>1 -&gt; fist one list number          = 11</p>
+  </li>
+  <li>
+    <p>0 -&gt; square                                    = (11)^2</p>
+  </li>
+  <li>
+    <p>0 -&gt; square                                    = ((11)^2)^2</p>
+  </li>
+  <li>
+    <p>1 -&gt; square + multiply              = (((11)^2)^2)^2*11</p>
+  </li>
+  <li>
+    <p>0 -&gt; square                                    = ((((11)^2)^2)^2*11)^2</p>
+  </li>
+  <li>
+    <p>1 -&gt; square + multiply              = (((((11)^2)^2)^2*11)^2)^2*11</p>
+  </li>
+</ul>
+
+
+
+                
+                    <p><a href="/post/math/square-and-multiply-example.html" role="button">Read More</a></p>
+                
+            </div>
+
+            <footer class="post-footer">
+                <div class="share">Share
+                    <ul class="social-networks">
+                        <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Square and Multiply&p[summary]=11^37 = ?
+
+37 = 100101 in binary
+
+
+  
+    1 -&gt; fist one list number          = 11
+  
+  
+    0 -&gt; square                            ...&p[url]=/post/math/square-and-multiply-example.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                        <li class="share-twitter"><a href="http://twitter.com/share?url=/post/math/square-and-multiply-example.html&text=11^37 = ?
+
+37 = 100101 in binary
+
+
+  
+    1 -&gt; fist one list number          = 11
+  
+  
+    0 -&gt; square                            ...&hashtags=cryptography,security,math,algorithm," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+                    </ul>
+                </div>
+                
+                <div class="tags">
+                    <ul>
+                        
+                        <li><a href="/tag/cryptography">cryptography</a></li>
+                        
+                        <li><a href="/tag/security">security</a></li>
+                        
+                        <li><a href="/tag/math">math</a></li>
+                        
+                        <li><a href="/tag/algorithm">algorithm</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </footer>
+        </article>
+        
     
         
     
@@ -292,6 +460,75 @@ ARP merupakan protokol yang digunakan untuk memetakan alamat fisik (MAC) dan log
 
     
         
+        <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <ul>
+                    <li><time datetime="2019-08-29T10:41:00+00:00" itemprop="datePublished">29 Aug, 2019</time></li>
+                    
+                </ul>
+                <h2 itemprop="name headline"><a href="/post/math/extended-euclidean-example.html">Extended Euclidean</a></h2>
+            </header>
+
+            <div class="post-content">
+                <p>gcd(11, 17) == 1</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+17 = 11(1) + 6    // 1 is floor(17/11), 6 is 17 mod 11
+11 = 6(1) + 5
+6 = 5(1) + 1      // done
+
+</code></pre></div></div>
+
+
+
+                
+                    <p><a href="/post/math/extended-euclidean-example.html" role="button">Read More</a></p>
+                
+            </div>
+
+            <footer class="post-footer">
+                <div class="share">Share
+                    <ul class="social-networks">
+                        <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Extended Euclidean&p[summary]=gcd(11, 17) == 1
+
+
+17 = 11(1) + 6    // 1 is floor(17/11), 6 is 17 mod 11
+11 = 6(1) + 5
+6 = 5(1) + 1      // done
+
+
+
+&p[url]=/post/math/extended-euclidean-example.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                        <li class="share-twitter"><a href="http://twitter.com/share?url=/post/math/extended-euclidean-example.html&text=gcd(11, 17) == 1
+
+
+17 = 11(1) + 6    // 1 is floor(17/11), 6 is 17 mod 11
+11 = 6(1) + 5
+6 = 5(1) + 1      // done
+
+
+
+&hashtags=cryptography,security,math,algorithm," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+                    </ul>
+                </div>
+                
+                <div class="tags">
+                    <ul>
+                        
+                        <li><a href="/tag/cryptography">cryptography</a></li>
+                        
+                        <li><a href="/tag/security">security</a></li>
+                        
+                        <li><a href="/tag/math">math</a></li>
+                        
+                        <li><a href="/tag/algorithm">algorithm</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </footer>
+        </article>
+        
     
         
     
@@ -300,22 +537,6 @@ ARP merupakan protokol yang digunakan untuk memetakan alamat fisik (MAC) dan log
         
     
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-    
-        
-    
-        
-    
-        
     
         
         <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
@@ -387,6 +608,12 @@ A = Alice public key (publ...&hashtags=cryptography,security,math,mitm," rel="no
                 
             </footer>
         </article>
+        
+    
+        
+    
+        
+    
         
     
 

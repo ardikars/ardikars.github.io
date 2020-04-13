@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>RSA Algorithm | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
-    <meta property="og:title" content="RSA Algorithm | Ardika Rommy Sanjaya &mdash; Software Engineer " />
-    <meta name="twitter:title" content="RSA Algorithm | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <title>Diffie Hellman MITM Attack | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
+    <meta property="og:title" content="Diffie Hellman MITM Attack | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <meta name="twitter:title" content="Diffie Hellman MITM Attack | Ardika Rommy Sanjaya &mdash; Software Engineer " />
 
     <meta name="description" content="Catatan suka2, nulisn suka2.">
     <meta name="description" property="og:description" content="Catatan suka2, nulisn suka2." />
@@ -17,7 +17,7 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     
-    <meta property="og:url" content="/post/cryptography/security/rsa-example.html" />
+    <meta property="og:url" content="/post/security/diffie-hellman-mitm-attack.html" />
 
     <meta property="og:image" content="" />
     <meta name="twitter:image" content="" />
@@ -96,7 +96,7 @@
     
     <link rel="stylesheet" href="/assets/css/main.css">
 
-    <link rel="canonical" href="/post/cryptography/security/rsa-example.html">
+    <link rel="canonical" href="/post/security/diffie-hellman-mitm-attack.html">
 
     <link rel="alternate" type="application/rss+xml" title="Ardika Rommy Sanjaya" href="/feed.xml">
 </head>
@@ -157,6 +157,14 @@
             
                 
             
+                
+            
+                
+            
+                
+            
+                
+            
         </div>
         
     
@@ -190,107 +198,103 @@
                 <article class="post single" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
-            <li><time datetime="2019-08-30T05:34:00+00:00" itemprop="datePublished">30 Aug, 2019</time></li>
+            <li><time datetime="2019-08-29T10:41:00+00:00" itemprop="datePublished">29 Aug, 2019</time></li>
             
         </ul>
-        <h2 itemprop="name headline">RSA Algorithm</h2>
+        <h2 itemprop="name headline">Diffie Hellman MITM Attack</h2>
     </header>
 
     <div class="post-content">
-        <p>Key Generation</p>
+        <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>p = prime number (public)
+g = modulus (public)
 
-<ol>
-  <li>
-    <p>Generate two random primes, p and q, e.g p=3, q=11.</p>
-  </li>
-  <li>
-    <p>Compute n = pq, n = 3 * 11 = 33.</p>
-  </li>
-  <li>
-    <p>Compute phi = (p-1)(q-1) = (3-1)(11-1) = 20</p>
-  </li>
-  <li>
-    <p>Choose an integer e, 1 &lt; e &lt; phi, such that gcd(e, phi) = 1, e.g e = 7, gcd(7, 20) = 1</p>
-  </li>
-  <li>
-    <p>Compute the secret exponent d, 1 &lt; d &lt; phi, such that (e * d) mod phi = 1, (7 * d) mod 20 = 1,  d = 3</p>
-  </li>
-</ol>
+a = Alice private key (private)
+b = Bob private key (private)
 
+A = Alice public key (public)
+B = Bob public ket = (public)
+
+Sx = Shared key (public)
+
+eA = Eve private key for Alice (private)
+eB = Eve private key for Bob (private)
+Ea = Spoofed Alice public key will sent to Bob (public)
+Eb = Spoofed Bob public key will sent to Alice (public)
+</code></pre></div></div>
 <!--more-->
 
-<ol>
-  <li>The public key is (7, 33) and the private key (3, 33).</li>
-</ol>
+<h3 id="diffie-hellman-algorithm">Diffie Hellman Algorithm</h3>
 
-<p>Encrypt</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>p = 23, g = 5
+</code></pre></div></div>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| a = 4                                      | b = 3                                         |
+|--------------------------------------------|-----------------------------------------------|
+| A = g ^ a mod p = 5 ^ 4 mod 23 = 4         | B = g ^ b mod p = 5 ^ 3 mod 23 = 10           |
+| Sent Alice public key (A) to Bob           | Sent Bob public key (B) to Alice              |
+| Bob public key (B) is 10                   | Alice public key (A) is 4                     |
+| Compute shared key from Bob pubic key (B)  | Compute shared key from Alice public key (A)  |
+| Sa = B ^ a mod p = 10 ^ 4 mod 23 = 18      | Sb = A ^ b mod p = 4 ^ 3 mod 23 = 18          |
+</code></pre></div></div>
 
-<ol>
-  <li>
-    <p>m = 2</p>
-  </li>
-  <li>
-    <p>c = 2^7 mod 33 = 29</p>
-  </li>
-</ol>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sa == Sb
+Discrete logarithm problem (A = g ^ ? mod p &amp;&amp; B ^ ? mod p)
+</code></pre></div></div>
 
-<p>Decrypt</p>
+<h3 id="mitm-attack">MITM Attack</h3>
 
-<ol>
-  <li>
-    <p>c = 29</p>
-  </li>
-  <li>
-    <p>m = 29 ^ 3 mod</p>
-  </li>
-</ol>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>p = 23, g = 5
+</code></pre></div></div>
 
-<ul>
-  <li>
-    <p>n is known as the modulus.</p>
-  </li>
-  <li>
-    <p>e is known as the public exponent or encryption exponent or just the exponent.</p>
-  </li>
-  <li>
-    <p>d is known as the secret exponent or decryption exponent.</p>
-  </li>
-</ul>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| a = 4                                            | eA = 6, eB = 9                                | b = 3                                              |	
+|--------------------------------------------------|-----------------------------------------------|----------------------------------------------------|
+| A = g ^ a mod p = 5 ^ 4 mod 23 = 4               | Eb = g ^ eB mod p = 5 ^ 9 mod 23 = 11         | -                                                  |	
+| Sent Alice public key (A) to Bob (Eve)           | Sent Spoofed Bob public key (Ea) to Alice     | -                                                  |
+| Bob (Eve) public key (Eb) is 11                  | Alice public key (A) is 4                     | -                                                  |
+| Compute shared key from Bob (Eve) pubic key (Eb) | Compute shared key from Alice public key (A)  | -                                                  |
+| Sae = Eb ^ a mod p = 11 ^ 3 mod 23 = 13          | Sa = A ^ eB mod p = 4 ^ 9 mod 23 = 13         | -                                                  |
+| -                                                | Ea = g ^ eA mod p = 5 ^ 6 mod 23 = 8          | B = g ^ b mod p = 5 ^ 3 mod 23 = 10                |
+| -                                                | Sent Spoofed Alice public key (Eb) to Bob     | Sent Bob public key (B) to Alice (Eve)             |
+| -                                                | Bob public key (B) is 10                      | Alice (Eve) public key (Ea) is 8                   |
+| -                                                | Compute shared key from Bob public key (B)    | Compute shared key from Alice (Eve) pubic key (Ea) |
+| -                                                | Sb = B ^ eA mod p = 10 ^ 6 mod 23 = 6         | Sbe = Ea ^ b mod p = 8 ^ 3 mod 23 = 6              |
+</code></pre></div></div>
+
+<p>(Now Eve can intercept all data between Alice and Bob)</p>
+
+<p><a href="https://github.com/ardikars/ardikars.github.io/blob/master/_posts/2019-08-29-diffie-hellman-mitm-attack.markdown">Click here for original 'markdown file'</a></p>
 
     </div>
 
     <footer class="post-footer">
         <div class="share">Share
             <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=RSA Algorithm&p[summary]=Key Generation
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Diffie Hellman MITM Attack&p[summary]=p = prime number (public)
+g = modulus (public)
 
+a = Alice private key (private)
+b = Bob private key (private)
 
-  
-    Generate two random primes, p and q, e.g p=3, q=11.
-  
-  
-    Compute n = pq, n = 3 * 11 = 33.
-  
-  
-    Compute ...&p[url]=/post/cryptography/security/rsa-example.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=/post/cryptography/security/rsa-example.html&text=Key Generation
+A = Alice public key (publ...&p[url]=/post/security/diffie-hellman-mitm-attack.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=/post/security/diffie-hellman-mitm-attack.html&text=p = prime number (public)
+g = modulus (public)
 
+a = Alice private key (private)
+b = Bob private key (private)
 
-  
-    Generate two random primes, p and q, e.g p=3, q=11.
-  
-  
-    Compute n = pq, n = 3 * 11 = 33.
-  
-  
-    Compute ...&hashtags=documentation," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+A = Alice public key (publ...&hashtags=cryptography,security,math,mitm," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
             </ul>
         </div>
         
         <div class="tags">
             <ul>
                 
-                <li><a href="/tag/documentation">documentation</a></li>
+                <li><a href="/tag/cryptography">cryptography</a></li>
+                
+                <li><a href="/tag/security">security</a></li>
+                
+                <li><a href="/tag/math">math</a></li>
+                
+                <li><a href="/tag/mitm">mitm</a></li>
                 
             </ul>
         </div>

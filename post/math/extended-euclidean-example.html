@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Diffie Hellman MITM Attack | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
-    <meta property="og:title" content="Diffie Hellman MITM Attack | Ardika Rommy Sanjaya &mdash; Software Engineer " />
-    <meta name="twitter:title" content="Diffie Hellman MITM Attack | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <title>Extended Euclidean | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
+    <meta property="og:title" content="Extended Euclidean | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <meta name="twitter:title" content="Extended Euclidean | Ardika Rommy Sanjaya &mdash; Software Engineer " />
 
     <meta name="description" content="Catatan suka2, nulisn suka2.">
     <meta name="description" property="og:description" content="Catatan suka2, nulisn suka2." />
@@ -17,7 +17,7 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     
-    <meta property="og:url" content="/post/cryptography/security/diffie-hellman-mitm-attack.html" />
+    <meta property="og:url" content="/post/math/extended-euclidean-example.html" />
 
     <meta property="og:image" content="" />
     <meta name="twitter:image" content="" />
@@ -96,7 +96,7 @@
     
     <link rel="stylesheet" href="/assets/css/main.css">
 
-    <link rel="canonical" href="/post/cryptography/security/diffie-hellman-mitm-attack.html">
+    <link rel="canonical" href="/post/math/extended-euclidean-example.html">
 
     <link rel="alternate" type="application/rss+xml" title="Ardika Rommy Sanjaya" href="/feed.xml">
 </head>
@@ -157,6 +157,14 @@
             
                 
             
+                
+            
+                
+            
+                
+            
+                
+            
         </div>
         
     
@@ -193,96 +201,72 @@
             <li><time datetime="2019-08-29T10:41:00+00:00" itemprop="datePublished">29 Aug, 2019</time></li>
             
         </ul>
-        <h2 itemprop="name headline">Diffie Hellman MITM Attack</h2>
+        <h2 itemprop="name headline">Extended Euclidean</h2>
     </header>
 
     <div class="post-content">
-        <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>p = prime number (public)
-g = modulus (public)
+        <p>gcd(11, 17) == 1</p>
 
-a = Alice private key (private)
-b = Bob private key (private)
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+17 = 11(1) + 6    // 1 is floor(17/11), 6 is 17 mod 11
+11 = 6(1) + 5
+6 = 5(1) + 1      // done
 
-A = Alice public key (public)
-B = Bob public ket = (public)
-
-Sx = Shared key (public)
-
-eA = Eve private key for Alice (private)
-eB = Eve private key for Bob (private)
-Ea = Spoofed Alice public key will sent to Bob (public)
-Eb = Spoofed Bob public key will sent to Alice (public)
 </code></pre></div></div>
+
 <!--more-->
 
-<h3 id="diffie-hellman-algorithm">Diffie Hellman Algorithm</h3>
-
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>p = 23, g = 5
+<h3 id="implementation-in-python-src">Implementation in python <a href="https://en.wikibooks.org/wiki/Algorithm_Implementation/Mathematics/Extended_Euclidean_algorithm">(src)</a></h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">g</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span> <span class="o">%</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span> <span class="o">//</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </code></pre></div></div>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| a = 4                                      | b = 3                                         |
-|--------------------------------------------|-----------------------------------------------|
-| A = g ^ a mod p = 5 ^ 4 mod 23 = 4         | B = g ^ b mod p = 5 ^ 3 mod 23 = 10           |
-| Sent Alice public key (A) to Bob           | Sent Bob public key (B) to Alice              |
-| Bob public key (B) is 10                   | Alice public key (A) is 4                     |
-| Compute shared key from Bob pubic key (B)  | Compute shared key from Alice public key (A)  |
-| Sa = B ^ a mod p = 10 ^ 4 mod 23 = 18      | Sb = A ^ b mod p = 4 ^ 3 mod 23 = 18          |
-</code></pre></div></div>
-
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sa == Sb
-Discrete logarithm problem (A = g ^ ? mod p &amp;&amp; B ^ ? mod p)
-</code></pre></div></div>
-
-<h3 id="mitm-attack">MITM Attack</h3>
-
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>p = 23, g = 5
-</code></pre></div></div>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| a = 4                                            | eA = 6, eB = 9                                | b = 3                                              |	
-|--------------------------------------------------|-----------------------------------------------|----------------------------------------------------|
-| A = g ^ a mod p = 5 ^ 4 mod 23 = 4               | Eb = g ^ eB mod p = 5 ^ 9 mod 23 = 11         | -                                                  |	
-| Sent Alice public key (A) to Bob (Eve)           | Sent Spoofed Bob public key (Ea) to Alice     | -                                                  |
-| Bob (Eve) public key (Eb) is 11                  | Alice public key (A) is 4                     | -                                                  |
-| Compute shared key from Bob (Eve) pubic key (Eb) | Compute shared key from Alice public key (A)  | -                                                  |
-| Sae = Eb ^ a mod p = 11 ^ 3 mod 23 = 13          | Sa = A ^ eB mod p = 4 ^ 9 mod 23 = 13         | -                                                  |
-| -                                                | Ea = g ^ eA mod p = 5 ^ 6 mod 23 = 8          | B = g ^ b mod p = 5 ^ 3 mod 23 = 10                |
-| -                                                | Sent Spoofed Alice public key (Eb) to Bob     | Sent Bob public key (B) to Alice (Eve)             |
-| -                                                | Bob public key (B) is 10                      | Alice (Eve) public key (Ea) is 8                   |
-| -                                                | Compute shared key from Bob public key (B)    | Compute shared key from Alice (Eve) pubic key (Ea) |
-| -                                                | Sb = B ^ eA mod p = 10 ^ 6 mod 23 = 6         | Sbe = Ea ^ b mod p = 8 ^ 3 mod 23 = 6              |
-</code></pre></div></div>
-
-<p>(Now Eve can intercept all data between Alice and Bob)</p>
-
-<p><a href="https://github.com/ardikars/ardikars.github.io/blob/master/_posts/2019-08-29-diffie-hellman-mitm-attack.markdown">Click here for original 'markdown file'</a></p>
 
     </div>
 
     <footer class="post-footer">
         <div class="share">Share
             <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Diffie Hellman MITM Attack&p[summary]=p = prime number (public)
-g = modulus (public)
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Extended Euclidean&p[summary]=gcd(11, 17) == 1
 
-a = Alice private key (private)
-b = Bob private key (private)
 
-A = Alice public key (publ...&p[url]=/post/cryptography/security/diffie-hellman-mitm-attack.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=/post/cryptography/security/diffie-hellman-mitm-attack.html&text=p = prime number (public)
-g = modulus (public)
+17 = 11(1) + 6    // 1 is floor(17/11), 6 is 17 mod 11
+11 = 6(1) + 5
+6 = 5(1) + 1      // done
 
-a = Alice private key (private)
-b = Bob private key (private)
 
-A = Alice public key (publ...&hashtags=documentation,math," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+
+
+
+Implementation in ...&p[url]=/post/math/extended-euclidean-example.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=/post/math/extended-euclidean-example.html&text=gcd(11, 17) == 1
+
+
+17 = 11(1) + 6    // 1 is floor(17/11), 6 is 17 mod 11
+11 = 6(1) + 5
+6 = 5(1) + 1      // done
+
+
+
+
+
+Implementation in ...&hashtags=cryptography,security,math,algorithm," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
             </ul>
         </div>
         
         <div class="tags">
             <ul>
                 
-                <li><a href="/tag/documentation">documentation</a></li>
+                <li><a href="/tag/cryptography">cryptography</a></li>
+                
+                <li><a href="/tag/security">security</a></li>
                 
                 <li><a href="/tag/math">math</a></li>
+                
+                <li><a href="/tag/algorithm">algorithm</a></li>
                 
             </ul>
         </div>

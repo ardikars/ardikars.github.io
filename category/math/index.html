@@ -7,17 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Square and Multiply | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
-    <meta property="og:title" content="Square and Multiply | Ardika Rommy Sanjaya &mdash; Software Engineer " />
-    <meta name="twitter:title" content="Square and Multiply | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <title>Category: math | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
+    <meta property="og:title" content="Category: math | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <meta name="twitter:title" content="Category: math | Ardika Rommy Sanjaya &mdash; Software Engineer " />
 
-    <meta name="description" content="Catatan suka2, nulisn suka2.">
-    <meta name="description" property="og:description" content="Catatan suka2, nulisn suka2." />
-    <meta name="twitter:description" content="Catatan suka2, nulisn suka2." />
+    <meta name="description" content="Category: math">
+    <meta name="description" property="og:description" content="Category: math" />
+    <meta name="twitter:description" content="Category: math" />
 
     <meta name="twitter:card" content="summary_large_image" />
     
-    <meta property="og:url" content="/post/cryptography/security/square-and-multiply-example.html" />
+    <meta property="og:url" content="/category/math/" />
 
     <meta property="og:image" content="" />
     <meta name="twitter:image" content="" />
@@ -96,7 +96,7 @@
     
     <link rel="stylesheet" href="/assets/css/main.css">
 
-    <link rel="canonical" href="/post/cryptography/security/square-and-multiply-example.html">
+    <link rel="canonical" href="/category/math/">
 
     <link rel="alternate" type="application/rss+xml" title="Ardika Rommy Sanjaya" href="/feed.xml">
 </head>
@@ -157,6 +157,16 @@
             
                 
             
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
         </div>
         
     
@@ -187,13 +197,61 @@
 </div>
 
 
-                <article class="post single" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+                <h1>Posts From Category: math</h1>
+
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2019-08-29T15:23:00+00:00" itemprop="datePublished">29 Aug, 2019</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="/post/math/miller-rabin.html">Miller Rabin</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p><a href="https://www.geeksforgeeks.org/primality-test-set-3-miller-rabin">read more</a></p>
+
+
+        
+            <p><a href="/post/math/miller-rabin.html" role="button">Read More</a></p>
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Miller Rabin&p[summary]=read more
+&p[url]=/post/math/miller-rabin.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=/post/math/miller-rabin.html&text=read more
+&hashtags=cryptography,security,math,algorithm," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+                <li><a href="/tag/cryptography">cryptography</a></li>
+                
+                <li><a href="/tag/security">security</a></li>
+                
+                <li><a href="/tag/math">math</a></li>
+                
+                <li><a href="/tag/algorithm">algorithm</a></li>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
             <li><time datetime="2019-08-29T14:35:00+00:00" itemprop="datePublished">29 Aug, 2019</time></li>
             
         </ul>
-        <h2 itemprop="name headline">Square and Multiply</h2>
+        <h2 itemprop="name headline"><a href="/post/math/square-and-multiply-example.html">Square and Multiply</a></h2>
     </header>
 
     <div class="post-content">
@@ -222,21 +280,11 @@
   </li>
 </ul>
 
-<!--more-->
 
-<h3 id="simple-implementation-in-python">Simple implementation in python</h3>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># x ^ h mod n
-</span><span class="k">def</span> <span class="nf">modPow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="n">h</span><span class="p">)[</span><span class="mi">2</span><span class="p">:]</span> <span class="c1"># convert h into binary
-</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">h</span><span class="p">)):</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span>
-        <span class="k">if</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s">'1'</span><span class="p">:</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span>
-    <span class="k">return</span> <span class="n">y</span>
-</code></pre></div></div>
-
+        
+            <p><a href="/post/math/square-and-multiply-example.html" role="button">Read More</a></p>
+        
     </div>
 
     <footer class="post-footer">
@@ -251,8 +299,8 @@
     1 -&gt; fist one list number          = 11
   
   
-    0 -&gt; square                            ...&p[url]=/post/cryptography/security/square-and-multiply-example.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=/post/cryptography/security/square-and-multiply-example.html&text=11^37 = ?
+    0 -&gt; square                            ...&p[url]=/post/math/square-and-multiply-example.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=/post/math/square-and-multiply-example.html&text=11^37 = ?
 
 37 = 100101 in binary
 
@@ -261,16 +309,20 @@
     1 -&gt; fist one list number          = 11
   
   
-    0 -&gt; square                            ...&hashtags=documentation,math," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+    0 -&gt; square                            ...&hashtags=cryptography,security,math,algorithm," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
             </ul>
         </div>
         
         <div class="tags">
             <ul>
                 
-                <li><a href="/tag/documentation">documentation</a></li>
+                <li><a href="/tag/cryptography">cryptography</a></li>
+                
+                <li><a href="/tag/security">security</a></li>
                 
                 <li><a href="/tag/math">math</a></li>
+                
+                <li><a href="/tag/algorithm">algorithm</a></li>
                 
             </ul>
         </div>
@@ -278,6 +330,74 @@
     </footer>
 </article>
 
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2019-08-29T10:41:00+00:00" itemprop="datePublished">29 Aug, 2019</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="/post/math/extended-euclidean-example.html">Extended Euclidean</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>gcd(11, 17) == 1</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+17 = 11(1) + 6    // 1 is floor(17/11), 6 is 17 mod 11
+11 = 6(1) + 5
+6 = 5(1) + 1      // done
+
+</code></pre></div></div>
+
+
+
+        
+            <p><a href="/post/math/extended-euclidean-example.html" role="button">Read More</a></p>
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Extended Euclidean&p[summary]=gcd(11, 17) == 1
+
+
+17 = 11(1) + 6    // 1 is floor(17/11), 6 is 17 mod 11
+11 = 6(1) + 5
+6 = 5(1) + 1      // done
+
+
+
+&p[url]=/post/math/extended-euclidean-example.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=/post/math/extended-euclidean-example.html&text=gcd(11, 17) == 1
+
+
+17 = 11(1) + 6    // 1 is floor(17/11), 6 is 17 mod 11
+11 = 6(1) + 5
+6 = 5(1) + 1      // done
+
+
+
+&hashtags=cryptography,security,math,algorithm," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+                <li><a href="/tag/cryptography">cryptography</a></li>
+                
+                <li><a href="/tag/security">security</a></li>
+                
+                <li><a href="/tag/math">math</a></li>
+                
+                <li><a href="/tag/algorithm">algorithm</a></li>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
 
             </main>
         </div>
