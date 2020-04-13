@@ -2,11 +2,12 @@
 title: Extended Euclidean
 date: 2019-08-29 10:41:00 Z
 categories:
+- math
+tags:
 - cryptography
 - security
-tags:
-- documentation
 - math
+- algorithm
 layout: post
 ---
 

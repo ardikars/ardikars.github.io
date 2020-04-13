@@ -2,11 +2,12 @@
 title: Square and Multiply
 date: 2019-08-29 14:35:00 Z
 categories:
+- math
+tags:
 - cryptography
 - security
-tags:
-- documentation
 - math
+- algorithm
 layout: post
 ---
 

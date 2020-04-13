@@ -2,11 +2,11 @@
 title: ARP - MITM Detection Method
 date: 2019-08-31 17:45:00 Z
 categories:
-- cryptography
 - security
 tags:
-- documentation
 - mitm
+- security
+- networking
 layout: post
 ---
 

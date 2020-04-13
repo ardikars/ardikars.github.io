@@ -2,11 +2,12 @@
 title: Miller Rabin
 date: 2019-08-29 15:23:00 Z
 categories:
+- math
+tags:
 - cryptography
 - security
-tags:
-- documentation
 - math
+- algorithm
 layout: post
 ---
 
