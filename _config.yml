@@ -45,7 +45,7 @@ include:
 permalink: "/post/:categories/:title.html"
 category_dir: category
 paginate: 5
-paginate_path: "/page:num/"
+paginate_path: "/page-:num/"
 markdown: kramdown
 excerpt_separator: "<!--more-->"
 sass:

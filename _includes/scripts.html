@@ -5,6 +5,13 @@
 <script src="{{ site.baseurl | prepend: site.url }}/assets/js/jquery.fitvids.js"></script>
 <script src="{{ site.baseurl | prepend: site.url }}/assets/js/svg4everybody.min.js"></script>
 <script src="{{ site.baseurl | prepend: site.url }}/assets/js/scripts.js"></script>
+<script>
+    if('serviceWorker' in navigator){
+        navigator.serviceWorker.register("{{ site.baseurl | prepend: site.url }}/sw.js")
+            .then(reg => console.log('service worker registered'))
+            .catch(err => console.log('service worker not registered', err));
+    }
+</script>
 
 {% if site.analytics_code != null %}
     <script>
@@ -15,13 +22,5 @@
 
         ga('create', '{{site.analytics_code}}', 'auto');
         ga('send', 'pageview');
-    </script>
-
-    <script>
-        if('serviceWorker' in navigator){
-            navigator.serviceWorker.register("{{ site.baseurl | prepend: site.url }}/assets/js/scripts.js")
-                .then(reg => console.log('service worker registered'))
-                .catch(err => console.log('service worker not registered', err));
-        }
     </script>
 {% endif %}
