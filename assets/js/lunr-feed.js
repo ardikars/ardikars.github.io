@@ -10,9 +10,9 @@ var index = lunr(function () {
 
 
     index.add({
-      title: "Fix RTL8822BE driver on Debian base system",
+      title: "Fix RTL8822BE driver on Debian based system",
       category: null,
-      content: "Below script tested on Kali Linux 2020.1b (Kenel 5.4.0)\n\nsudo mkdir -p /lib/firmware/rtw88\nsudo cp /lib/firmware/rtlwifi/rtl8822befw.bin /lib/firmware/rtw88/rtw8822b_fw.bin\n\n\n",
+      content: "Below script tested on Kali Linux 2020.1b (Kernel 5.4.0)\n\nsudo mkdir -p /lib/firmware/rtw88\nsudo cp /lib/firmware/rtlwifi/rtl8822befw.bin /lib/firmware/rtw88/rtw8822b_fw.bin\nsudo reboot\n\n\n",
       tags: ["driver","wifi"],
       id: 0
     });
@@ -83,12 +83,12 @@ var index = lunr(function () {
 
 
 var store = [{
-    "title": "Fix RTL8822BE driver on Debian base system",
-    "link": "/post/linux/fix-rtl8822be-driver-on-debian-base-system.html",
+    "title": "Fix RTL8822BE driver on Debian based system",
+    "link": "/post/linux/fix-rtl8822be-driver-on-debian-based-system.html",
     "image": null,
     "date": "April 16, 2020",
     "category": null,
-    "excerpt": "Below script tested on Kali Linux 2020.1b (Kenel 5.4.0)\n\nsudo mkdir -p /lib/firmware/rtw88\nsudo cp /lib/firmware/rtlwifi/rtl8822befw.bin /lib/firmware/rtw88/rtw8822b_fw.bin\n\n\n"
+    "excerpt": "Below script tested on Kali Linux 2020.1b (Kernel 5.4.0)\n\nsudo mkdir -p /lib/firmware/rtw88\nsudo cp /lib/firmware/rtlwifi/rtl8822befw.bin /lib/firmware/rtw88/rtw8822b_fw.bin\nsudo reboot\n\n\n"
 },{
     "title": "ARP - MITM Detection Method",
     "link": "/post/security/arp-mitm-detaction-method.html",
