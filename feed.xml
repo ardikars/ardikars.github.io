@@ -5,9 +5,31 @@
     <description>Catatan suka2, nulisn suka2.</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 16 Apr 2020 08:04:04 +0000</pubDate>
-    <lastBuildDate>Thu, 16 Apr 2020 08:04:04 +0000</lastBuildDate>
+    <pubDate>Thu, 16 Apr 2020 11:18:19 +0000</pubDate>
+    <lastBuildDate>Thu, 16 Apr 2020 11:18:19 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Fix RTL8822BE driver on Debian base system</title>
+        <description>&lt;p&gt;Below script tested on Kali Linux 2020.1b (Kenel 5.4.0)&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; /lib/firmware/rtw88
+&lt;span class=&quot;nb&quot;&gt;sudo cp&lt;/span&gt; /lib/firmware/rtlwifi/rtl8822befw.bin /lib/firmware/rtw88/rtw8822b_fw.bin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;!--more--&gt;
+</description>
+        <pubDate>Thu, 16 Apr 2020 06:45:00 +0000</pubDate>
+        <link>/post/linux/fix-rtl8822be-driver-on-debian-base-system.html</link>
+        <guid isPermaLink="true">/post/linux/fix-rtl8822be-driver-on-debian-base-system.html</guid>
+        
+        <category>driver</category>
+        
+        <category>wifi</category>
+        
+        
+        <category>linux</category>
+        
+      </item>
     
       <item>
         <title>ARP - MITM Detection Method</title>
