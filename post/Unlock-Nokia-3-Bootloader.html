@@ -1,0 +1,48 @@
+
+<ol>
+  <li>
+    <p>Enable developer options</p>
+  </li>
+  <li>
+    <p>Enable OEM Unlocking (OEM Unlock)</p>
+  </li>
+  <li>
+    <p>Enable USB debugging mode</p>
+  </li>
+  <li>
+    <p>Change default USB configuration, choose File Transfer (MTP)</p>
+  </li>
+  <li>
+    <p>Install adb and fastboot (sudo apt-get install android-tools-adb android-tools-fastboot)</p>
+  </li>
+  <li>
+    <p>Install nokia usb drive</p>
+  </li>
+  <li>
+    <p>Connect your phone to your PC and approve all usb connection</p>
+  </li>
+  <li>
+    <p>Type “adb devices”, then it will show the serial number</p>
+  </li>
+  <li>
+    <p>Type “adb reboot bootloader”, then your devices will boot into fastboot mode</p>
+  </li>
+  <li>
+    <p>Type “fastboot devices”, to make sure that your device still connected to your PC and it will show your phone serial number</p>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Type “fastboot oem key $(echo -n “YOUR_PHONE_SERIAL_NUMBER”</td>
+          <td>md5sum</td>
+          <td>tr [a-z] [A-Z])”</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Type “fastboot flashing unlock”, your phone will ask you about unlocking bootloader</p>
+  </li>
+  <li>Press vol up (yes)</li>
+</ol>

@@ -205,6 +205,110 @@
 <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
+            <li><time datetime="2020-07-02T00:00:00+00:00" itemprop="datePublished">2 Jul, 2020</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="/post/Unlock-Nokia-3-Bootloader.html">Unlock Nokia 3 Bootloader</a></h2>
+    </header>
+
+    <div class="post-content">
+        
+<ol>
+  <li>
+    <p>Enable developer options</p>
+  </li>
+  <li>
+    <p>Enable OEM Unlocking (OEM Unlock)</p>
+  </li>
+  <li>
+    <p>Enable USB debugging mode</p>
+  </li>
+  <li>
+    <p>Change default USB configuration, choose File Transfer (MTP)</p>
+  </li>
+  <li>
+    <p>Install adb and fastboot (sudo apt-get install android-tools-adb android-tools-fastboot)</p>
+  </li>
+  <li>
+    <p>Install nokia usb drive</p>
+  </li>
+  <li>
+    <p>Connect your phone to your PC and approve all usb connection</p>
+  </li>
+  <li>
+    <p>Type “adb devices”, then it will show the serial number</p>
+  </li>
+  <li>
+    <p>Type “adb reboot bootloader”, then your devices will boot into fastboot mode</p>
+  </li>
+  <li>
+    <p>Type “fastboot devices”, to make sure that your device still connected to your PC and it will show your phone serial number</p>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Type “fastboot oem key $(echo -n “YOUR_PHONE_SERIAL_NUMBER”</td>
+          <td>md5sum</td>
+          <td>tr [a-z] [A-Z])”</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Type “fastboot flashing unlock”, your phone will ask you about unlocking bootloader</p>
+  </li>
+  <li>Press vol up (yes)</li>
+</ol>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Unlock Nokia 3 Bootloader&p[summary]=
+
+  
+    Enable developer options
+  
+  
+    Enable OEM Unlocking (OEM Unlock)
+  
+  
+    Enable USB debugging mode
+  
+  
+    Change defaul...&p[url]=/post/Unlock-Nokia-3-Bootloader.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=/post/Unlock-Nokia-3-Bootloader.html&text=
+
+  
+    Enable developer options
+  
+  
+    Enable OEM Unlocking (OEM Unlock)
+  
+  
+    Enable USB debugging mode
+  
+  
+    Change defaul...&hashtags=" rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
             <li><time datetime="2020-04-16T06:45:00+00:00" itemprop="datePublished">16 Apr, 2020</time></li>
             
         </ul>
@@ -462,49 +566,6 @@ floor(s...&hashtags=algorithm,math,security," rel="noreferrer" target="_blank" o
   
   
     Compute ...&hashtags=cryptography,security,math,algorithm," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
-            </ul>
-        </div>
-        
-        <div class="tags">
-            <ul>
-                
-                <li><a href="/tag/cryptography">cryptography</a></li>
-                
-                <li><a href="/tag/security">security</a></li>
-                
-                <li><a href="/tag/math">math</a></li>
-                
-                <li><a href="/tag/algorithm">algorithm</a></li>
-                
-            </ul>
-        </div>
-        
-    </footer>
-</article>
-
-<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-        <ul>
-            <li><time datetime="2019-08-29T15:23:00+00:00" itemprop="datePublished">29 Aug, 2019</time></li>
-            
-        </ul>
-        <h2 itemprop="name headline"><a href="/post/math/miller-rabin.html">Miller Rabin</a></h2>
-    </header>
-
-    <div class="post-content">
-        <p><a href="https://www.geeksforgeeks.org/primality-test-set-3-miller-rabin">read more</a></p>
-
-
-        
-    </div>
-
-    <footer class="post-footer">
-        <div class="share">Share
-            <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Miller Rabin&p[summary]=read more
-&p[url]=/post/math/miller-rabin.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=/post/math/miller-rabin.html&text=read more
-&hashtags=cryptography,security,math,algorithm," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
             </ul>
         </div>
         
