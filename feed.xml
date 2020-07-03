@@ -5,14 +5,13 @@
     <description>Catatan suka2, nulis suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 03 Jul 2020 10:10:07 +0000</pubDate>
-    <lastBuildDate>Fri, 03 Jul 2020 10:10:07 +0000</lastBuildDate>
+    <pubDate>Fri, 03 Jul 2020 10:16:50 +0000</pubDate>
+    <lastBuildDate>Fri, 03 Jul 2020 10:16:50 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
         <title>Unlock Nokia 3 Bootloader</title>
-        <description>
-&lt;ol&gt;
+        <description>&lt;ol&gt;
   &lt;li&gt;
     &lt;p&gt;Enable developer options&lt;/p&gt;
   &lt;/li&gt;
@@ -60,10 +59,18 @@
   &lt;li&gt;Press vol up (yes)&lt;/li&gt;
 &lt;/ol&gt;
 </description>
-        <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/unlock-nokia-3-bootloader.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/unlock-nokia-3-bootloader.html</guid>
+        <pubDate>Thu, 02 Jul 2020 17:45:00 +0000</pubDate>
+        <link>https://www.ardikars.com/post/android/unlock-nokia-3-bootloader.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/android/unlock-nokia-3-bootloader.html</guid>
         
+        <category>bootloader</category>
+        
+        <category>unlocking</category>
+        
+        <category>rooting</category>
+        
+        
+        <category>android</category>
         
       </item>
     

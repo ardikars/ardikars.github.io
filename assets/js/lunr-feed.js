@@ -12,8 +12,8 @@ var index = lunr(function () {
     index.add({
       title: "Unlock Nokia 3 Bootloader",
       category: null,
-      content: "\n\n  \n    Enable developer options\n  \n  \n    Enable OEM Unlocking (OEM Unlock)\n  \n  \n    Enable USB debugging mode\n  \n  \n    Change default USB configuration, choose File Transfer (MTP)\n  \n  \n    Install adb and fastboot (sudo apt-get install android-tools-adb android-tools-fastboot)\n  \n  \n    Install nokia usb drive\n  \n  \n    Connect your phone to your PC and approve all usb connection\n  \n  \n    Type “adb devices”, then it will show the serial number\n  \n  \n    Type “adb reboot bootloader”, then your devices will boot into fastboot mode\n  \n  \n    Type “fastboot devices”, to make sure that your device still connected to your PC and it will show your phone serial number\n  \n  \n    \n      \n        \n          Type “fastboot oem key $(echo -n “YOUR_PHONE_SERIAL_NUMBER”\n          md5sum\n          tr [a-z] [A-Z])”\n        \n      \n    \n  \n  \n    Type “fastboot flashing unlock”, your phone will ask you about unlocking bootloader\n  \n  Press vol up (yes)\n\n",
-      tags: [],
+      content: "\n  \n    Enable developer options\n  \n  \n    Enable OEM Unlocking (OEM Unlock)\n  \n  \n    Enable USB debugging mode\n  \n  \n    Change default USB configuration, choose File Transfer (MTP)\n  \n  \n    Install adb and fastboot (sudo apt-get install android-tools-adb android-tools-fastboot)\n  \n  \n    Install nokia usb drive\n  \n  \n    Connect your phone to your PC and approve all usb connection\n  \n  \n    Type “adb devices”, then it will show the serial number\n  \n  \n    Type “adb reboot bootloader”, then your devices will boot into fastboot mode\n  \n  \n    Type “fastboot devices”, to make sure that your device still connected to your PC and it will show your phone serial number\n  \n  \n    \n      \n        \n          Type “fastboot oem key $(echo -n “YOUR_PHONE_SERIAL_NUMBER”\n          md5sum\n          tr [a-z] [A-Z])”\n        \n      \n    \n  \n  \n    Type “fastboot flashing unlock”, your phone will ask you about unlocking bootloader\n  \n  Press vol up (yes)\n\n",
+      tags: ["bootloader","unlocking","rooting"],
       id: 0
     });
     
@@ -102,7 +102,7 @@ var index = lunr(function () {
 
 var store = [{
     "title": "Unlock Nokia 3 Bootloader",
-    "link": "/post/unlock-nokia-3-bootloader.html",
+    "link": "/post/android/unlock-nokia-3-bootloader.html",
     "image": null,
     "date": "July 2, 2020",
     "category": null,
