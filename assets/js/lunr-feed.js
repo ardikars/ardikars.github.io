@@ -90,6 +90,15 @@ var index = lunr(function () {
     });
     
 
+    index.add({
+      title: "Tor On Android",
+      category: null,
+      content: "\n\n  Install Termux from Google Playstore.\n  Open Termux, then install tor (“pkg update &amp;&amp; pkg install”).\n  Run tor for tunneling:\n    \n      Tunneling over HTTP “tor –HTTPTunnelPort 8118”.\n      For more details pls read tor docs (“pkg install man &amp;&amp; man tor”).\n    \n  \n  Install Firefox browser from Google Playstore.\n  Open Firefox, type “about:config” in the URL bar.\n  Set “network.proxy.type” to “1” (Configure proxy manually).\n  Set “network.proxy.http” to “127.0.0.1”, and “network.proxy.http.port” to “8118”.\n\n\nNote*)\n\n  By default Tor opening socks(x) listener on 127.0.0.1:9050.\n  You can use Tor config file ($PREFIX/etc/tor/torrc) instead of passing Tor command line args.\n\n\nFirefox =&gt; Tor local proxy (socks(x)/http/etc) =&gt; Tor network (proxy =&gt; proxy =&gt; proxy ….)\n",
+      tags: [],
+      id: 9
+    });
+    
+
 
 var store = [{
     "title": "Unlock Nokia 3 Bootloader",
@@ -154,6 +163,13 @@ var store = [{
     "date": "August 29, 2019",
     "category": null,
     "excerpt": "p = prime number (public) g = modulus (public) a = Alice private key (private) b = Bob private key..."
+},{
+    "title": "Tor On Android",
+    "link": "/post/tor-on-android.html",
+    "image": null,
+    "date": "August 29, 2019",
+    "category": null,
+    "excerpt": "Install Termux from Google Playstore. Open Termux, then install tor (“pkg update &amp;&amp; pkg install”). Run tor for tunneling: Tunneling..."
 }]
 
 $(document).ready(function() {
