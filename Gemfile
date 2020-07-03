@@ -19,4 +19,5 @@ gem "jekyll", "4.0.0", group: :jekyll_plugins # currently github use version 3.8
 group :jekyll_plugins do
     gem "jekyll-paginate", "~> 1.1.0"
     gem 'listen', '>= 3.0'
+    gem 'jekyll-sitemap'
 end

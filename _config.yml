@@ -38,7 +38,7 @@ show_rss: 0
 show_comments: 0
 show_menu: 1
 fixed_sidebar: 1
-url:
+url: "https://www.ardikars.com"
 baseurl:
 include:
   - _pages
