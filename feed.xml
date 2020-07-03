@@ -3,10 +3,10 @@
   <channel>
     <title>Ardika Rommy Sanjaya</title>
     <description>Catatan suka2, nulis suka2.</description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 03 Jul 2020 10:02:41 +0000</pubDate>
-    <lastBuildDate>Fri, 03 Jul 2020 10:02:41 +0000</lastBuildDate>
+    <link>https://www.ardikars.com/</link>
+    <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 03 Jul 2020 10:10:07 +0000</pubDate>
+    <lastBuildDate>Fri, 03 Jul 2020 10:10:07 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -61,8 +61,8 @@
 &lt;/ol&gt;
 </description>
         <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
-        <link>/post/unlock-nokia-3-bootloader.html</link>
-        <guid isPermaLink="true">/post/unlock-nokia-3-bootloader.html</guid>
+        <link>https://www.ardikars.com/post/unlock-nokia-3-bootloader.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/unlock-nokia-3-bootloader.html</guid>
         
         
       </item>
@@ -78,8 +78,8 @@
 &lt;!--more--&gt;
 </description>
         <pubDate>Thu, 16 Apr 2020 06:45:00 +0000</pubDate>
-        <link>/post/linux/fix-rtl8822be-driver-on-debian-based-system.html</link>
-        <guid isPermaLink="true">/post/linux/fix-rtl8822be-driver-on-debian-based-system.html</guid>
+        <link>https://www.ardikars.com/post/linux/fix-rtl8822be-driver-on-debian-based-system.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/linux/fix-rtl8822be-driver-on-debian-based-system.html</guid>
         
         <category>driver</category>
         
@@ -123,8 +123,8 @@
 &lt;/figure&gt;
 </description>
         <pubDate>Sat, 31 Aug 2019 17:45:00 +0000</pubDate>
-        <link>/post/security/arp-mitm-detaction-method.html</link>
-        <guid isPermaLink="true">/post/security/arp-mitm-detaction-method.html</guid>
+        <link>https://www.ardikars.com/post/security/arp-mitm-detaction-method.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/security/arp-mitm-detaction-method.html</guid>
         
         <category>mitm</category>
         
@@ -194,8 +194,8 @@
 &lt;p&gt;private key (d) = (3, 33)&lt;/p&gt;
 </description>
         <pubDate>Sat, 31 Aug 2019 03:39:00 +0000</pubDate>
-        <link>/post/security/rsa-small-key-problem.html</link>
-        <guid isPermaLink="true">/post/security/rsa-small-key-problem.html</guid>
+        <link>https://www.ardikars.com/post/security/rsa-small-key-problem.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/security/rsa-small-key-problem.html</guid>
         
         <category>algorithm</category>
         
@@ -271,8 +271,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Fri, 30 Aug 2019 05:34:00 +0000</pubDate>
-        <link>/post/cryptography/rsa-example.html</link>
-        <guid isPermaLink="true">/post/cryptography/rsa-example.html</guid>
+        <link>https://www.ardikars.com/post/cryptography/rsa-example.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/cryptography/rsa-example.html</guid>
         
         <category>cryptography</category>
         
@@ -292,8 +292,8 @@
         <description>&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/primality-test-set-3-miller-rabin&quot;&gt;read more&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 29 Aug 2019 15:23:00 +0000</pubDate>
-        <link>/post/math/miller-rabin.html</link>
-        <guid isPermaLink="true">/post/math/miller-rabin.html</guid>
+        <link>https://www.ardikars.com/post/math/miller-rabin.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/math/miller-rabin.html</guid>
         
         <category>cryptography</category>
         
@@ -351,8 +351,8 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Thu, 29 Aug 2019 14:35:00 +0000</pubDate>
-        <link>/post/math/square-and-multiply-example.html</link>
-        <guid isPermaLink="true">/post/math/square-and-multiply-example.html</guid>
+        <link>https://www.ardikars.com/post/math/square-and-multiply-example.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/math/square-and-multiply-example.html</guid>
         
         <category>cryptography</category>
         
@@ -390,8 +390,8 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Thu, 29 Aug 2019 10:41:00 +0000</pubDate>
-        <link>/post/math/extended-euclidean-example.html</link>
-        <guid isPermaLink="true">/post/math/extended-euclidean-example.html</guid>
+        <link>https://www.ardikars.com/post/math/extended-euclidean-example.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/math/extended-euclidean-example.html</guid>
         
         <category>cryptography</category>
         
@@ -467,8 +467,8 @@ Discrete logarithm problem (A = g ^ ? mod p &amp;amp;&amp;amp; B ^ ? mod p)
 &lt;p&gt;&lt;a href=&quot;https://github.com/ardikars/ardikars.github.io/blob/master/_posts/2019-08-29-diffie-hellman-mitm-attack.markdown&quot;&gt;Click here for original 'markdown file'&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 29 Aug 2019 10:41:00 +0000</pubDate>
-        <link>/post/security/diffie-hellman-mitm-attack.html</link>
-        <guid isPermaLink="true">/post/security/diffie-hellman-mitm-attack.html</guid>
+        <link>https://www.ardikars.com/post/security/diffie-hellman-mitm-attack.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/security/diffie-hellman-mitm-attack.html</guid>
         
         <category>cryptography</category>
         
@@ -510,8 +510,8 @@ Discrete logarithm problem (A = g ^ ? mod p &amp;amp;&amp;amp; B ^ ? mod p)
 &lt;p&gt;Firefox =&amp;gt; Tor local proxy (socks(x)/http/etc) =&amp;gt; Tor network (proxy =&amp;gt; proxy =&amp;gt; proxy ….)&lt;/p&gt;
 </description>
         <pubDate>Thu, 29 Aug 2019 00:00:00 +0000</pubDate>
-        <link>/post/tor-on-android.html</link>
-        <guid isPermaLink="true">/post/tor-on-android.html</guid>
+        <link>https://www.ardikars.com/post/tor-on-android.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/tor-on-android.html</guid>
         
         
       </item>
