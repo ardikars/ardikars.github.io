@@ -7,17 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Category: android | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
-    <meta property="og:title" content="Category: android | Ardika Rommy Sanjaya &mdash; Software Engineer " />
-    <meta name="twitter:title" content="Category: android | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <title>Tor On Android | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
+    <meta property="og:title" content="Tor On Android | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <meta name="twitter:title" content="Tor On Android | Ardika Rommy Sanjaya &mdash; Software Engineer " />
 
-    <meta name="description" content="Category: android">
-    <meta name="description" property="og:description" content="Category: android" />
-    <meta name="twitter:description" content="Category: android" />
+    <meta name="description" content="Catatan ngopek suka2.">
+    <meta name="description" property="og:description" content="Catatan ngopek suka2." />
+    <meta name="twitter:description" content="Catatan ngopek suka2." />
 
     <meta name="twitter:card" content="summary_large_image" />
     
-    <meta property="og:url" content="https://www.ardikars.com/category/android/" />
+    <meta property="og:url" content="https://www.ardikars.com/post/android/tor-on-android.html" />
 
     <meta property="og:image" content="" />
     <meta name="twitter:image" content="" />
@@ -96,7 +96,7 @@
     
     <link rel="stylesheet" href="https://www.ardikars.com/assets/css/main.css">
 
-    <link rel="canonical" href="https://www.ardikars.com/category/android/">
+    <link rel="canonical" href="https://www.ardikars.com/post/android/tor-on-android.html">
 
     <link rel="alternate" type="application/rss+xml" title="Ardika Rommy Sanjaya" href="https://www.ardikars.com/feed.xml">
 </head>
@@ -189,8 +189,6 @@
             
                 
             
-                
-            
         </div>
         
     
@@ -221,16 +219,13 @@
 </div>
 
 
-                <h1>Posts From Category: android</h1>
-
-
-<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+                <article class="post single" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
             <li><time datetime="2020-07-03T00:45:00+00:00" itemprop="datePublished">3 Jul, 2020</time></li>
             
         </ul>
-        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/android/tor-on-android.html">Tor On Android</a></h2>
+        <h2 itemprop="name headline">Tor On Android</h2>
     </header>
 
     <div class="post-content">
@@ -280,10 +275,6 @@
 
 <p>Firefox =&gt; Tor local proxy (socks(x)/http/etc) =&gt; Tor network (proxy =&gt; proxy =&gt; proxy ….)</p>
 
-
-        
-            <p><a href="/post/android/tor-on-android.html" role="button">Read More</a></p>
-        
     </div>
 
     <footer class="post-footer">
@@ -297,7 +288,7 @@
     Open Termux, then install tor (“pkg update &amp;&amp; pkg install”).
   
   
-    Ru...&p[url]=https://www.ardikars.com/post/android/tor-on-android.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+    Ru...&p[url]=https://www.ardikars.com/post/android/tor-on-android.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
                 <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/android/tor-on-android.html&text=
   
     Install Termux from Google Playstore.
@@ -325,114 +316,6 @@
     </footer>
 </article>
 
-<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-        <ul>
-            <li><time datetime="2020-07-02T17:45:00+00:00" itemprop="datePublished">2 Jul, 2020</time></li>
-            
-        </ul>
-        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/android/unlock-nokia-3-bootloader.html">Unlock Nokia 3 Bootloader</a></h2>
-    </header>
-
-    <div class="post-content">
-        <ol>
-  <li>
-    <p>Enable developer options</p>
-  </li>
-  <li>
-    <p>Enable OEM Unlocking (OEM Unlock)</p>
-  </li>
-  <li>
-    <p>Enable USB debugging mode</p>
-  </li>
-  <li>
-    <p>Change default USB configuration, choose File Transfer (MTP)</p>
-  </li>
-  <li>
-    <p>Install adb and fastboot (sudo apt-get install android-tools-adb android-tools-fastboot)</p>
-  </li>
-  <li>
-    <p>Install nokia usb drive</p>
-  </li>
-  <li>
-    <p>Connect your phone to your PC and approve all usb connection</p>
-  </li>
-  <li>
-    <p>Type “adb devices”, then it will show the serial number</p>
-  </li>
-  <li>
-    <p>Type “adb reboot bootloader”, then your devices will boot into fastboot mode</p>
-  </li>
-  <li>
-    <p>Type “fastboot devices”, to make sure that your device still connected to your PC and it will show your phone serial number</p>
-  </li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>Type “fastboot oem key $(echo -n “YOUR_PHONE_SERIAL_NUMBER”</td>
-          <td>md5sum</td>
-          <td>tr [a-z] [A-Z])”</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
-  <li>
-    <p>Type “fastboot flashing unlock”, your phone will ask you about unlocking bootloader</p>
-  </li>
-  <li>Press vol up (yes)</li>
-</ol>
-
-
-        
-            <p><a href="/post/android/unlock-nokia-3-bootloader.html" role="button">Read More</a></p>
-        
-    </div>
-
-    <footer class="post-footer">
-        <div class="share">Share
-            <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Unlock Nokia 3 Bootloader&p[summary]=
-  
-    Enable developer options
-  
-  
-    Enable OEM Unlocking (OEM Unlock)
-  
-  
-    Enable USB debugging mode
-  
-  
-    Change default...&p[url]=https://www.ardikars.com/post/android/unlock-nokia-3-bootloader.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/android/unlock-nokia-3-bootloader.html&text=
-  
-    Enable developer options
-  
-  
-    Enable OEM Unlocking (OEM Unlock)
-  
-  
-    Enable USB debugging mode
-  
-  
-    Change default...&hashtags=bootloader,unlocking,rooting," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
-            </ul>
-        </div>
-        
-        <div class="tags">
-            <ul>
-                
-                <li><a href="https://www.ardikars.com/tag/bootloader">bootloader</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/unlocking">unlocking</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/rooting">rooting</a></li>
-                
-            </ul>
-        </div>
-        
-    </footer>
-</article>
 
             </main>
         </div>
