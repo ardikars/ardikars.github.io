@@ -1,4 +1,14 @@
-
+---
+title: Unlock Nokia 3 Bootloader
+date: 2020-07-02 17:45:00 Z
+categories:
+- android
+tags:
+- bootloader
+- unlocking
+- rooting
+layout: post
+---
 
 1. Enable developer options
 
