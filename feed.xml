@@ -5,8 +5,8 @@
     <description>Catatan suka2, nulis suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 03 Jul 2020 10:16:50 +0000</pubDate>
-    <lastBuildDate>Fri, 03 Jul 2020 10:16:50 +0000</lastBuildDate>
+    <pubDate>Fri, 03 Jul 2020 10:23:12 +0000</pubDate>
+    <lastBuildDate>Fri, 03 Jul 2020 10:23:12 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -487,39 +487,6 @@ Discrete logarithm problem (A = g ^ ? mod p &amp;amp;&amp;amp; B ^ ? mod p)
         
         
         <category>security</category>
-        
-      </item>
-    
-      <item>
-        <title>Tor On Android</title>
-        <description>
-&lt;ol&gt;
-  &lt;li&gt;Install Termux from Google Playstore.&lt;/li&gt;
-  &lt;li&gt;Open Termux, then install tor (“pkg update &amp;amp;&amp;amp; pkg install”).&lt;/li&gt;
-  &lt;li&gt;Run tor for tunneling:
-    &lt;ul&gt;
-      &lt;li&gt;Tunneling over HTTP “tor –HTTPTunnelPort 8118”.&lt;/li&gt;
-      &lt;li&gt;For more details pls read tor docs (“pkg install man &amp;amp;&amp;amp; man tor”).&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Install Firefox browser from Google Playstore.&lt;/li&gt;
-  &lt;li&gt;Open Firefox, type “about:config” in the URL bar.&lt;/li&gt;
-  &lt;li&gt;Set “network.proxy.type” to “1” (Configure proxy manually).&lt;/li&gt;
-  &lt;li&gt;Set “network.proxy.http” to “127.0.0.1”, and “network.proxy.http.port” to “8118”.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Note*)&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;By default Tor opening socks(x) listener on 127.0.0.1:9050.&lt;/li&gt;
-  &lt;li&gt;You can use Tor config file ($PREFIX/etc/tor/torrc) instead of passing Tor command line args.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Firefox =&amp;gt; Tor local proxy (socks(x)/http/etc) =&amp;gt; Tor network (proxy =&amp;gt; proxy =&amp;gt; proxy ….)&lt;/p&gt;
-</description>
-        <pubDate>Thu, 29 Aug 2019 00:00:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/tor-on-android.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/tor-on-android.html</guid>
-        
         
       </item>
     
