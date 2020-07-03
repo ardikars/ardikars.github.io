@@ -102,7 +102,7 @@ var index = lunr(function () {
 
 var store = [{
     "title": "Unlock Nokia 3 Bootloader",
-    "link": "/post/Unlock-Nokia-3-Bootloader.html",
+    "link": "/post/unlock-nokia-3-bootloader.html",
     "image": null,
     "date": "July 2, 2020",
     "category": null,
