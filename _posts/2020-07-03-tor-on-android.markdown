@@ -1,3 +1,14 @@
+---
+title: Tor On Android
+date: 2020-07-03 17:45:00 Z
+categories:
+- android
+tags:
+- proxy
+- tunnel
+- anonymity
+layout: post
+---
 
 1. Install Termux from Google Playstore.
 2. Open Termux, then install tor ("pkg update && pkg install").
