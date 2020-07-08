@@ -73,11 +73,20 @@ var index = lunr(function () {
     
 
     index.add({
+      title: "Create a bootable USB on Linux",
+      category: null,
+      content: "Unmount and format USB drive (FAT32)\n\n\n  \n    # umount /dev/sdX\n  \n  \n    # mkfs.vfat /dev/sdX\n  \n\n\nWrite into USB drive\n\n  # dd bs=4M if=ubuntu-20.04-desktop-amd64.iso of=/dev/sdX status=progress oflag=sync\n\n\nReboot\n\n  # shutdown -r 0\n\n",
+      tags: ["bootable","install","os"],
+      id: 7
+    });
+    
+
+    index.add({
       title: "Square and Multiply",
       category: null,
       content: "11^37 = ?\n\n37 = 100101 in binary\n\n\n  \n    1 -&gt; fist one list number          = 11\n  \n  \n    0 -&gt; square                                    = (11)^2\n  \n  \n    0 -&gt; square                                    = ((11)^2)^2\n  \n  \n    1 -&gt; square + multiply              = (((11)^2)^2)^2*11\n  \n  \n    0 -&gt; square                                    = ((((11)^2)^2)^2*11)^2\n  \n  \n    1 -&gt; square + multiply              = (((((11)^2)^2)^2*11)^2)^2*11\n  \n\n\n\n\nSimple implementation in python\n\n# x ^ h mod n\ndef modPow(x, h, n):\n    y = 1\n    h = bin(h)[2:] # convert h into binary\n    for i in range(len(h)):\n        y = (y ** 2) % n\n        if h[i] == '1':\n            y = (y * x) % n\n    return y\n\n",
       tags: ["cryptography","security","math","algorithm"],
-      id: 7
+      id: 8
     });
     
 
@@ -86,7 +95,7 @@ var index = lunr(function () {
       category: null,
       content: "gcd(11, 17) == 1\n\n\n17 = 11(1) + 6    // 1 is floor(17/11), 6 is 17 mod 11\n11 = 6(1) + 5\n6 = 5(1) + 1      // done\n\n\n\n\n\nImplementation in python (src)\ndef gcd(a, b):\n    if a == 0:\n        return (b, 0, 1)\n    else:\n        g, x, y = gcd(b % a, a)\n        return (g, y - (b // a) * x, x)\n\n",
       tags: ["cryptography","security","math","algorithm"],
-      id: 8
+      id: 9
     });
     
 
@@ -95,7 +104,7 @@ var index = lunr(function () {
       category: null,
       content: "p = prime number (public)\ng = modulus (public)\n\na = Alice private key (private)\nb = Bob private key (private)\n\nA = Alice public key (public)\nB = Bob public ket = (public)\n\nSx = Shared key (public)\n\neA = Eve private key for Alice (private)\neB = Eve private key for Bob (private)\nEa = Spoofed Alice public key will sent to Bob (public)\nEb = Spoofed Bob public key will sent to Alice (public)\n\n\n\nDiffie Hellman Algorithm\n\np = 23, g = 5\n\n| a = 4                                      | b = 3                                         |\n|--------------------------------------------|-----------------------------------------------|\n| A = g ^ a mod p = 5 ^ 4 mod 23 = 4         | B = g ^ b mod p = 5 ^ 3 mod 23 = 10           |\n| Sent Alice public key (A) to Bob           | Sent Bob public key (B) to Alice              |\n| Bob public key (B) is 10                   | Alice public key (A) is 4                     |\n| Compute shared key from Bob pubic key (B)  | Compute shared key from Alice public key (A)  |\n| Sa = B ^ a mod p = 10 ^ 4 mod 23 = 18      | Sb = A ^ b mod p = 4 ^ 3 mod 23 = 18          |\n\n\nSa == Sb\nDiscrete logarithm problem (A = g ^ ? mod p &amp;&amp; B ^ ? mod p)\n\n\nMITM Attack\n\np = 23, g = 5\n\n\n| a = 4                                            | eA = 6, eB = 9                                | b = 3                                              |\t\n|--------------------------------------------------|-----------------------------------------------|----------------------------------------------------|\n| A = g ^ a mod p = 5 ^ 4 mod 23 = 4               | Eb = g ^ eB mod p = 5 ^ 9 mod 23 = 11         | -                                                  |\t\n| Sent Alice public key (A) to Bob (Eve)           | Sent Spoofed Bob public key (Ea) to Alice     | -                                                  |\n| Bob (Eve) public key (Eb) is 11                  | Alice public key (A) is 4                     | -                                                  |\n| Compute shared key from Bob (Eve) pubic key (Eb) | Compute shared key from Alice public key (A)  | -                                                  |\n| Sae = Eb ^ a mod p = 11 ^ 3 mod 23 = 13          | Sa = A ^ eB mod p = 4 ^ 9 mod 23 = 13         | -                                                  |\n| -                                                | Ea = g ^ eA mod p = 5 ^ 6 mod 23 = 8          | B = g ^ b mod p = 5 ^ 3 mod 23 = 10                |\n| -                                                | Sent Spoofed Alice public key (Eb) to Bob     | Sent Bob public key (B) to Alice (Eve)             |\n| -                                                | Bob public key (B) is 10                      | Alice (Eve) public key (Ea) is 8                   |\n| -                                                | Compute shared key from Bob public key (B)    | Compute shared key from Alice (Eve) pubic key (Ea) |\n| -                                                | Sb = B ^ eA mod p = 10 ^ 6 mod 23 = 6         | Sbe = Ea ^ b mod p = 8 ^ 3 mod 23 = 6              |\n\n\n(Now Eve can intercept all data between Alice and Bob)\n\nClick here for original 'markdown file'\n",
       tags: ["cryptography","security","math","mitm"],
-      id: 9
+      id: 10
     });
     
 
@@ -149,6 +158,13 @@ var store = [{
     "date": "August 29, 2019",
     "category": null,
     "excerpt": "read more\n"
+},{
+    "title": "Create a bootable USB on Linux",
+    "link": "/post/linux/cerate-a-bootable-usb-on-linux.html",
+    "image": null,
+    "date": "August 29, 2019",
+    "category": null,
+    "excerpt": "Unmount and format USB drive (FAT32) # umount /dev/sdX # mkfs.vfat /dev/sdX Write into USB drive # dd bs=4M if=ubuntu-20.04-desktop-amd64.iso..."
 },{
     "title": "Square and Multiply",
     "link": "/post/math/square-and-multiply-example.html",
