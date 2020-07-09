@@ -181,7 +181,7 @@ var store = [{
     "excerpt": "p = prime number (public) g = modulus (public) a = Alice private key (private) b = Bob private key..."
 },{
     "title": "Create a bootable USB on Linux",
-    "link": "/post/linux/cerate-a-bootable-usb-on-linux.html",
+    "link": "/post/linux/create-a-bootable-usb-on-linux.html",
     "image": null,
     "date": "July 9, 2019",
     "category": null,
