@@ -1,6 +1,6 @@
 ---
 title: Install GNS3 on Ubuntu 20.04
-date: 2020-07-09 10:45:00 Z
+date: 2020-07-09 22:45:00 Z
 categories:
 - linux
 tags:
