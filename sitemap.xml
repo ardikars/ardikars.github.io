@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://www.ardikars.com/post/linux/cerate-a-bootable-usb-on-linux.html</loc>
+<lastmod>2019-07-09T03:23:00+00:00</lastmod>
+</url>
+<url>
 <loc>https://www.ardikars.com/post/security/diffie-hellman-mitm-attack.html</loc>
 <lastmod>2019-08-29T10:41:00+00:00</lastmod>
 </url>
@@ -11,10 +15,6 @@
 <url>
 <loc>https://www.ardikars.com/post/math/square-and-multiply-example.html</loc>
 <lastmod>2019-08-29T14:35:00+00:00</lastmod>
-</url>
-<url>
-<loc>https://www.ardikars.com/post/linux/cerate-a-bootable-usb-on-linux.html</loc>
-<lastmod>2019-08-29T15:23:00+00:00</lastmod>
 </url>
 <url>
 <loc>https://www.ardikars.com/post/math/miller-rabin.html</loc>
@@ -57,6 +57,15 @@
 <loc>https://www.ardikars.com/about/</loc>
 </url>
 <url>
+<loc>https://www.ardikars.com/tag/bootable/</loc>
+</url>
+<url>
+<loc>https://www.ardikars.com/tag/install/</loc>
+</url>
+<url>
+<loc>https://www.ardikars.com/tag/os/</loc>
+</url>
+<url>
 <loc>https://www.ardikars.com/tag/cryptography/</loc>
 </url>
 <url>
@@ -70,15 +79,6 @@
 </url>
 <url>
 <loc>https://www.ardikars.com/tag/algorithm/</loc>
-</url>
-<url>
-<loc>https://www.ardikars.com/tag/bootable/</loc>
-</url>
-<url>
-<loc>https://www.ardikars.com/tag/install/</loc>
-</url>
-<url>
-<loc>https://www.ardikars.com/tag/os/</loc>
 </url>
 <url>
 <loc>https://www.ardikars.com/tag/networking/</loc>
@@ -108,13 +108,13 @@
 <loc>https://www.ardikars.com/tag/anonymity/</loc>
 </url>
 <url>
+<loc>https://www.ardikars.com/category/linux/</loc>
+</url>
+<url>
 <loc>https://www.ardikars.com/category/security/</loc>
 </url>
 <url>
 <loc>https://www.ardikars.com/category/math/</loc>
-</url>
-<url>
-<loc>https://www.ardikars.com/category/linux/</loc>
 </url>
 <url>
 <loc>https://www.ardikars.com/category/cryptography/</loc>

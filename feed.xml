@@ -5,8 +5,8 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 08 Jul 2020 23:48:31 +0000</pubDate>
-    <lastBuildDate>Wed, 08 Jul 2020 23:48:31 +0000</lastBuildDate>
+    <pubDate>Thu, 09 Jul 2020 04:10:43 +0000</pubDate>
+    <lastBuildDate>Thu, 09 Jul 2020 04:10:43 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -379,44 +379,6 @@
       </item>
     
       <item>
-        <title>Create a bootable USB on Linux</title>
-        <description>&lt;h3 id=&quot;unmount-and-format-usb-drive-fat32&quot;&gt;Unmount and format USB drive (FAT32)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;# umount /dev/sdX&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;# mkfs.vfat /dev/sdX&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;write-into-usb-drive&quot;&gt;Write into USB drive&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;# dd bs=4M if=ubuntu-20.04-desktop-amd64.iso of=/dev/sdX status=progress oflag=sync&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;reboot&quot;&gt;Reboot&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;# shutdown -r 0&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Thu, 29 Aug 2019 15:23:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/linux/cerate-a-bootable-usb-on-linux.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/linux/cerate-a-bootable-usb-on-linux.html</guid>
-        
-        <category>bootable</category>
-        
-        <category>install</category>
-        
-        <category>os</category>
-        
-        
-        <category>linux</category>
-        
-      </item>
-    
-      <item>
         <title>Square and Multiply</title>
         <description>&lt;p&gt;11^37 = ?&lt;/p&gt;
 
@@ -511,6 +473,83 @@
         
         
         <category>math</category>
+        
+      </item>
+    
+      <item>
+        <title>Diffie Hellman MITM Attack</title>
+        <description>&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;p = prime number (public)
+g = modulus (public)
+
+a = Alice private key (private)
+b = Bob private key (private)
+
+A = Alice public key (public)
+B = Bob public ket = (public)
+
+Sx = Shared key (public)
+
+eA = Eve private key for Alice (private)
+eB = Eve private key for Bob (private)
+Ea = Spoofed Alice public key will sent to Bob (public)
+Eb = Spoofed Bob public key will sent to Alice (public)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;!--more--&gt;
+
+&lt;h3 id=&quot;diffie-hellman-algorithm&quot;&gt;Diffie Hellman Algorithm&lt;/h3&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;p = 23, g = 5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;| a = 4                                      | b = 3                                         |
+|--------------------------------------------|-----------------------------------------------|
+| A = g ^ a mod p = 5 ^ 4 mod 23 = 4         | B = g ^ b mod p = 5 ^ 3 mod 23 = 10           |
+| Sent Alice public key (A) to Bob           | Sent Bob public key (B) to Alice              |
+| Bob public key (B) is 10                   | Alice public key (A) is 4                     |
+| Compute shared key from Bob pubic key (B)  | Compute shared key from Alice public key (A)  |
+| Sa = B ^ a mod p = 10 ^ 4 mod 23 = 18      | Sb = A ^ b mod p = 4 ^ 3 mod 23 = 18          |
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Sa == Sb
+Discrete logarithm problem (A = g ^ ? mod p &amp;amp;&amp;amp; B ^ ? mod p)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;mitm-attack&quot;&gt;MITM Attack&lt;/h3&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;p = 23, g = 5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;| a = 4                                            | eA = 6, eB = 9                                | b = 3                                              |	
+|--------------------------------------------------|-----------------------------------------------|----------------------------------------------------|
+| A = g ^ a mod p = 5 ^ 4 mod 23 = 4               | Eb = g ^ eB mod p = 5 ^ 9 mod 23 = 11         | -                                                  |	
+| Sent Alice public key (A) to Bob (Eve)           | Sent Spoofed Bob public key (Ea) to Alice     | -                                                  |
+| Bob (Eve) public key (Eb) is 11                  | Alice public key (A) is 4                     | -                                                  |
+| Compute shared key from Bob (Eve) pubic key (Eb) | Compute shared key from Alice public key (A)  | -                                                  |
+| Sae = Eb ^ a mod p = 11 ^ 3 mod 23 = 13          | Sa = A ^ eB mod p = 4 ^ 9 mod 23 = 13         | -                                                  |
+| -                                                | Ea = g ^ eA mod p = 5 ^ 6 mod 23 = 8          | B = g ^ b mod p = 5 ^ 3 mod 23 = 10                |
+| -                                                | Sent Spoofed Alice public key (Eb) to Bob     | Sent Bob public key (B) to Alice (Eve)             |
+| -                                                | Bob public key (B) is 10                      | Alice (Eve) public key (Ea) is 8                   |
+| -                                                | Compute shared key from Bob public key (B)    | Compute shared key from Alice (Eve) pubic key (Ea) |
+| -                                                | Sb = B ^ eA mod p = 10 ^ 6 mod 23 = 6         | Sbe = Ea ^ b mod p = 8 ^ 3 mod 23 = 6              |
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;(Now Eve can intercept all data between Alice and Bob)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/ardikars/ardikars.github.io/blob/master/_posts/2019-08-29-diffie-hellman-mitm-attack.markdown&quot;&gt;Click here for original 'markdown file'&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 29 Aug 2019 10:41:00 +0000</pubDate>
+        <link>https://www.ardikars.com/post/security/diffie-hellman-mitm-attack.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/security/diffie-hellman-mitm-attack.html</guid>
+        
+        <category>cryptography</category>
+        
+        <category>security</category>
+        
+        <category>math</category>
+        
+        <category>mitm</category>
+        
+        
+        <category>security</category>
         
       </item>
     
