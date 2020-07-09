@@ -1,6 +1,6 @@
 ---
 title: Install Docker CE on Ubuntu 20.04
-date: 2020-07-09 11:45:00 Z
+date: 2020-07-09 23:45:00 Z
 categories:
 - linux
 tags:
