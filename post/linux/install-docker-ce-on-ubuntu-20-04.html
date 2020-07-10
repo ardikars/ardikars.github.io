@@ -209,6 +209,10 @@
             
                 
             
+                
+            
+                
+            
         </div>
         
     
@@ -251,42 +255,37 @@
     <div class="post-content">
         <h3 id="install-docker-ce">Install Docker CE</h3>
 
-<ol>
+<ul>
   <li>
-    <p>apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common</p>
+    <p><code class="highlighter-rouge">apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common</code></p>
   </li>
   <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>curl -fsSL https://download.docker.com/linux/ubuntu/gpg</td>
-          <td>apt-key add -</td>
-        </tr>
-      </tbody>
-    </table>
+    <p><code class="highlighter-rouge">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -</code></p>
   </li>
   <li>
-    <p>echo “deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -sc) stable” &gt; /etc/apt/sources.list.d/docker-ce.list</p>
+    <p><code class="highlighter-rouge">echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -sc) stable" &gt; /etc/apt/sources.list.d/docker-ce.list</code></p>
   </li>
-  <li>apt install docker-ce</li>
-</ol>
+  <li>
+    <p><code class="highlighter-rouge">apt install docker-ce</code></p>
+  </li>
+</ul>
 
 <h3 id="enable-docker-and-containerd-to-run-on-system-boot">Enable Docker and Containerd to run on system boot</h3>
 
-<ol>
-  <li>systemctl enable –now docker containerd</li>
-</ol>
+<ul>
+  <li><code class="highlighter-rouge">systemctl enable --now docker containerd</code></li>
+</ul>
 
 <h3 id="running-docker-as-a-non-root-user">Running Docker as a non-root user</h3>
 
-<ol>
+<ul>
   <li>
-    <p>exit # Back to normal user</p>
+    <p><code class="highlighter-rouge">exit</code> (Back to normal user)</p>
   </li>
   <li>
-    <p>sudo usermod -aG docker ${USER}</p>
+    <p><code class="highlighter-rouge">sudo usermod -aG docker ${USER}</code></p>
   </li>
-</ol>
+</ul>
 
 <p>Done</p>
 
@@ -302,9 +301,7 @@
     apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
   
   
-    
-      
-...&p[url]=https://www.ardikars.com/post/linux/install-docker-ce-on-ubuntu-20-04.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
+    curl -fs...&p[url]=https://www.ardikars.com/post/linux/install-docker-ce-on-ubuntu-20-04.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
                 <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/linux/install-docker-ce-on-ubuntu-20-04.html&text=Install Docker CE
 
 
@@ -312,9 +309,7 @@
     apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
   
   
-    
-      
-...&hashtags=install,docker,container," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+    curl -fs...&hashtags=install,docker,container," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
             </ul>
         </div>
         

@@ -211,6 +211,10 @@
             
                 
             
+                
+            
+                
+            
         </div>
         
     
@@ -291,6 +295,9 @@
 
 <ul>
   <li>
+    <p>DNS is not encrypted.</p>
+  </li>
+  <li>
     <p>By default Tor opening socks(x) listener on 127.0.0.1:9050.</p>
   </li>
   <li>
@@ -369,7 +376,7 @@
     <p>Change default USB configuration, choose File Transfer (MTP)</p>
   </li>
   <li>
-    <p>Install adb and fastboot (sudo apt-get install android-tools-adb android-tools-fastboot)</p>
+    <p>Install adb and fastboot (<code class="highlighter-rouge">sudo apt-get install android-tools-adb android-tools-fastboot</code>)</p>
   </li>
   <li>
     <p>Install nokia usb drive</p>
@@ -378,29 +385,23 @@
     <p>Connect your phone to your PC and approve all usb connection</p>
   </li>
   <li>
-    <p>Type “adb devices”, then it will show the serial number</p>
+    <p>Type <code class="highlighter-rouge">adb devices</code>, then it will show the serial number</p>
   </li>
   <li>
-    <p>Type “adb reboot bootloader”, then your devices will boot into fastboot mode</p>
+    <p>Type <code class="highlighter-rouge">adb reboot bootloader</code>, then your devices will boot into fastboot mode</p>
   </li>
   <li>
-    <p>Type “fastboot devices”, to make sure that your device still connected to your PC and it will show your phone serial number</p>
+    <p>Type <code class="highlighter-rouge">fastboot devices</code>, to make sure that your device still connected to your PC and it will show your phone serial number</p>
   </li>
   <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>Type “fastboot oem key $(echo -n “YOUR_PHONE_SERIAL_NUMBER”</td>
-          <td>md5sum</td>
-          <td>tr [a-z] [A-Z])”</td>
-        </tr>
-      </tbody>
-    </table>
+    <p>Type <code class="highlighter-rouge">fastboot oem key $(echo -n "YOUR_PHONE_SERIAL_NUMBER" | md5sum | tr [a-z] [A-Z])</code></p>
   </li>
   <li>
-    <p>Type “fastboot flashing unlock”, your phone will ask you about unlocking bootloader</p>
+    <p>Type <code class="highlighter-rouge">fastboot flashing unlock</code>, your phone will ask you about unlocking bootloader</p>
   </li>
-  <li>Press vol up (yes)</li>
+  <li>
+    <p>Press vol up (yes)</p>
+  </li>
 </ol>
 
 

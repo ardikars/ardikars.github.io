@@ -5,9 +5,26 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 10 Jul 2020 14:07:47 +0000</pubDate>
-    <lastBuildDate>Fri, 10 Jul 2020 14:07:47 +0000</lastBuildDate>
+    <pubDate>Fri, 10 Jul 2020 21:40:37 +0000</pubDate>
+    <lastBuildDate>Fri, 10 Jul 2020 21:40:37 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Granting Capability CAP_NET_RAW and CAP_NET_ADMIN</title>
+        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo setcap cap_net_raw,cap_net_admin=eip /path/to/java&lt;/code&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 10 Jul 2020 17:45:00 +0000</pubDate>
+        <link>https://www.ardikars.com/post/linux/granting-capability-CAP_NET_RAW-and-CAP_NET_ADMIN.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/linux/granting-capability-CAP_NET_RAW-and-CAP_NET_ADMIN.html</guid>
+        
+        <category>java</category>
+        
+        <category>setcap</category>
+        
+        
+        <category>linux</category>
+        
+      </item>
     
       <item>
         <title>Netflix error F7355 on Firefox</title>
@@ -39,42 +56,37 @@
         <title>Install Docker CE on Ubuntu 20.04</title>
         <description>&lt;h3 id=&quot;install-docker-ce&quot;&gt;Install Docker CE&lt;/h3&gt;
 
-&lt;ol&gt;
+&lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;curl -fsSL https://download.docker.com/linux/ubuntu/gpg&lt;/td&gt;
-          &lt;td&gt;apt-key add -&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;echo “deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -sc) stable” &amp;gt; /etc/apt/sources.list.d/docker-ce.list&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;echo &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -sc) stable&quot; &amp;gt; /etc/apt/sources.list.d/docker-ce.list&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;apt install docker-ce&lt;/li&gt;
-&lt;/ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt install docker-ce&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;enable-docker-and-containerd-to-run-on-system-boot&quot;&gt;Enable Docker and Containerd to run on system boot&lt;/h3&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;systemctl enable –now docker containerd&lt;/li&gt;
-&lt;/ol&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl enable --now docker containerd&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;running-docker-as-a-non-root-user&quot;&gt;Running Docker as a non-root user&lt;/h3&gt;
 
-&lt;ol&gt;
+&lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;exit # Back to normal user&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;exit&lt;/code&gt; (Back to normal user)&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;sudo usermod -aG docker ${USER}&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo usermod -aG docker ${USER}&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;Done&lt;/p&gt;
 </description>
@@ -220,6 +232,9 @@
 
 &lt;ul&gt;
   &lt;li&gt;
+    &lt;p&gt;DNS is not encrypted.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
     &lt;p&gt;By default Tor opening socks(x) listener on 127.0.0.1:9050.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
@@ -260,7 +275,7 @@
     &lt;p&gt;Change default USB configuration, choose File Transfer (MTP)&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Install adb and fastboot (sudo apt-get install android-tools-adb android-tools-fastboot)&lt;/p&gt;
+    &lt;p&gt;Install adb and fastboot (&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install android-tools-adb android-tools-fastboot&lt;/code&gt;)&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Install nokia usb drive&lt;/p&gt;
@@ -269,29 +284,23 @@
     &lt;p&gt;Connect your phone to your PC and approve all usb connection&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Type “adb devices”, then it will show the serial number&lt;/p&gt;
+    &lt;p&gt;Type &lt;code class=&quot;highlighter-rouge&quot;&gt;adb devices&lt;/code&gt;, then it will show the serial number&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Type “adb reboot bootloader”, then your devices will boot into fastboot mode&lt;/p&gt;
+    &lt;p&gt;Type &lt;code class=&quot;highlighter-rouge&quot;&gt;adb reboot bootloader&lt;/code&gt;, then your devices will boot into fastboot mode&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Type “fastboot devices”, to make sure that your device still connected to your PC and it will show your phone serial number&lt;/p&gt;
+    &lt;p&gt;Type &lt;code class=&quot;highlighter-rouge&quot;&gt;fastboot devices&lt;/code&gt;, to make sure that your device still connected to your PC and it will show your phone serial number&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;Type “fastboot oem key $(echo -n “YOUR_PHONE_SERIAL_NUMBER”&lt;/td&gt;
-          &lt;td&gt;md5sum&lt;/td&gt;
-          &lt;td&gt;tr [a-z] [A-Z])”&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
+    &lt;p&gt;Type &lt;code class=&quot;highlighter-rouge&quot;&gt;fastboot oem key $(echo -n &quot;YOUR_PHONE_SERIAL_NUMBER&quot; | md5sum | tr [a-z] [A-Z])&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Type “fastboot flashing unlock”, your phone will ask you about unlocking bootloader&lt;/p&gt;
+    &lt;p&gt;Type &lt;code class=&quot;highlighter-rouge&quot;&gt;fastboot flashing unlock&lt;/code&gt;, your phone will ask you about unlocking bootloader&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;Press vol up (yes)&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Press vol up (yes)&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
 </description>
         <pubDate>Thu, 02 Jul 2020 17:45:00 +0000</pubDate>
@@ -447,85 +456,6 @@
         
         
         <category>security</category>
-        
-      </item>
-    
-      <item>
-        <title>RSA Algorithm</title>
-        <description>&lt;p&gt;Key Generation&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Generate two random primes, p and q, e.g p=3, q=11.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Compute n = pq, n = 3 * 11 = 33.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Compute phi = (p-1)(q-1) = (3-1)(11-1) = 20&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Choose an integer e, 1 &amp;lt; e &amp;lt; phi, such that gcd(e, phi) = 1, e.g e = 7, gcd(7, 20) = 1&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Compute the secret exponent d, 1 &amp;lt; d &amp;lt; phi, such that (e * d) mod phi = 1, (7 * d) mod 20 = 1,  d = 3&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;!--more--&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;The public key is (7, 33) and the private key (3, 33).&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Encrypt&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;m = 2&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;c = 2^7 mod 33 = 29&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Decrypt&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;c = 29&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;m = 29 ^ 3 mod&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;n is known as the modulus.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;e is known as the public exponent or encryption exponent or just the exponent.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;d is known as the secret exponent or decryption exponent.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Fri, 30 Aug 2019 05:34:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/cryptography/rsa-example.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/cryptography/rsa-example.html</guid>
-        
-        <category>cryptography</category>
-        
-        <category>security</category>
-        
-        <category>math</category>
-        
-        <category>algorithm</category>
-        
-        
-        <category>cryptography</category>
         
       </item>
     
