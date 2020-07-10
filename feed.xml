@@ -5,9 +5,35 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 10 Jul 2020 05:01:17 +0000</pubDate>
-    <lastBuildDate>Fri, 10 Jul 2020 05:01:17 +0000</lastBuildDate>
+    <pubDate>Fri, 10 Jul 2020 06:48:42 +0000</pubDate>
+    <lastBuildDate>Fri, 10 Jul 2020 06:48:42 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Netflix error F7355 on Firefox</title>
+        <description>&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install libavcodec-extra&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Enable DRM&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Fri, 10 Jul 2020 05:45:00 +0000</pubDate>
+        <link>https://www.ardikars.com/post/linux/netflix-error-F7355-on-firefox.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/linux/netflix-error-F7355-on-firefox.html</guid>
+        
+        <category>drm</category>
+        
+        <category>firefox</category>
+        
+        <category>video</category>
+        
+        
+        <category>linux</category>
+        
+      </item>
     
       <item>
         <title>Install Docker CE on Ubuntu 20.04</title>
@@ -500,27 +526,6 @@
         
         
         <category>cryptography</category>
-        
-      </item>
-    
-      <item>
-        <title>Miller Rabin</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/primality-test-set-3-miller-rabin&quot;&gt;read more&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Thu, 29 Aug 2019 15:23:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/math/miller-rabin.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/math/miller-rabin.html</guid>
-        
-        <category>cryptography</category>
-        
-        <category>security</category>
-        
-        <category>math</category>
-        
-        <category>algorithm</category>
-        
-        
-        <category>math</category>
         
       </item>
     
