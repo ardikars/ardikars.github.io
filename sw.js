@@ -15,7 +15,6 @@ self.addEventListener('activate', evt => {
 // fetch event
 self.addEventListener('fetch', evt => {
     evt.respondWith(
-        // try cache
         caches.match(evt.request).then(cacheRes => {
             // return from cache or fallback to network
             return cacheRes || fetch(evt.request).then(fetchRes => {
@@ -24,9 +23,9 @@ self.addEventListener('fetch', evt => {
                     return fetchRes;
                 })
             });
-        }).catch(function() {
-          // If both fail, show a generic fallback
-            return fetch(evt.request).then(fetchRes => {
+        }).catch(function () {
+            // If both fail, show a generic fallback
+            return fetch('https://www.ardikars.com').then(fetchRes => {
                 return fetchRes;
             })
         })
