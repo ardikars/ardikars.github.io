@@ -12,14 +12,14 @@ layout: post
 
 ### Unmount and format USB drive (FAT32)
 
-* ```# umount /dev/sdX```
+* `# umount /dev/sdX`
 
-* ```# mkfs.vfat /dev/sdX```
+* `# mkfs.vfat /dev/sdX`
 
 
 ### Write into USB drive
-* ```# dd bs=4M if=ubuntu-20.04-desktop-amd64.iso of=/dev/sdX status=progress oflag=sync```
+* `# dd bs=4M if=ubuntu-20.04-desktop-amd64.iso of=/dev/sdX status=progress oflag=sync`
 
 
 ### Reboot
-* ```# shutdown -r 0```
+* `# shutdown -r 0`

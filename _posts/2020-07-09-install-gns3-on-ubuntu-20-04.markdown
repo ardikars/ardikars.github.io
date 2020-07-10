@@ -22,9 +22,9 @@ layout: post
 
 IOU (IOS over Unix) is an internal Cisco tool for simulating the ASICs in Cisco Switches. This enables you to play with Layer 2 switching in your LABS.
 
-4. `sudo dpkg --add-architecture i386`
-5. `sudo apt update`
-6. `sudo apt install gns3-iou`
+1. `sudo dpkg --add-architecture i386`
+2. `sudo apt update`
+3. `sudo apt install gns3-iou`
 
 
 ### Add your user to the following groups:

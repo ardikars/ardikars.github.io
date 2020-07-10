@@ -32,6 +32,8 @@ layout: post
 
 Note*)
 
+* DNS is not encrypted.
+
 * By default Tor opening socks(x) listener on 127.0.0.1:9050.
 
 * You can use Tor config file ($PREFIX/etc/tor/torrc) instead of passing Tor command line args.
