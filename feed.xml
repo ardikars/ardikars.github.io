@@ -5,9 +5,117 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 09 Jul 2020 11:47:06 +0000</pubDate>
-    <lastBuildDate>Thu, 09 Jul 2020 11:47:06 +0000</lastBuildDate>
+    <pubDate>Fri, 10 Jul 2020 04:31:28 +0000</pubDate>
+    <lastBuildDate>Fri, 10 Jul 2020 04:31:28 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Install Docker CE on Ubuntu 20.04</title>
+        <description>&lt;h3 id=&quot;install-docker-ce&quot;&gt;Install Docker CE&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;curl -fsSL https://download.docker.com/linux/ubuntu/gpg&lt;/td&gt;
+          &lt;td&gt;apt-key add -&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;echo “deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -sc) stable” &amp;gt; /etc/apt/sources.list.d/docker-ce.list&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;apt install docker-ce&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;enable-docker-and-containerd-to-run-on-system-boot&quot;&gt;Enable Docker and Containerd to run on system boot&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;systemctl enable –now docker containerd&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;running-docker-as-a-non-root-user&quot;&gt;Running Docker as a non-root user&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;exit # Back to normal user&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;sudo usermod -aG docker ${USER}&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Done&lt;/p&gt;
+</description>
+        <pubDate>Thu, 09 Jul 2020 23:45:00 +0000</pubDate>
+        <link>https://www.ardikars.com/post/linux/install-docker-ce-on-ubuntu-20-04.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/linux/install-docker-ce-on-ubuntu-20-04.html</guid>
+        
+        <category>install</category>
+        
+        <category>docker</category>
+        
+        <category>container</category>
+        
+        
+        <category>linux</category>
+        
+      </item>
+    
+      <item>
+        <title>Install GNS3 on Ubuntu 20.04</title>
+        <description>&lt;h3 id=&quot;install-gns3&quot;&gt;Install GNS3&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo add-apt-repository ppa:gns3/ppa&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt update&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install gns3-server gns3-gui&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;install-iou-support-optional&quot;&gt;Install IOU Support (Optional)&lt;/h3&gt;
+
+&lt;p&gt;IOU (IOS over Unix) is an internal Cisco tool for simulating the ASICs in Cisco Switches. This enables you to play with Layer 2 switching in your LABS.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo dpkg --add-architecture i386&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt update&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install gns3-iou&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;add-your-user-to-the-following-groups&quot;&gt;Add your user to the following groups:&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;i &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;ubridge libvirt kvm wireshark&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;usermod &lt;span class=&quot;nt&quot;&gt;-aG&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$USER&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Done.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 09 Jul 2020 22:45:00 +0000</pubDate>
+        <link>https://www.ardikars.com/post/linux/install-gns3-on-ubuntu-20-04.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/linux/install-gns3-on-ubuntu-20-04.html</guid>
+        
+        <category>install</category>
+        
+        <category>gns3</category>
+        
+        <category>networking</category>
+        
+        
+        <category>linux</category>
+        
+      </item>
     
       <item>
         <title>Tor On Android</title>
@@ -434,122 +542,6 @@
         
         
         <category>math</category>
-        
-      </item>
-    
-      <item>
-        <title>Extended Euclidean</title>
-        <description>&lt;p&gt;gcd(11, 17) == 1&lt;/p&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-17 = 11(1) + 6    // 1 is floor(17/11), 6 is 17 mod 11
-11 = 6(1) + 5
-6 = 5(1) + 1      // done
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;!--more--&gt;
-
-&lt;h3 id=&quot;implementation-in-python-src&quot;&gt;Implementation in python &lt;a href=&quot;https://en.wikibooks.org/wiki/Algorithm_Implementation/Mathematics/Extended_Euclidean_algorithm&quot;&gt;(src)&lt;/a&gt;&lt;/h3&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;gcd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gcd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Thu, 29 Aug 2019 10:41:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/math/extended-euclidean-example.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/math/extended-euclidean-example.html</guid>
-        
-        <category>cryptography</category>
-        
-        <category>security</category>
-        
-        <category>math</category>
-        
-        <category>algorithm</category>
-        
-        
-        <category>math</category>
-        
-      </item>
-    
-      <item>
-        <title>Diffie Hellman MITM Attack</title>
-        <description>&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;p = prime number (public)
-g = modulus (public)
-
-a = Alice private key (private)
-b = Bob private key (private)
-
-A = Alice public key (public)
-B = Bob public ket = (public)
-
-Sx = Shared key (public)
-
-eA = Eve private key for Alice (private)
-eB = Eve private key for Bob (private)
-Ea = Spoofed Alice public key will sent to Bob (public)
-Eb = Spoofed Bob public key will sent to Alice (public)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;!--more--&gt;
-
-&lt;h3 id=&quot;diffie-hellman-algorithm&quot;&gt;Diffie Hellman Algorithm&lt;/h3&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;p = 23, g = 5
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;| a = 4                                      | b = 3                                         |
-|--------------------------------------------|-----------------------------------------------|
-| A = g ^ a mod p = 5 ^ 4 mod 23 = 4         | B = g ^ b mod p = 5 ^ 3 mod 23 = 10           |
-| Sent Alice public key (A) to Bob           | Sent Bob public key (B) to Alice              |
-| Bob public key (B) is 10                   | Alice public key (A) is 4                     |
-| Compute shared key from Bob pubic key (B)  | Compute shared key from Alice public key (A)  |
-| Sa = B ^ a mod p = 10 ^ 4 mod 23 = 18      | Sb = A ^ b mod p = 4 ^ 3 mod 23 = 18          |
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Sa == Sb
-Discrete logarithm problem (A = g ^ ? mod p &amp;amp;&amp;amp; B ^ ? mod p)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;mitm-attack&quot;&gt;MITM Attack&lt;/h3&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;p = 23, g = 5
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;| a = 4                                            | eA = 6, eB = 9                                | b = 3                                              |	
-|--------------------------------------------------|-----------------------------------------------|----------------------------------------------------|
-| A = g ^ a mod p = 5 ^ 4 mod 23 = 4               | Eb = g ^ eB mod p = 5 ^ 9 mod 23 = 11         | -                                                  |	
-| Sent Alice public key (A) to Bob (Eve)           | Sent Spoofed Bob public key (Ea) to Alice     | -                                                  |
-| Bob (Eve) public key (Eb) is 11                  | Alice public key (A) is 4                     | -                                                  |
-| Compute shared key from Bob (Eve) pubic key (Eb) | Compute shared key from Alice public key (A)  | -                                                  |
-| Sae = Eb ^ a mod p = 11 ^ 3 mod 23 = 13          | Sa = A ^ eB mod p = 4 ^ 9 mod 23 = 13         | -                                                  |
-| -                                                | Ea = g ^ eA mod p = 5 ^ 6 mod 23 = 8          | B = g ^ b mod p = 5 ^ 3 mod 23 = 10                |
-| -                                                | Sent Spoofed Alice public key (Eb) to Bob     | Sent Bob public key (B) to Alice (Eve)             |
-| -                                                | Bob public key (B) is 10                      | Alice (Eve) public key (Ea) is 8                   |
-| -                                                | Compute shared key from Bob public key (B)    | Compute shared key from Alice (Eve) pubic key (Ea) |
-| -                                                | Sb = B ^ eA mod p = 10 ^ 6 mod 23 = 6         | Sbe = Ea ^ b mod p = 8 ^ 3 mod 23 = 6              |
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;(Now Eve can intercept all data between Alice and Bob)&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/ardikars/ardikars.github.io/blob/master/_posts/2019-08-29-diffie-hellman-mitm-attack.markdown&quot;&gt;Click here for original 'markdown file'&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Thu, 29 Aug 2019 10:41:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/security/diffie-hellman-mitm-attack.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/security/diffie-hellman-mitm-attack.html</guid>
-        
-        <category>cryptography</category>
-        
-        <category>security</category>
-        
-        <category>math</category>
-        
-        <category>mitm</category>
-        
-        
-        <category>security</category>
         
       </item>
     

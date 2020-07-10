@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Posts Tagged - anonymity | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
-    <meta property="og:title" content="Posts Tagged - anonymity | Ardika Rommy Sanjaya &mdash; Software Engineer " />
-    <meta name="twitter:title" content="Posts Tagged - anonymity | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <title>Install GNS3 on Ubuntu 20.04 | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
+    <meta property="og:title" content="Install GNS3 on Ubuntu 20.04 | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <meta name="twitter:title" content="Install GNS3 on Ubuntu 20.04 | Ardika Rommy Sanjaya &mdash; Software Engineer " />
 
     <meta name="description" content="Catatan ngopek suka2.">
     <meta name="description" property="og:description" content="Catatan ngopek suka2." />
@@ -17,7 +17,7 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     
-    <meta property="og:url" content="https://www.ardikars.com/tag/anonymity/" />
+    <meta property="og:url" content="https://www.ardikars.com/post/linux/install-gns3-on-ubuntu-20-04.html" />
 
     <meta property="og:image" content="" />
     <meta name="twitter:image" content="" />
@@ -96,7 +96,7 @@
     
     <link rel="stylesheet" href="https://www.ardikars.com/assets/css/main.css">
 
-    <link rel="canonical" href="https://www.ardikars.com/tag/anonymity/">
+    <link rel="canonical" href="https://www.ardikars.com/post/linux/install-gns3-on-ubuntu-20-04.html">
 
     <link rel="alternate" type="application/rss+xml" title="Ardika Rommy Sanjaya" href="https://www.ardikars.com/feed.xml">
 </head>
@@ -203,8 +203,6 @@
             
                 
             
-                
-            
         </div>
         
     
@@ -235,221 +233,100 @@
 </div>
 
 
-                <h1>Posts Tagged - anonymity</h1>
+                <article class="post single" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2020-07-09T22:45:00+00:00" itemprop="datePublished">9 Jul, 2020</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline">Install GNS3 on Ubuntu 20.04</h2>
+    </header>
 
+    <div class="post-content">
+        <h3 id="install-gns3">Install GNS3</h3>
 
-    
-        
-    
-        
-    
-        
-    
-
-    
-        
-    
-        
-    
-        
-    
-
-    
-        
-    
-        
-    
-        
-        <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-            <header class="post-header">
-                <ul>
-                    <li><time datetime="2020-07-03T00:45:00+00:00" itemprop="datePublished">3 Jul, 2020</time></li>
-                    
-                </ul>
-                <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/android/tor-on-android.html">Tor On Android</a></h2>
-            </header>
-
-            <div class="post-content">
-                <ol>
+<ol>
   <li>
-    <p>Install Termux from Google Playstore.</p>
+    <p><code class="highlighter-rouge">sudo add-apt-repository ppa:gns3/ppa</code></p>
   </li>
   <li>
-    <p>Open Termux, then install tor (“pkg update &amp;&amp; pkg install”).</p>
+    <p><code class="highlighter-rouge">sudo apt update</code></p>
   </li>
   <li>
-    <p>Run tor for tunneling:</p>
-
-    <ul>
-      <li>
-        <p>Tunneling over HTTP “tor –HTTPTunnelPort 8118”.</p>
-      </li>
-      <li>
-        <p>For more details pls read tor docs (“pkg install man &amp;&amp; man tor”).</p>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>Install Firefox browser from Google Playstore.</p>
-  </li>
-  <li>
-    <p>Open Firefox, type “about:config” in the URL bar.</p>
-  </li>
-  <li>
-    <p>Set “network.proxy.type” to “1” (Configure proxy manually).</p>
-  </li>
-  <li>
-    <p>Set “network.proxy.http” to “127.0.0.1”, and “network.proxy.http.port” to “8118”.</p>
+    <p><code class="highlighter-rouge">sudo apt install gns3-server gns3-gui</code></p>
   </li>
 </ol>
 
-<p>Note*)</p>
+<h3 id="install-iou-support-optional">Install IOU Support (Optional)</h3>
 
-<ul>
-  <li>
-    <p>By default Tor opening socks(x) listener on 127.0.0.1:9050.</p>
-  </li>
-  <li>
-    <p>You can use Tor config file ($PREFIX/etc/tor/torrc) instead of passing Tor command line args.</p>
-  </li>
-</ul>
+<p>IOU (IOS over Unix) is an internal Cisco tool for simulating the ASICs in Cisco Switches. This enables you to play with Layer 2 switching in your LABS.</p>
 
-<p>Firefox =&gt; Tor local proxy (socks(x)/http/etc) =&gt; Tor network (proxy =&gt; proxy =&gt; proxy ….)</p>
+<ol>
+  <li><code class="highlighter-rouge">sudo dpkg --add-architecture i386</code></li>
+  <li><code class="highlighter-rouge">sudo apt update</code></li>
+  <li><code class="highlighter-rouge">sudo apt install gns3-iou</code></li>
+</ol>
+
+<h3 id="add-your-user-to-the-following-groups">Add your user to the following groups:</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>i <span class="k">in </span>ubridge libvirt kvm wireshark<span class="p">;</span> <span class="k">do
+  </span><span class="nb">sudo </span>usermod <span class="nt">-aG</span> <span class="nv">$i</span> <span class="nv">$USER</span>
+<span class="k">done</span>
+</code></pre></div></div>
+
+<p>Done.</p>
+
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Install GNS3 on Ubuntu 20.04&p[summary]=Install GNS3
 
 
+  
+    sudo add-apt-repository ppa:gns3/ppa
+  
+  
+    sudo apt update
+  
+  
+    sudo apt install gns3-server gns3-gui
+  
+
+...&p[url]=https://www.ardikars.com/post/linux/install-gns3-on-ubuntu-20-04.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/linux/install-gns3-on-ubuntu-20-04.html&text=Install GNS3
+
+
+  
+    sudo add-apt-repository ppa:gns3/ppa
+  
+  
+    sudo apt update
+  
+  
+    sudo apt install gns3-server gns3-gui
+  
+
+...&hashtags=install,gns3,networking," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
                 
-                    <p><a href="/post/android/tor-on-android.html" role="button">Read More</a></p>
+                <li><a href="https://www.ardikars.com/tag/install">install</a></li>
                 
-            </div>
-
-            <footer class="post-footer">
-                <div class="share">Share
-                    <ul class="social-networks">
-                        <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Tor On Android&p[summary]=
-  
-    Install Termux from Google Playstore.
-  
-  
-    Open Termux, then install tor (“pkg update &amp;&amp; pkg install”).
-  
-  
-    Ru...&p[url]=https://www.ardikars.com/post/android/tor-on-android.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                        <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/android/tor-on-android.html&text=
-  
-    Install Termux from Google Playstore.
-  
-  
-    Open Termux, then install tor (“pkg update &amp;&amp; pkg install”).
-  
-  
-    Ru...&hashtags=proxy,tunnel,anonymity," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
-                    </ul>
-                </div>
+                <li><a href="https://www.ardikars.com/tag/gns3">gns3</a></li>
                 
-                <div class="tags">
-                    <ul>
-                        
-                        <li><a href="https://www.ardikars.com/tag/proxy">proxy</a></li>
-                        
-                        <li><a href="https://www.ardikars.com/tag/tunnel">tunnel</a></li>
-                        
-                        <li><a href="https://www.ardikars.com/tag/anonymity">anonymity</a></li>
-                        
-                    </ul>
-                </div>
+                <li><a href="https://www.ardikars.com/tag/networking">networking</a></li>
                 
-            </footer>
-        </article>
+            </ul>
+        </div>
         
-    
+    </footer>
+</article>
 
-    
-        
-    
-        
-    
-        
-    
-
-    
-        
-    
-        
-    
-
-    
-        
-    
-        
-    
-        
-    
-
-    
-        
-    
-        
-    
-        
-    
-
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-    
-        
-    
-        
-    
-        
-    
 
             </main>
         </div>

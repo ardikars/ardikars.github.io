@@ -199,6 +199,12 @@
             
                 
             
+                
+            
+                
+            
+                
+            
         </div>
         
     
@@ -231,6 +237,218 @@
 
                 <h1>Posts Tagged - install</h1>
 
+
+    
+        
+        <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <ul>
+                    <li><time datetime="2020-07-09T23:45:00+00:00" itemprop="datePublished">9 Jul, 2020</time></li>
+                    
+                </ul>
+                <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/linux/install-docker-ce-on-ubuntu-20-04.html">Install Docker CE on Ubuntu 20.04</a></h2>
+            </header>
+
+            <div class="post-content">
+                <h3 id="install-docker-ce">Install Docker CE</h3>
+
+<ol>
+  <li>
+    <p>apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common</p>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>curl -fsSL https://download.docker.com/linux/ubuntu/gpg</td>
+          <td>apt-key add -</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>echo “deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -sc) stable” &gt; /etc/apt/sources.list.d/docker-ce.list</p>
+  </li>
+  <li>apt install docker-ce</li>
+</ol>
+
+<h3 id="enable-docker-and-containerd-to-run-on-system-boot">Enable Docker and Containerd to run on system boot</h3>
+
+<ol>
+  <li>systemctl enable –now docker containerd</li>
+</ol>
+
+<h3 id="running-docker-as-a-non-root-user">Running Docker as a non-root user</h3>
+
+<ol>
+  <li>
+    <p>exit # Back to normal user</p>
+  </li>
+  <li>
+    <p>sudo usermod -aG docker ${USER}</p>
+  </li>
+</ol>
+
+<p>Done</p>
+
+
+                
+                    <p><a href="/post/linux/install-docker-ce-on-ubuntu-20-04.html" role="button">Read More</a></p>
+                
+            </div>
+
+            <footer class="post-footer">
+                <div class="share">Share
+                    <ul class="social-networks">
+                        <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Install Docker CE on Ubuntu 20.04&p[summary]=Install Docker CE
+
+
+  
+    apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+  
+  
+    
+      
+...&p[url]=https://www.ardikars.com/post/linux/install-docker-ce-on-ubuntu-20-04.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                        <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/linux/install-docker-ce-on-ubuntu-20-04.html&text=Install Docker CE
+
+
+  
+    apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+  
+  
+    
+      
+...&hashtags=install,docker,container," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+                    </ul>
+                </div>
+                
+                <div class="tags">
+                    <ul>
+                        
+                        <li><a href="https://www.ardikars.com/tag/install">install</a></li>
+                        
+                        <li><a href="https://www.ardikars.com/tag/docker">docker</a></li>
+                        
+                        <li><a href="https://www.ardikars.com/tag/container">container</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </footer>
+        </article>
+        
+    
+        
+    
+        
+    
+
+    
+        
+        <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <ul>
+                    <li><time datetime="2020-07-09T22:45:00+00:00" itemprop="datePublished">9 Jul, 2020</time></li>
+                    
+                </ul>
+                <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/linux/install-gns3-on-ubuntu-20-04.html">Install GNS3 on Ubuntu 20.04</a></h2>
+            </header>
+
+            <div class="post-content">
+                <h3 id="install-gns3">Install GNS3</h3>
+
+<ol>
+  <li>
+    <p><code class="highlighter-rouge">sudo add-apt-repository ppa:gns3/ppa</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">sudo apt update</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">sudo apt install gns3-server gns3-gui</code></p>
+  </li>
+</ol>
+
+<h3 id="install-iou-support-optional">Install IOU Support (Optional)</h3>
+
+<p>IOU (IOS over Unix) is an internal Cisco tool for simulating the ASICs in Cisco Switches. This enables you to play with Layer 2 switching in your LABS.</p>
+
+<ol>
+  <li><code class="highlighter-rouge">sudo dpkg --add-architecture i386</code></li>
+  <li><code class="highlighter-rouge">sudo apt update</code></li>
+  <li><code class="highlighter-rouge">sudo apt install gns3-iou</code></li>
+</ol>
+
+<h3 id="add-your-user-to-the-following-groups">Add your user to the following groups:</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>i <span class="k">in </span>ubridge libvirt kvm wireshark<span class="p">;</span> <span class="k">do
+  </span><span class="nb">sudo </span>usermod <span class="nt">-aG</span> <span class="nv">$i</span> <span class="nv">$USER</span>
+<span class="k">done</span>
+</code></pre></div></div>
+
+<p>Done.</p>
+
+
+                
+                    <p><a href="/post/linux/install-gns3-on-ubuntu-20-04.html" role="button">Read More</a></p>
+                
+            </div>
+
+            <footer class="post-footer">
+                <div class="share">Share
+                    <ul class="social-networks">
+                        <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Install GNS3 on Ubuntu 20.04&p[summary]=Install GNS3
+
+
+  
+    sudo add-apt-repository ppa:gns3/ppa
+  
+  
+    sudo apt update
+  
+  
+    sudo apt install gns3-server gns3-gui
+  
+
+...&p[url]=https://www.ardikars.com/post/linux/install-gns3-on-ubuntu-20-04.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                        <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/linux/install-gns3-on-ubuntu-20-04.html&text=Install GNS3
+
+
+  
+    sudo add-apt-repository ppa:gns3/ppa
+  
+  
+    sudo apt update
+  
+  
+    sudo apt install gns3-server gns3-gui
+  
+
+...&hashtags=install,gns3,networking," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+                    </ul>
+                </div>
+                
+                <div class="tags">
+                    <ul>
+                        
+                        <li><a href="https://www.ardikars.com/tag/install">install</a></li>
+                        
+                        <li><a href="https://www.ardikars.com/tag/gns3">gns3</a></li>
+                        
+                        <li><a href="https://www.ardikars.com/tag/networking">networking</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </footer>
+        </article>
+        
+    
+        
+    
+        
+    
 
     
         
