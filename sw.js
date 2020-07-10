@@ -14,14 +14,26 @@ self.addEventListener('activate', evt => {
 
 // fetch event
 self.addEventListener('fetch', evt => {
+    const requestURL = new URL(event.request.url);
+    console.log(requestURL);
     evt.respondWith(
+        // try cache
         caches.match(evt.request).then(cacheRes => {
-            return cacheRes || fetch(evt.request).then(fetchRes => {
+            if (cacheRes) {
+                return cacheRes; // returns response from cache.
+            }
+            // fallback to network
+            return fetch(evt.request).then(fetchRes => {
                 return caches.open(dynamicCacheName).then(cache => {
                     cache.put(evt.request.url, fetchRes.clone());
                     return fetchRes;
                 })
             });
+        }).catch(function() {
+          // If both fail, show a generic fallback
+            return fetch(evt.request).then(fetchRes => {
+                return fetchRes;
+            })
         })
     );
 });
