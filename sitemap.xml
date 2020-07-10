@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://www.ardikars.com/post/linux/create-a-bootable-usb-on-linux.html</loc>
-<lastmod>2019-07-09T21:23:00+00:00</lastmod>
-</url>
-<url>
 <loc>https://www.ardikars.com/post/security/diffie-hellman-mitm-attack.html</loc>
 <lastmod>2019-08-29T10:41:00+00:00</lastmod>
 </url>
@@ -45,6 +41,10 @@
 <lastmod>2020-07-03T00:45:00+00:00</lastmod>
 </url>
 <url>
+<loc>https://www.ardikars.com/post/linux/create-a-bootable-usb-on-linux.html</loc>
+<lastmod>2020-07-09T21:23:00+00:00</lastmod>
+</url>
+<url>
 <loc>https://www.ardikars.com/post/linux/install-gns3-on-ubuntu-20-04.html</loc>
 <lastmod>2020-07-09T22:45:00+00:00</lastmod>
 </url>
@@ -63,15 +63,6 @@
 </url>
 <url>
 <loc>https://www.ardikars.com/about/</loc>
-</url>
-<url>
-<loc>https://www.ardikars.com/tag/bootable/</loc>
-</url>
-<url>
-<loc>https://www.ardikars.com/tag/install/</loc>
-</url>
-<url>
-<loc>https://www.ardikars.com/tag/os/</loc>
 </url>
 <url>
 <loc>https://www.ardikars.com/tag/cryptography/</loc>
@@ -116,6 +107,15 @@
 <loc>https://www.ardikars.com/tag/anonymity/</loc>
 </url>
 <url>
+<loc>https://www.ardikars.com/tag/bootable/</loc>
+</url>
+<url>
+<loc>https://www.ardikars.com/tag/install/</loc>
+</url>
+<url>
+<loc>https://www.ardikars.com/tag/os/</loc>
+</url>
+<url>
 <loc>https://www.ardikars.com/tag/gns3/</loc>
 </url>
 <url>
@@ -125,9 +125,6 @@
 <loc>https://www.ardikars.com/tag/container/</loc>
 </url>
 <url>
-<loc>https://www.ardikars.com/category/linux/</loc>
-</url>
-<url>
 <loc>https://www.ardikars.com/category/security/</loc>
 </url>
 <url>
@@ -135,6 +132,9 @@
 </url>
 <url>
 <loc>https://www.ardikars.com/category/cryptography/</loc>
+</url>
+<url>
+<loc>https://www.ardikars.com/category/linux/</loc>
 </url>
 <url>
 <loc>https://www.ardikars.com/category/android/</loc>

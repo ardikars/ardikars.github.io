@@ -239,6 +239,91 @@
 <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
+            <li><time datetime="2019-08-29T14:35:00+00:00" itemprop="datePublished">29 Aug, 2019</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/math/square-and-multiply-example.html">Square and Multiply</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>11^37 = ?</p>
+
+<p>37 = 100101 in binary</p>
+
+<ul>
+  <li>
+    <p>1 -&gt; fist one list number          = 11</p>
+  </li>
+  <li>
+    <p>0 -&gt; square                                    = (11)^2</p>
+  </li>
+  <li>
+    <p>0 -&gt; square                                    = ((11)^2)^2</p>
+  </li>
+  <li>
+    <p>1 -&gt; square + multiply              = (((11)^2)^2)^2*11</p>
+  </li>
+  <li>
+    <p>0 -&gt; square                                    = ((((11)^2)^2)^2*11)^2</p>
+  </li>
+  <li>
+    <p>1 -&gt; square + multiply              = (((((11)^2)^2)^2*11)^2)^2*11</p>
+  </li>
+</ul>
+
+
+
+        
+            <p><a href="https://www.ardikars.com/post/math/square-and-multiply-example.html" role="button">Read More</a></p>
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Square and Multiply&p[summary]=11^37 = ?
+
+37 = 100101 in binary
+
+
+  
+    1 -&gt; fist one list number          = 11
+  
+  
+    0 -&gt; square                            ...&p[url]=https://www.ardikars.com/post/math/square-and-multiply-example.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/math/square-and-multiply-example.html&text=11^37 = ?
+
+37 = 100101 in binary
+
+
+  
+    1 -&gt; fist one list number          = 11
+  
+  
+    0 -&gt; square                            ...&hashtags=cryptography,security,math,algorithm," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+                <li><a href="https://www.ardikars.com/tag/cryptography">cryptography</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/security">security</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/math">math</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/algorithm">algorithm</a></li>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
             <li><time datetime="2019-08-29T10:41:00+00:00" itemprop="datePublished">29 Aug, 2019</time></li>
             
         </ul>
@@ -368,90 +453,6 @@ A = Alice public key (publ...&hashtags=cryptography,security,math,mitm," rel="no
                 <li><a href="https://www.ardikars.com/tag/math">math</a></li>
                 
                 <li><a href="https://www.ardikars.com/tag/mitm">mitm</a></li>
-                
-            </ul>
-        </div>
-        
-    </footer>
-</article>
-
-<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-        <ul>
-            <li><time datetime="2019-07-09T21:23:00+00:00" itemprop="datePublished">9 Jul, 2019</time></li>
-            
-        </ul>
-        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/linux/create-a-bootable-usb-on-linux.html">Create a bootable USB on Linux</a></h2>
-    </header>
-
-    <div class="post-content">
-        <h3 id="unmount-and-format-usb-drive-fat32">Unmount and format USB drive (FAT32)</h3>
-
-<ul>
-  <li>
-    <p><code class="highlighter-rouge"># umount /dev/sdX</code></p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge"># mkfs.vfat /dev/sdX</code></p>
-  </li>
-</ul>
-
-<h3 id="write-into-usb-drive">Write into USB drive</h3>
-<ul>
-  <li><code class="highlighter-rouge"># dd bs=4M if=ubuntu-20.04-desktop-amd64.iso of=/dev/sdX status=progress oflag=sync</code></li>
-</ul>
-
-<h3 id="reboot">Reboot</h3>
-<ul>
-  <li><code class="highlighter-rouge"># shutdown -r 0</code></li>
-</ul>
-
-
-        
-    </div>
-
-    <footer class="post-footer">
-        <div class="share">Share
-            <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Create a bootable USB on Linux&p[summary]=Unmount and format USB drive (FAT32)
-
-
-  
-    # umount /dev/sdX
-  
-  
-    # mkfs.vfat /dev/sdX
-  
-
-
-Write into USB drive
-
-  # dd bs=4M if...&p[url]=https://www.ardikars.com/post/linux/create-a-bootable-usb-on-linux.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/linux/create-a-bootable-usb-on-linux.html&text=Unmount and format USB drive (FAT32)
-
-
-  
-    # umount /dev/sdX
-  
-  
-    # mkfs.vfat /dev/sdX
-  
-
-
-Write into USB drive
-
-  # dd bs=4M if...&hashtags=bootable,install,os," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
-            </ul>
-        </div>
-        
-        <div class="tags">
-            <ul>
-                
-                <li><a href="https://www.ardikars.com/tag/bootable">bootable</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/install">install</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/os">os</a></li>
                 
             </ul>
         </div>
