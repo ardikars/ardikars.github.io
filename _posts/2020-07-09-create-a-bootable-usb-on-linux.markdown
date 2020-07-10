@@ -1,6 +1,6 @@
 ---
 title: Create a bootable USB on Linux
-date: 2019-07-09 21:23:00 Z
+date: 2020-07-09 21:23:00 Z
 categories:
 - linux
 tags:
