@@ -144,6 +144,15 @@ var index = lunr(function () {
     });
     
 
+    index.add({
+      title: "Install Mongo DB CE on Ubuntu 20.04",
+      category: null,
+      content: "\n  Import the public key used by the package management system.\n\n\n\n  \n    sudo apt-get update &amp;&amp; sudo apt-get install gnupg\n  \n  \n    wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -\n  \n\n\n\n  Add Mongo DB repository.\n\n\n\n  echo \"deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse\" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list\n\n\n\n  Install Mongo DB\n\n\n\n  sudo apt-get update &amp;&amp; sudo apt-get install -y mongodb-org\n\n\n\n  Start on Boot\n\n\n\n  sudo systemctl enable mongod.service\n\n",
+      tags: ["nosql","install","linux"],
+      id: 15
+    });
+    
+
 
 var store = [{
     "title": "Granting Capability CAP_NET_RAW and CAP_NET_ADMIN",
@@ -250,6 +259,13 @@ var store = [{
     "date": "August 29, 2019",
     "category": null,
     "excerpt": "p = prime number (public) g = modulus (public) a = Alice private key (private) b = Bob private key..."
+},{
+    "title": "Install Mongo DB CE on Ubuntu 20.04",
+    "link": "/post/database/install-mongo-db-ce-on-ubuntu-20-04.html",
+    "image": null,
+    "date": "July 20, 2012",
+    "category": null,
+    "excerpt": "Import the public key used by the package management system. sudo apt-get update &amp;&amp; sudo apt-get install gnupg wget -qO..."
 }]
 
 $(document).ready(function() {
