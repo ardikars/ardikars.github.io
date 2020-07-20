@@ -2,12 +2,11 @@
 title: Install Nginx and Let's Encrypt on Ubuntu 20.04
 date: 2020-07-20 09:41:00 Z
 categories:
-- web-server
+- server
 tags:
 - https
 - linux
 - proxy
-- load-balancer
 layout: post
 ---
 
