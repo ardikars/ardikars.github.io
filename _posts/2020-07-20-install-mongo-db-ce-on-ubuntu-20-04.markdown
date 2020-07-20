@@ -1,6 +1,6 @@
 ---
 title: Install Mongo DB CE on Ubuntu 20.04
-date: 2012-07-20 08:34 Z
+date: 2020-07-20 08:34 Z
 categories:
 - database
 tags:
