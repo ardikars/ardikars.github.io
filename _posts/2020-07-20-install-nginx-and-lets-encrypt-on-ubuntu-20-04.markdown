@@ -16,23 +16,23 @@ layout: post
 
 # Installation process
 
-1. `sudo apt update`
+* `sudo apt update`
 
-2. `sudo apt install nginx`
+* `sudo apt install nginx`
 
-3. `sudo systemctl enable nginx`
+* `sudo systemctl enable nginx`
 
-4. `sudo apt install certbot`
+* `sudo apt install certbot`
 
-5. `sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048`
+* `sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048`
 
-6. `sudo mkdir -p /var/lib/letsencrypt/.well-known`
+* `sudo mkdir -p /var/lib/letsencrypt/.well-known`
 
-7. `sudo chgrp www-data /var/lib/letsencrypt`
+* `sudo chgrp www-data /var/lib/letsencrypt`
 
-8. `sudo chmod g+s /var/lib/letsencrypt`
+* `sudo chmod g+s /var/lib/letsencrypt`
 
-9. `sudo vim /etc/nginx/snippets/letsencrypt.conf`
+* `sudo vim /etc/nginx/snippets/letsencrypt.conf`
 
 ```bash
 location ^~ /.well-known/acme-challenge/ {
@@ -43,7 +43,7 @@ location ^~ /.well-known/acme-challenge/ {
 }
 ```
 
-10. `sudo vim /etc/nginx/snippets/ssl.conf`
+* `sudo vim /etc/nginx/snippets/ssl.conf`
 
 ```bash
 ssl_dhparam /etc/ssl/certs/dhparam.pem;
@@ -66,7 +66,7 @@ add_header X-Frame-Options SAMEORIGIN;
 add_header X-Content-Type-Options nosniff;
 ```
 
-11. `sudo vim /etc/nginx/sites-available/dev.cmsnesia.com.conf`
+* `sudo vim /etc/nginx/sites-available/dev.cmsnesia.com.conf`
 
 ```bash
 server {
@@ -80,13 +80,13 @@ server {
 }
 ```
 
-12. `sudo ln -s /etc/nginx/sites-available/dev.cmsnesia.com.conf /etc/nginx/sites-enabled/`
+* `sudo ln -s /etc/nginx/sites-available/dev.cmsnesia.com.conf /etc/nginx/sites-enabled/`
 
-13. `sudo systemctl restart nginx`
+* `sudo systemctl restart nginx`
 
-14. `sudo certbot certonly --agree-tos --email cmsnesia@gmail.com --webroot -w /var/lib/letsencrypt/ -d dev.cmsnesia.com`
+* `sudo certbot certonly --agree-tos --email cmsnesia@gmail.com --webroot -w /var/lib/letsencrypt/ -d dev.cmsnesia.com`
 
-15. `sudo vim /etc/nginx/sites-available/dev.cmsnesia.com.conf`
+* `sudo vim /etc/nginx/sites-available/dev.cmsnesia.com.conf`
 
 ```bash
 server {
@@ -96,6 +96,7 @@ server {
   
     root /var/www/html
     include snippets/letsencrypt.conf;
+    return 301 https://dev.cmsnesia.com$request_uri; # redirect http to https
 }
 
 server {
@@ -111,9 +112,9 @@ server {
 
 ```
 
-16. `sudo vim /etc/cron.d/certbot`
+* `sudo vim /etc/cron.d/certbot`
 ```bash
 0 */12 * * * root test -x /usr/bin/certbot -a \! -d /run/systemd/system && perl -e 'sleep int(rand(3600))' && certbot -q renew --renew-hook "systemctl reload nginx"
 ```
 
-17. `sudo certbot renew --dry-run`
+* `sudo certbot renew --dry-run`
