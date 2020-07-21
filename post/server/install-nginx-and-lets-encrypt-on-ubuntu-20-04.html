@@ -273,7 +273,7 @@
 
 <h1 id="installation-process">Installation process</h1>
 
-<ol>
+<ul>
   <li>
     <p><code class="highlighter-rouge">sudo apt update</code></p>
   </li>
@@ -301,7 +301,7 @@
   <li>
     <p><code class="highlighter-rouge">sudo vim /etc/nginx/snippets/letsencrypt.conf</code></p>
   </li>
-</ol>
+</ul>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location ^~ /.well-known/acme-challenge/ <span class="o">{</span>
   allow all<span class="p">;</span>
@@ -311,9 +311,9 @@
 <span class="o">}</span>
 </code></pre></div></div>
 
-<ol>
+<ul>
   <li><code class="highlighter-rouge">sudo vim /etc/nginx/snippets/ssl.conf</code></li>
-</ol>
+</ul>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssl_dhparam /etc/ssl/certs/dhparam.pem<span class="p">;</span>
 
@@ -335,9 +335,9 @@ add_header X-Frame-Options SAMEORIGIN<span class="p">;</span>
 add_header X-Content-Type-Options nosniff<span class="p">;</span>
 </code></pre></div></div>
 
-<ol>
+<ul>
   <li><code class="highlighter-rouge">sudo vim /etc/nginx/sites-available/dev.cmsnesia.com.conf</code></li>
-</ol>
+</ul>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server <span class="o">{</span>
   listen 80<span class="p">;</span>
@@ -350,7 +350,7 @@ add_header X-Content-Type-Options nosniff<span class="p">;</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
-<ol>
+<ul>
   <li>
     <p><code class="highlighter-rouge">sudo ln -s /etc/nginx/sites-available/dev.cmsnesia.com.conf /etc/nginx/sites-enabled/</code></p>
   </li>
@@ -363,7 +363,7 @@ add_header X-Content-Type-Options nosniff<span class="p">;</span>
   <li>
     <p><code class="highlighter-rouge">sudo vim /etc/nginx/sites-available/dev.cmsnesia.com.conf</code></p>
   </li>
-</ol>
+</ul>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server <span class="o">{</span>
     listen 80<span class="p">;</span>
@@ -372,6 +372,7 @@ add_header X-Content-Type-Options nosniff<span class="p">;</span>
   
     root /var/www/html
     include snippets/letsencrypt.conf<span class="p">;</span>
+    <span class="k">return </span>301 https://dev.cmsnesia.com<span class="nv">$request_uri</span><span class="p">;</span> <span class="c"># redirect http to https</span>
 <span class="o">}</span>
 
 server <span class="o">{</span>
@@ -387,13 +388,13 @@ server <span class="o">{</span>
 
 </code></pre></div></div>
 
-<ol>
+<ul>
   <li><code class="highlighter-rouge">sudo vim /etc/cron.d/certbot</code>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 <span class="k">*</span>/12 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> root <span class="nb">test</span> <span class="nt">-x</span> /usr/bin/certbot <span class="nt">-a</span> <span class="se">\!</span> <span class="nt">-d</span> /run/systemd/system <span class="o">&amp;&amp;</span> perl <span class="nt">-e</span> <span class="s1">'sleep int(rand(3600))'</span> <span class="o">&amp;&amp;</span> certbot <span class="nt">-q</span> renew <span class="nt">--renew-hook</span> <span class="s2">"systemctl reload nginx"</span>
 </code></pre></div>    </div>
   </li>
   <li><code class="highlighter-rouge">sudo certbot renew --dry-run</code></li>
-</ol>
+</ul>
 
     </div>
 

@@ -5,8 +5,8 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 21 Jul 2020 00:59:54 +0000</pubDate>
-    <lastBuildDate>Tue, 21 Jul 2020 00:59:54 +0000</lastBuildDate>
+    <pubDate>Tue, 21 Jul 2020 01:40:52 +0000</pubDate>
+    <lastBuildDate>Tue, 21 Jul 2020 01:40:52 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -19,7 +19,7 @@
 
 &lt;h1 id=&quot;installation-process&quot;&gt;Installation process&lt;/h1&gt;
 
-&lt;ol&gt;
+&lt;ul&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt update&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
@@ -47,7 +47,7 @@
   &lt;li&gt;
     &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo vim /etc/nginx/snippets/letsencrypt.conf&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;location ^~ /.well-known/acme-challenge/ &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
   allow all&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -57,9 +57,9 @@
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;ol&gt;
+&lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo vim /etc/nginx/snippets/ssl.conf&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssl_dhparam /etc/ssl/certs/dhparam.pem&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
@@ -81,9 +81,9 @@ add_header X-Frame-Options SAMEORIGIN&lt;span class=&quot;p&quot;&gt;;&lt;/span&
 add_header X-Content-Type-Options nosniff&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;ol&gt;
+&lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo vim /etc/nginx/sites-available/dev.cmsnesia.com.conf&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
   listen 80&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -96,7 +96,7 @@ add_header X-Content-Type-Options nosniff&lt;span class=&quot;p&quot;&gt;;&lt;/s
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;ol&gt;
+&lt;ul&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo ln -s /etc/nginx/sites-available/dev.cmsnesia.com.conf /etc/nginx/sites-enabled/&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
@@ -109,7 +109,7 @@ add_header X-Content-Type-Options nosniff&lt;span class=&quot;p&quot;&gt;;&lt;/s
   &lt;li&gt;
     &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo vim /etc/nginx/sites-available/dev.cmsnesia.com.conf&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
     listen 80&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -118,6 +118,7 @@ add_header X-Content-Type-Options nosniff&lt;span class=&quot;p&quot;&gt;;&lt;/s
   
     root /var/www/html
     include snippets/letsencrypt.conf&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return &lt;/span&gt;301 https://dev.cmsnesia.com&lt;span class=&quot;nv&quot;&gt;$request_uri&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# redirect http to https&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
 server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
@@ -133,13 +134,13 @@ server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;ol&gt;
+&lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo vim /etc/cron.d/certbot&lt;/code&gt;
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/12 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; root &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-x&lt;/span&gt; /usr/bin/certbot &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\!&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; /run/systemd/system &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; perl &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'sleep int(rand(3600))'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; certbot &lt;span class=&quot;nt&quot;&gt;-q&lt;/span&gt; renew &lt;span class=&quot;nt&quot;&gt;--renew-hook&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;systemctl reload nginx&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo certbot renew --dry-run&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 </description>
         <pubDate>Mon, 20 Jul 2020 09:41:00 +0000</pubDate>
         <link>https://www.ardikars.com/post/server/install-nginx-and-lets-encrypt-on-ubuntu-20-04.html</link>
