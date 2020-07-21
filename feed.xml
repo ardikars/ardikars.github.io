@@ -5,8 +5,8 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 21 Jul 2020 01:49:54 +0000</pubDate>
-    <lastBuildDate>Tue, 21 Jul 2020 01:49:54 +0000</lastBuildDate>
+    <pubDate>Tue, 21 Jul 2020 01:53:01 +0000</pubDate>
+    <lastBuildDate>Tue, 21 Jul 2020 01:53:01 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -197,9 +197,7 @@ server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
     
       <item>
         <title>Install Mongo DB CE on Ubuntu 20.04</title>
-        <description>&lt;ol&gt;
-  &lt;li&gt;Import the public key used by the package management system.&lt;/li&gt;
-&lt;/ol&gt;
+        <description>&lt;h1 id=&quot;import-the-public-key-used-by-the-package-management-system&quot;&gt;Import the public key used by the package management system&lt;/h1&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -210,25 +208,19 @@ server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Add Mongo DB repository.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h1 id=&quot;add-mongo-db-repository&quot;&gt;Add Mongo DB repository&lt;/h1&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;echo &quot;deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse&quot; | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Install Mongo DB&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h1 id=&quot;install-mongo-db&quot;&gt;Install Mongo DB&lt;/h1&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install -y mongodb-org&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Start on Boot&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h1 id=&quot;start-mondo-db-on-boot&quot;&gt;Start Mondo DB on Boot&lt;/h1&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemctl enable mongod.service&lt;/code&gt;&lt;/li&gt;
