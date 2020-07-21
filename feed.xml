@@ -5,9 +5,210 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 20 Jul 2020 08:08:53 +0000</pubDate>
-    <lastBuildDate>Mon, 20 Jul 2020 08:08:53 +0000</lastBuildDate>
+    <pubDate>Tue, 21 Jul 2020 00:59:54 +0000</pubDate>
+    <lastBuildDate>Tue, 21 Jul 2020 00:59:54 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Install Nginx and Let's Encrypt on Ubuntu 20.04</title>
+        <description>&lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You have domain name pointing to your server public IP.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;installation-process&quot;&gt;Installation process&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt update&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install nginx&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemctl enable nginx&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install certbot&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo mkdir -p /var/lib/letsencrypt/.well-known&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo chgrp www-data /var/lib/letsencrypt&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo chmod g+s /var/lib/letsencrypt&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo vim /etc/nginx/snippets/letsencrypt.conf&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;location ^~ /.well-known/acme-challenge/ &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  allow all&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  root /var/lib/letsencrypt/&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  default_type &lt;span class=&quot;s2&quot;&gt;&quot;text/plain&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  try_files &lt;span class=&quot;nv&quot;&gt;$uri&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;404&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo vim /etc/nginx/snippets/ssl.conf&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssl_dhparam /etc/ssl/certs/dhparam.pem&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+ssl_session_timeout 1d&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ssl_session_cache shared:SSL:50m&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ssl_session_tickets off&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+ssl_protocols TLSv1 TLSv1.1 TLSv1.2&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ssl_ciphers &lt;span class=&quot;s1&quot;&gt;'ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:ECDHE-ECDSA-DES-CBC3-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:DES-CBC3-SHA:!DSS'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ssl_prefer_server_ciphers on&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+ssl_stapling on&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ssl_stapling_verify on&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+resolver 8.8.8.8 8.8.4.4 &lt;span class=&quot;nv&quot;&gt;valid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;300s&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+resolver_timeout 30s&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+add_header Strict-Transport-Security &lt;span class=&quot;s2&quot;&gt;&quot;max-age=15768000; includeSubdomains; preload&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+add_header X-Frame-Options SAMEORIGIN&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+add_header X-Content-Type-Options nosniff&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo vim /etc/nginx/sites-available/dev.cmsnesia.com.conf&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  listen 80&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  listen &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;::]:80&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  server_name dev.cmsnesia.com&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  
+  root /var/www/html
+  
+  include snippets/letsencrypt.conf&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo ln -s /etc/nginx/sites-available/dev.cmsnesia.com.conf /etc/nginx/sites-enabled/&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemctl restart nginx&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo certbot certonly --agree-tos --email cmsnesia@gmail.com --webroot -w /var/lib/letsencrypt/ -d dev.cmsnesia.com&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo vim /etc/nginx/sites-available/dev.cmsnesia.com.conf&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    listen 80&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    listen &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;::]:80&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    server_name dev.cmsnesia.com&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  
+    root /var/www/html
+    include snippets/letsencrypt.conf&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    listen 443 ssl http2&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    server_name dev.cmsnesia.com&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    ssl_certificate /etc/letsencrypt/live/dev.cmsnesia.com/fullchain.pem&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    ssl_certificate_key /etc/letsencrypt/live/dev.cmsnesia.com/privkey.pem&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    ssl_trusted_certificate /etc/letsencrypt/live/dev.cmsnesia.com/chain.pem&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    include snippets/ssl.conf&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    include snippets/letsencrypt.conf&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo vim /etc/cron.d/certbot&lt;/code&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/12 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; root &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-x&lt;/span&gt; /usr/bin/certbot &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\!&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; /run/systemd/system &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; perl &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'sleep int(rand(3600))'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; certbot &lt;span class=&quot;nt&quot;&gt;-q&lt;/span&gt; renew &lt;span class=&quot;nt&quot;&gt;--renew-hook&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;systemctl reload nginx&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo certbot renew --dry-run&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Mon, 20 Jul 2020 09:41:00 +0000</pubDate>
+        <link>https://www.ardikars.com/post/server/install-nginx-and-lets-encrypt-on-ubuntu-20-04.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/server/install-nginx-and-lets-encrypt-on-ubuntu-20-04.html</guid>
+        
+        <category>https</category>
+        
+        <category>linux</category>
+        
+        <category>proxy</category>
+        
+        
+        <category>server</category>
+        
+      </item>
+    
+      <item>
+        <title>Install Mongo DB CE on Ubuntu 20.04</title>
+        <description>&lt;ol&gt;
+  &lt;li&gt;Import the public key used by the package management system.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install gnupg&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Add Mongo DB repository.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;echo &quot;deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse&quot; | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Install Mongo DB&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install -y mongodb-org&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Start on Boot&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemctl enable mongod.service&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 20 Jul 2020 08:34:00 +0000</pubDate>
+        <link>https://www.ardikars.com/post/database/install-mongo-db-ce-on-ubuntu-20-04.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/database/install-mongo-db-ce-on-ubuntu-20-04.html</guid>
+        
+        <category>nosql</category>
+        
+        <category>install</category>
+        
+        <category>linux</category>
+        
+        
+        <category>database</category>
+        
+      </item>
     
       <item>
         <title>Granting Capability CAP_NET_RAW and CAP_NET_ADMIN</title>
@@ -338,124 +539,6 @@
         
         
         <category>linux</category>
-        
-      </item>
-    
-      <item>
-        <title>ARP - MITM Detection Method</title>
-        <description>&lt;p&gt;Sedikit tengan ARP&lt;/p&gt;
-
-&lt;p&gt;ARP merupakan protokol yang digunakan untuk memetakan alamat fisik (MAC) dan logika (IP). Proses pemetaan ini sering dimanfaatkan oleh penyerang dengan cara memalsukan isi dari peta (ARP table) tersebut sehingga ia dapat menguasai komunikasi yang bergantung pada isi dari peta tersebut (routing).&lt;/p&gt;
-
-&lt;p&gt;Berikut metode yang saya gunakan untuk mendeteksi proses pemalsuan tersebut.&lt;/p&gt;
-
-&lt;p&gt;Disini saya menggunakan TCP-Syn untuk memancing penyerang. Kenapa? Karena jika menggunakan protokol seperti ICMP maka penyerang bisa saja membuat firewall untuk mem-blok semua paket ICMP yang datang.&lt;/p&gt;
-
-&lt;p&gt;Dengan menggunakan TCP-Syn dengan port yang kita buat acak, pengerang tentu tidak dapat menebak port tersebut dan memblok nya.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;p&gt;Di bawah ini adalah coret2 saya dahulu kala.&lt;/p&gt;
-
-&lt;figure class=&quot;aligncenter&quot;&gt;
-    &lt;img src=&quot;/uploads/2019-08-31-arp-mitm-detaction-method-1.png&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&quot;aligncenter&quot;&gt;
-    &lt;img src=&quot;/uploads/2019-08-31-arp-mitm-detaction-method-2.png&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&quot;aligncenter&quot;&gt;
-    &lt;img src=&quot;/uploads/2019-08-31-arp-mitm-detaction-method-3.png&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&quot;aligncenter&quot;&gt;
-    &lt;img src=&quot;/uploads/2019-08-31-arp-mitm-detaction-method-4.png&quot; /&gt;
-&lt;/figure&gt;
-</description>
-        <pubDate>Sat, 31 Aug 2019 17:45:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/security/arp-mitm-detaction-method.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/security/arp-mitm-detaction-method.html</guid>
-        
-        <category>mitm</category>
-        
-        <category>security</category>
-        
-        <category>networking</category>
-        
-        
-        <category>security</category>
-        
-      </item>
-    
-      <item>
-        <title>RSA Small Key Problem</title>
-        <description>&lt;p&gt;Given public key = (7, 33).&lt;/p&gt;
-
-&lt;p&gt;Find private key (d).&lt;/p&gt;
-
-&lt;p&gt;n = 33 (modulus)&lt;/p&gt;
-
-&lt;p&gt;e = 7 (exponent)&lt;/p&gt;
-
-&lt;p&gt;let’s factoring n&lt;/p&gt;
-
-&lt;p&gt;n = p * q&lt;/p&gt;
-
-&lt;p&gt;33 = ? * ?&lt;/p&gt;
-
-&lt;p&gt;floor(sqrt(n)) = floor(sqrt(33)) = 5&lt;/p&gt;
-
-&lt;p&gt;33 mod 5 = 3 « not 0&lt;/p&gt;
-
-&lt;p&gt;33 mod 4 = 1 « no need to test (except for 2 all other prime numbers are odd)&lt;/p&gt;
-
-&lt;p&gt;33 mod 3 = 0 « we got p = 3&lt;/p&gt;
-
-&lt;p&gt;p = 3&lt;/p&gt;
-
-&lt;p&gt;33 = 3 * ?&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;p&gt;q = n / p&lt;/p&gt;
-
-&lt;p&gt;= 33 / 3&lt;/p&gt;
-
-&lt;p&gt;= 11&lt;/p&gt;
-
-&lt;p&gt;n = p * q&lt;/p&gt;
-
-&lt;p&gt;= 3 * 33&lt;/p&gt;
-
-&lt;p&gt;phi = ((p-1) * (q-1))&lt;/p&gt;
-
-&lt;p&gt;= (2 * 10)&lt;/p&gt;
-
-&lt;p&gt;= 20&lt;/p&gt;
-
-&lt;p&gt;e * ? mod 20 = 1&lt;/p&gt;
-
-&lt;p&gt;7 * ? mod 20 = 1  « modInv&lt;/p&gt;
-
-&lt;p&gt;7 * 3 mod 20 = 1&lt;/p&gt;
-
-&lt;p&gt;ok, d = 3&lt;/p&gt;
-
-&lt;p&gt;private key (d) = (3, 33)&lt;/p&gt;
-</description>
-        <pubDate>Sat, 31 Aug 2019 03:39:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/security/rsa-small-key-problem.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/security/rsa-small-key-problem.html</guid>
-        
-        <category>algorithm</category>
-        
-        <category>math</category>
-        
-        <category>security</category>
-        
-        
-        <category>security</category>
         
       </item>
     
