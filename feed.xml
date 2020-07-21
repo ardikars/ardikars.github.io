@@ -5,9 +5,47 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 21 Jul 2020 01:40:52 +0000</pubDate>
-    <lastBuildDate>Tue, 21 Jul 2020 01:40:52 +0000</lastBuildDate>
+    <pubDate>Tue, 21 Jul 2020 01:49:54 +0000</pubDate>
+    <lastBuildDate>Tue, 21 Jul 2020 01:49:54 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Nginx HTTP Load Balancer</title>
+        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo vim /etc/nginx/nginx.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;c&quot;&gt;# round robin&lt;/span&gt;
+  upstream rumahpemuridan &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      server 127.0.0.1:8081 &lt;span class=&quot;nv&quot;&gt;weight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      server 127.0.0.1:8082 &lt;span class=&quot;nv&quot;&gt;max_conns&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      queue 100 &lt;span class=&quot;nb&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;70&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    listen 80&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    server_name rumahpemuridan.com&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    location / &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      proxy_pass http://rumahpemuridan&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Mon, 20 Jul 2020 12:41:00 +0000</pubDate>
+        <link>https://www.ardikars.com/post/scaling/nginx-http-load-balancer.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/scaling/nginx-http-load-balancer.html</guid>
+        
+        <category>load-balancer</category>
+        
+        <category>nginx</category>
+        
+        <category>proxy</category>
+        
+        
+        <category>scaling</category>
+        
+      </item>
     
       <item>
         <title>Install Nginx and Let's Encrypt on Ubuntu 20.04</title>
@@ -517,29 +555,6 @@ server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         
         
         <category>android</category>
-        
-      </item>
-    
-      <item>
-        <title>Fix RTL8822BE driver on Debian based system</title>
-        <description>&lt;p&gt;Below script tested on Kali Linux 2020.1b (Kernel 5.4.0)&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; /lib/firmware/rtw88
-&lt;span class=&quot;nb&quot;&gt;sudo cp&lt;/span&gt; /lib/firmware/rtlwifi/rtl8822befw.bin /lib/firmware/rtw88/rtw8822b_fw.bin
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;reboot
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;!--more--&gt;
-</description>
-        <pubDate>Thu, 16 Apr 2020 06:45:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/linux/fix-rtl8822be-driver-on-debian-based-system.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/linux/fix-rtl8822be-driver-on-debian-based-system.html</guid>
-        
-        <category>driver</category>
-        
-        <category>wifi</category>
-        
-        
-        <category>linux</category>
         
       </item>
     

@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Granting Capability CAP_NET_RAW and CAP_NET_ADMIN | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
-    <meta property="og:title" content="Granting Capability CAP_NET_RAW and CAP_NET_ADMIN | Ardika Rommy Sanjaya &mdash; Software Engineer " />
-    <meta name="twitter:title" content="Granting Capability CAP_NET_RAW and CAP_NET_ADMIN | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <title>Nginx HTTP Load Balancer | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
+    <meta property="og:title" content="Nginx HTTP Load Balancer | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <meta name="twitter:title" content="Nginx HTTP Load Balancer | Ardika Rommy Sanjaya &mdash; Software Engineer " />
 
     <meta name="description" content="Catatan ngopek suka2.">
     <meta name="description" property="og:description" content="Catatan ngopek suka2." />
@@ -17,7 +17,7 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     
-    <meta property="og:url" content="https://www.ardikars.com/post/linux/granting-capability-CAP_NET_RAW-and-CAP_NET_ADMIN.html" />
+    <meta property="og:url" content="https://www.ardikars.com/post/scaling/nginx-http-load-balancer.html" />
 
     <meta property="og:image" content="" />
     <meta name="twitter:image" content="" />
@@ -96,7 +96,7 @@
     
     <link rel="stylesheet" href="https://www.ardikars.com/assets/css/main.css">
 
-    <link rel="canonical" href="https://www.ardikars.com/post/linux/granting-capability-CAP_NET_RAW-and-CAP_NET_ADMIN.html">
+    <link rel="canonical" href="https://www.ardikars.com/post/scaling/nginx-http-load-balancer.html">
 
     <link rel="alternate" type="application/rss+xml" title="Ardika Rommy Sanjaya" href="https://www.ardikars.com/feed.xml">
 </head>
@@ -264,33 +264,66 @@
                 <article class="post single" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
-            <li><time datetime="2020-07-10T17:45:00+00:00" itemprop="datePublished">10 Jul, 2020</time></li>
+            <li><time datetime="2020-07-20T12:41:00+00:00" itemprop="datePublished">20 Jul, 2020</time></li>
             
         </ul>
-        <h2 itemprop="name headline">Granting Capability CAP_NET_RAW and CAP_NET_ADMIN</h2>
+        <h2 itemprop="name headline">Nginx HTTP Load Balancer</h2>
     </header>
 
     <div class="post-content">
-        <p><code class="highlighter-rouge">$ sudo setcap cap_net_raw,cap_net_admin=eip /path/to/java</code></p>
+        <p><code class="highlighter-rouge">$ sudo vim /etc/nginx/nginx.conf</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http <span class="o">{</span>
+
+  <span class="c"># round robin</span>
+  upstream rumahpemuridan <span class="o">{</span>
+      server 127.0.0.1:8081 <span class="nv">weight</span><span class="o">=</span>3<span class="p">;</span>
+      server 127.0.0.1:8082 <span class="nv">max_conns</span><span class="o">=</span>2<span class="p">;</span>
+      queue 100 <span class="nb">timeout</span><span class="o">=</span>70<span class="p">;</span>
+  <span class="o">}</span>
+
+  server <span class="o">{</span>
+    listen 80<span class="p">;</span>
+    server_name rumahpemuridan.com<span class="p">;</span>
+    location / <span class="o">{</span>
+      proxy_pass http://rumahpemuridan<span class="p">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
     </div>
 
     <footer class="post-footer">
         <div class="share">Share
             <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Granting Capability CAP_NET_RAW and CAP_NET_ADMIN&p[summary]=$ sudo setcap cap_net_raw,cap_net_admin=eip /path/to/java
-&p[url]=https://www.ardikars.com/post/linux/granting-capability-CAP_NET_RAW-and-CAP_NET_ADMIN.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/linux/granting-capability-CAP_NET_RAW-and-CAP_NET_ADMIN.html&text=$ sudo setcap cap_net_raw,cap_net_admin=eip /path/to/java
-&hashtags=java,setcap," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Nginx HTTP Load Balancer&p[summary]=$ sudo vim /etc/nginx/nginx.conf
+
+http {
+
+  # round robin
+  upstream rumahpemuridan {
+      server 127.0.0.1:8081 weight=3;
+      server ...&p[url]=https://www.ardikars.com/post/scaling/nginx-http-load-balancer.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/scaling/nginx-http-load-balancer.html&text=$ sudo vim /etc/nginx/nginx.conf
+
+http {
+
+  # round robin
+  upstream rumahpemuridan {
+      server 127.0.0.1:8081 weight=3;
+      server ...&hashtags=load-balancer,nginx,proxy," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
             </ul>
         </div>
         
         <div class="tags">
             <ul>
                 
-                <li><a href="https://www.ardikars.com/tag/java">java</a></li>
+                <li><a href="https://www.ardikars.com/tag/load-balancer">load-balancer</a></li>
                 
-                <li><a href="https://www.ardikars.com/tag/setcap">setcap</a></li>
+                <li><a href="https://www.ardikars.com/tag/nginx">nginx</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/proxy">proxy</a></li>
                 
             </ul>
         </div>
