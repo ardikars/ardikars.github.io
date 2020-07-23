@@ -5,15 +5,13 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 23 Jul 2020 06:54:47 +0000</pubDate>
-    <lastBuildDate>Thu, 23 Jul 2020 06:54:47 +0000</lastBuildDate>
+    <pubDate>Thu, 23 Jul 2020 13:15:38 +0000</pubDate>
+    <lastBuildDate>Thu, 23 Jul 2020 13:15:38 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
         <title>Compile and Install Linux Kernel on Ubuntu 20.04</title>
-        <description>&lt;h1 id=&quot;-used-for-trying-new-kernel-api&quot;&gt;*) Used for trying new kernel API&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison&lt;/code&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.7.10.tar.xz&lt;/code&gt;&lt;/p&gt;
 
@@ -27,13 +25,15 @@
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;make&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;make modules_install&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo make modules_install&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo make install&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo update-initramfs -c -k 5.7.10&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo update-grub&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;*) used for trying new kernel api from linux (io_uring).&lt;/p&gt;
 </description>
         <pubDate>Wed, 22 Jul 2020 12:41:00 +0000</pubDate>
         <link>https://www.ardikars.com/post/kernel/compile-and-install-linux-kernel-on-ubuntu-20-04.html</link>

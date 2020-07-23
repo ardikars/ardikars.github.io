@@ -12,7 +12,7 @@ var index = lunr(function () {
     index.add({
       title: "Compile and Install Linux Kernel on Ubuntu 20.04",
       category: null,
-      content: "*) Used for trying new kernel API\n\nsudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison\n\nwget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.7.10.tar.xz\n\ntar xvf linux-5.7.10.tar.xz\n\ncd linux-5.7.10\n\ncp /boot/config-$(uname -r) .config\n\nmake menuconfig\n\nmake\n\nmake modules_install\n\nsudo make install\n\nsudo update-initramfs -c -k 5.7.10\n\nsudo update-grub\n",
+      content: "sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison\n\nwget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.7.10.tar.xz\n\ntar xvf linux-5.7.10.tar.xz\n\ncd linux-5.7.10\n\ncp /boot/config-$(uname -r) .config\n\nmake menuconfig\n\nmake\n\nsudo make modules_install\n\nsudo make install\n\nsudo update-initramfs -c -k 5.7.10\n\nsudo update-grub\n\n*) used for trying new kernel api from linux (io_uring).\n",
       tags: ["build","install","linux"],
       id: 0
     });
@@ -187,7 +187,7 @@ var store = [{
     "image": null,
     "date": "July 22, 2020",
     "category": null,
-    "excerpt": "*) Used for trying new kernel API sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison..."
+    "excerpt": "sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.7.10.tar.xz tar xvf linux-5.7.10.tar.xz cd linux-5.7.10..."
 },{
     "title": "Nginx HTTP Load Balancer",
     "link": "/post/scaling/nginx-http-load-balancer.html",

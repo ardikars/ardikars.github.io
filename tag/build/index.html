@@ -282,9 +282,7 @@
             </header>
 
             <div class="post-content">
-                <h1 id="-used-for-trying-new-kernel-api">*) Used for trying new kernel API</h1>
-
-<p><code class="highlighter-rouge">sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison</code></p>
+                <p><code class="highlighter-rouge">sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison</code></p>
 
 <p><code class="highlighter-rouge">wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.7.10.tar.xz</code></p>
 
@@ -298,13 +296,15 @@
 
 <p><code class="highlighter-rouge">make</code></p>
 
-<p><code class="highlighter-rouge">make modules_install</code></p>
+<p><code class="highlighter-rouge">sudo make modules_install</code></p>
 
 <p><code class="highlighter-rouge">sudo make install</code></p>
 
 <p><code class="highlighter-rouge">sudo update-initramfs -c -k 5.7.10</code></p>
 
 <p><code class="highlighter-rouge">sudo update-grub</code></p>
+
+<p>*) used for trying new kernel api from linux (io_uring).</p>
 
 
                 
@@ -315,12 +315,12 @@
             <footer class="post-footer">
                 <div class="share">Share
                     <ul class="social-networks">
-                        <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Compile and Install Linux Kernel on Ubuntu 20.04&p[summary]=*) Used for trying new kernel API
+                        <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Compile and Install Linux Kernel on Ubuntu 20.04&p[summary]=sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison
 
-sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev b...&p[url]=https://www.ardikars.com/post/kernel/compile-and-install-linux-kernel-on-ubuntu-20-04.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                        <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/kernel/compile-and-install-linux-kernel-on-ubuntu-20-04.html&text=*) Used for trying new kernel API
+wget https://cdn.kernel.org/p...&p[url]=https://www.ardikars.com/post/kernel/compile-and-install-linux-kernel-on-ubuntu-20-04.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                        <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/kernel/compile-and-install-linux-kernel-on-ubuntu-20-04.html&text=sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison
 
-sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev b...&hashtags=build,install,linux," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+wget https://cdn.kernel.org/p...&hashtags=build,install,linux," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
                     </ul>
                 </div>
                 
