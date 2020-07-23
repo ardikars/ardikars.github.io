@@ -5,9 +5,50 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 21 Jul 2020 03:43:54 +0000</pubDate>
-    <lastBuildDate>Tue, 21 Jul 2020 03:43:54 +0000</lastBuildDate>
+    <pubDate>Thu, 23 Jul 2020 06:54:47 +0000</pubDate>
+    <lastBuildDate>Thu, 23 Jul 2020 06:54:47 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Compile and Install Linux Kernel on Ubuntu 20.04</title>
+        <description>&lt;h1 id=&quot;-used-for-trying-new-kernel-api&quot;&gt;*) Used for trying new kernel API&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.7.10.tar.xz&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;tar xvf linux-5.7.10.tar.xz&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd linux-5.7.10&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cp /boot/config-$(uname -r) .config&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;make menuconfig&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;make&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;make modules_install&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo make install&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo update-initramfs -c -k 5.7.10&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo update-grub&lt;/code&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 22 Jul 2020 12:41:00 +0000</pubDate>
+        <link>https://www.ardikars.com/post/kernel/compile-and-install-linux-kernel-on-ubuntu-20-04.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/kernel/compile-and-install-linux-kernel-on-ubuntu-20-04.html</guid>
+        
+        <category>build</category>
+        
+        <category>install</category>
+        
+        <category>linux</category>
+        
+        
+        <category>kernel</category>
+        
+      </item>
     
       <item>
         <title>Nginx HTTP Load Balancer</title>
@@ -485,65 +526,6 @@ server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         <category>tunnel</category>
         
         <category>anonymity</category>
-        
-        
-        <category>android</category>
-        
-      </item>
-    
-      <item>
-        <title>Unlock Nokia 3 Bootloader</title>
-        <description>&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Enable developer options&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Enable OEM Unlocking (OEM Unlock)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Enable USB debugging mode&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Change default USB configuration, choose File Transfer (MTP)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Install adb and fastboot (&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install android-tools-adb android-tools-fastboot&lt;/code&gt;)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Install nokia usb drive&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Connect your phone to your PC and approve all usb connection&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Type &lt;code class=&quot;highlighter-rouge&quot;&gt;adb devices&lt;/code&gt;, then it will show the serial number&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Type &lt;code class=&quot;highlighter-rouge&quot;&gt;adb reboot bootloader&lt;/code&gt;, then your devices will boot into fastboot mode&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Type &lt;code class=&quot;highlighter-rouge&quot;&gt;fastboot devices&lt;/code&gt;, to make sure that your device still connected to your PC and it will show your phone serial number&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Type &lt;code class=&quot;highlighter-rouge&quot;&gt;fastboot oem key $(echo -n &quot;YOUR_PHONE_SERIAL_NUMBER&quot; | md5sum | tr [a-z] [A-Z])&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Type &lt;code class=&quot;highlighter-rouge&quot;&gt;fastboot flashing unlock&lt;/code&gt;, your phone will ask you about unlocking bootloader&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Press vol up (yes)&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Thu, 02 Jul 2020 17:45:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/android/unlock-nokia-3-bootloader.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/android/unlock-nokia-3-bootloader.html</guid>
-        
-        <category>bootloader</category>
-        
-        <category>unlocking</category>
-        
-        <category>rooting</category>
         
         
         <category>android</category>

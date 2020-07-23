@@ -134,11 +134,15 @@
                 
             
                 
+                    <a href="https://www.ardikars.com/about/" >About</a>
+                
+            
+                
                     <a href="https://www.ardikars.com/portfolio/" >Portfolio</a>
                 
             
                 
-                    <a href="https://www.ardikars.com/about/" >About</a>
+            
                 
             
                 
@@ -265,6 +269,81 @@
 
                 <h1>Posts Tagged - install</h1>
 
+
+    
+        
+    
+        
+        <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <ul>
+                    <li><time datetime="2020-07-22T12:41:00+00:00" itemprop="datePublished">22 Jul, 2020</time></li>
+                    
+                </ul>
+                <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/kernel/compile-and-install-linux-kernel-on-ubuntu-20-04.html">Compile and Install Linux Kernel on Ubuntu 20.04</a></h2>
+            </header>
+
+            <div class="post-content">
+                <h1 id="-used-for-trying-new-kernel-api">*) Used for trying new kernel API</h1>
+
+<p><code class="highlighter-rouge">sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison</code></p>
+
+<p><code class="highlighter-rouge">wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.7.10.tar.xz</code></p>
+
+<p><code class="highlighter-rouge">tar xvf linux-5.7.10.tar.xz</code></p>
+
+<p><code class="highlighter-rouge">cd linux-5.7.10</code></p>
+
+<p><code class="highlighter-rouge">cp /boot/config-$(uname -r) .config</code></p>
+
+<p><code class="highlighter-rouge">make menuconfig</code></p>
+
+<p><code class="highlighter-rouge">make</code></p>
+
+<p><code class="highlighter-rouge">make modules_install</code></p>
+
+<p><code class="highlighter-rouge">sudo make install</code></p>
+
+<p><code class="highlighter-rouge">sudo update-initramfs -c -k 5.7.10</code></p>
+
+<p><code class="highlighter-rouge">sudo update-grub</code></p>
+
+
+                
+                    <p><a href="/post/kernel/compile-and-install-linux-kernel-on-ubuntu-20-04.html" role="button">Read More</a></p>
+                
+            </div>
+
+            <footer class="post-footer">
+                <div class="share">Share
+                    <ul class="social-networks">
+                        <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Compile and Install Linux Kernel on Ubuntu 20.04&p[summary]=*) Used for trying new kernel API
+
+sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev b...&p[url]=https://www.ardikars.com/post/kernel/compile-and-install-linux-kernel-on-ubuntu-20-04.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                        <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/kernel/compile-and-install-linux-kernel-on-ubuntu-20-04.html&text=*) Used for trying new kernel API
+
+sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev b...&hashtags=build,install,linux," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+                    </ul>
+                </div>
+                
+                <div class="tags">
+                    <ul>
+                        
+                        <li><a href="https://www.ardikars.com/tag/build">build</a></li>
+                        
+                        <li><a href="https://www.ardikars.com/tag/install">install</a></li>
+                        
+                        <li><a href="https://www.ardikars.com/tag/linux">linux</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </footer>
+        </article>
+        
+    
+        
+    
 
     
         
