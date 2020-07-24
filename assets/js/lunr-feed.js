@@ -10,9 +10,9 @@ var index = lunr(function () {
 
 
     index.add({
-      title: "Compile and Install Linux Kernel on Ubuntu 20.04",
+      title: "SSH tunneling without opening shell",
       category: null,
-      content: "ssh -D 8123 -fNT marshall-vpnjantit.com@103.129.220.168 -o \"ProxyCommand=./http-injector-client -x 192.168.43.173:44355 -P 'CONNECT 103.129.220.168:22 HTTP/1.1[crlf*2]'\"\n",
+      content: "ssh -D 8123 -fN cmsnesia-dev -o \"ProxyCommand=nc -X connect -x 192.168.43.173:44355 %h %p\"\n",
       tags: ["ssh","proxy","http"],
       id: 0
     });
@@ -191,12 +191,12 @@ var index = lunr(function () {
 
 
 var store = [{
-    "title": "Compile and Install Linux Kernel on Ubuntu 20.04",
-    "link": "/post/tunnelling/ssh-tunnel-without-shell.html",
+    "title": "SSH tunneling without opening shell",
+    "link": "/post/tunnelling/ssh-tunnel-without-opening-shell.html",
     "image": null,
     "date": "July 23, 2020",
     "category": null,
-    "excerpt": "ssh -D 8123 -fNT marshall-vpnjantit.com@103.129.220.168 -o \"ProxyCommand=./http-injector-client -x 192.168.43.173:44355 -P 'CONNECT 103.129.220.168:22 HTTP/1.1[crlf*2]'\"\n"
+    "excerpt": "ssh -D 8123 -fN cmsnesia-dev -o \"ProxyCommand=nc -X connect -x 192.168.43.173:44355 %h %p\"\n"
 },{
     "title": "Compile and Install Linux Kernel on Ubuntu 20.04",
     "link": "/post/kernel/compile-and-install-linux-kernel-on-ubuntu-20-04.html",
