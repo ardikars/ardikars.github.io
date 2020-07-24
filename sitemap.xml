@@ -77,6 +77,10 @@
 <lastmod>2020-07-22T12:41:00+00:00</lastmod>
 </url>
 <url>
+<loc>https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-shell.html</loc>
+<lastmod>2020-07-23T12:41:00+00:00</lastmod>
+</url>
+<url>
 <loc>https://www.ardikars.com/404</loc>
 </url>
 <url>
@@ -182,6 +186,12 @@
 <loc>https://www.ardikars.com/tag/build/</loc>
 </url>
 <url>
+<loc>https://www.ardikars.com/tag/ssh/</loc>
+</url>
+<url>
+<loc>https://www.ardikars.com/tag/http/</loc>
+</url>
+<url>
 <loc>https://www.ardikars.com/category/security/</loc>
 </url>
 <url>
@@ -207,6 +217,9 @@
 </url>
 <url>
 <loc>https://www.ardikars.com/category/kernel/</loc>
+</url>
+<url>
+<loc>https://www.ardikars.com/category/tunnelling/</loc>
 </url>
 <url>
 <loc>https://www.ardikars.com/page-2/</loc>
