@@ -71,6 +71,4 @@ p = 23, g = 5
 | -                                                | Sb = B ^ eA mod p = 10 ^ 6 mod 23 = 6         | Sbe = Ea ^ b mod p = 8 ^ 3 mod 23 = 6              |
 ```
 
-(Now Eve can intercept all data between Alice and Bob)
-
-[Click here for original \'markdown file\'](https://github.com/ardikars/ardikars.github.io/blob/master/_posts/2019-08-29-diffie-hellman-mitm-attack.markdown)
+(Now Eve can intercept connection between Alice and Bob)
