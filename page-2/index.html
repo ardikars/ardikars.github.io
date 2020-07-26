@@ -243,6 +243,12 @@
             
                 
             
+                
+            
+                
+            
+                
+            
         </div>
         
     
@@ -274,6 +280,86 @@
 
 
                 
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2020-07-20T08:34:00+00:00" itemprop="datePublished">20 Jul, 2020</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/database/install-mongo-db-ce-on-ubuntu-20-04.html">Install Mongo DB CE on Ubuntu 20.04</a></h2>
+    </header>
+
+    <div class="post-content">
+        <h1 id="import-the-public-key-used-by-the-package-management-system">Import the public key used by the package management system</h1>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">sudo apt-get update &amp;&amp; sudo apt-get install gnupg</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -</code></p>
+  </li>
+</ul>
+
+<h1 id="add-mongo-db-repository">Add Mongo DB repository</h1>
+
+<ul>
+  <li><code class="highlighter-rouge">echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list</code></li>
+</ul>
+
+<h1 id="install-mongo-db">Install Mongo DB</h1>
+
+<ul>
+  <li><code class="highlighter-rouge">sudo apt-get update &amp;&amp; sudo apt-get install -y mongodb-org</code></li>
+</ul>
+
+<h1 id="start-mondo-db-on-boot">Start Mondo DB on Boot</h1>
+
+<ul>
+  <li><code class="highlighter-rouge">sudo systemctl enable mongod.service</code></li>
+</ul>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Install Mongo DB CE on Ubuntu 20.04&p[summary]=Import the public key used by the package management system
+
+
+  
+    sudo apt-get update &amp;&amp; sudo apt-get install gnupg
+  
+  
+    ...&p[url]=https://www.ardikars.com/post/database/install-mongo-db-ce-on-ubuntu-20-04.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/database/install-mongo-db-ce-on-ubuntu-20-04.html&text=Import the public key used by the package management system
+
+
+  
+    sudo apt-get update &amp;&amp; sudo apt-get install gnupg
+  
+  
+    ...&hashtags=nosql,install,linux," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+                <li><a href="https://www.ardikars.com/tag/nosql">nosql</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/install">install</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/linux">linux</a></li>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
 <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
@@ -558,90 +644,6 @@
     </footer>
 </article>
 
-<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-        <ul>
-            <li><time datetime="2020-07-09T21:23:00+00:00" itemprop="datePublished">9 Jul, 2020</time></li>
-            
-        </ul>
-        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/linux/create-a-bootable-usb-on-linux.html">Create a bootable USB on Linux</a></h2>
-    </header>
-
-    <div class="post-content">
-        <h3 id="unmount-and-format-usb-drive-fat32">Unmount and format USB drive (FAT32)</h3>
-
-<ul>
-  <li>
-    <p><code class="highlighter-rouge"># umount /dev/sdX</code></p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge"># mkfs.vfat /dev/sdX</code></p>
-  </li>
-</ul>
-
-<h3 id="write-into-usb-drive">Write into USB drive</h3>
-<ul>
-  <li><code class="highlighter-rouge"># dd bs=4M if=ubuntu-20.04-desktop-amd64.iso of=/dev/sdX status=progress oflag=sync</code></li>
-</ul>
-
-<h3 id="reboot">Reboot</h3>
-<ul>
-  <li><code class="highlighter-rouge"># shutdown -r 0</code></li>
-</ul>
-
-
-        
-    </div>
-
-    <footer class="post-footer">
-        <div class="share">Share
-            <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Create a bootable USB on Linux&p[summary]=Unmount and format USB drive (FAT32)
-
-
-  
-    # umount /dev/sdX
-  
-  
-    # mkfs.vfat /dev/sdX
-  
-
-
-Write into USB drive
-
-  # dd bs=4M if...&p[url]=https://www.ardikars.com/post/linux/create-a-bootable-usb-on-linux.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/linux/create-a-bootable-usb-on-linux.html&text=Unmount and format USB drive (FAT32)
-
-
-  
-    # umount /dev/sdX
-  
-  
-    # mkfs.vfat /dev/sdX
-  
-
-
-Write into USB drive
-
-  # dd bs=4M if...&hashtags=bootable,install,os," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
-            </ul>
-        </div>
-        
-        <div class="tags">
-            <ul>
-                
-                <li><a href="https://www.ardikars.com/tag/bootable">bootable</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/install">install</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/os">os</a></li>
-                
-            </ul>
-        </div>
-        
-    </footer>
-</article>
-
 
 
 
@@ -650,7 +652,7 @@ Write into USB drive
         <a href="/" class="previous">&larr; Previous</a>
     
 
-    <span class="page_number">Page 2 of 4</span>
+    <span class="page_number">Page 2 of 5</span>
 
     
         <a href="/page-3/" class="next">Next &rarr;</a>

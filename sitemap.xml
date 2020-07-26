@@ -81,6 +81,10 @@
 <lastmod>2020-07-23T12:41:00+00:00</lastmod>
 </url>
 <url>
+<loc>https://www.ardikars.com/post/tunneling/ssh-tunneling-over-http-proxy.html</loc>
+<lastmod>2020-07-25T21:12:00+00:00</lastmod>
+</url>
+<url>
 <loc>https://www.ardikars.com/404</loc>
 </url>
 <url>
@@ -192,6 +196,9 @@
 <loc>https://www.ardikars.com/tag/http/</loc>
 </url>
 <url>
+<loc>https://www.ardikars.com/tag/injector/</loc>
+</url>
+<url>
 <loc>https://www.ardikars.com/category/security/</loc>
 </url>
 <url>
@@ -222,6 +229,9 @@
 <loc>https://www.ardikars.com/category/tunnelling/</loc>
 </url>
 <url>
+<loc>https://www.ardikars.com/category/tunneling/</loc>
+</url>
+<url>
 <loc>https://www.ardikars.com/page-2/</loc>
 </url>
 <url>
@@ -229,5 +239,8 @@
 </url>
 <url>
 <loc>https://www.ardikars.com/page-4/</loc>
+</url>
+<url>
+<loc>https://www.ardikars.com/page-5/</loc>
 </url>
 </urlset>
