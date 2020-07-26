@@ -165,7 +165,7 @@ var index = lunr(function () {
     index.add({
       title: "Square and Multiply",
       category: null,
-      content: "11^37 = ?\n\n37 = 100101 in binary\n\n\n  \n    1 -&gt; fist one list number          = 11\n  \n  \n    0 -&gt; square                                    = (11)^2\n  \n  \n    0 -&gt; square                                    = ((11)^2)^2\n  \n  \n    1 -&gt; square + multiply              = (((11)^2)^2)^2*11\n  \n  \n    0 -&gt; square                                    = ((((11)^2)^2)^2*11)^2\n  \n  \n    1 -&gt; square + multiply              = (((((11)^2)^2)^2*11)^2)^2*11\n  \n\n\n\n\nSimple implementation in python\n\n# x ^ h mod n\ndef modPow(x, h, n):\n    y = 1\n    h = bin(h)[2:] # convert h into binary\n    for i in range(len(h)):\n        y = (y ** 2) % n\n        if h[i] == '1':\n            y = (y * x) % n\n    return y\n\n",
+      content: "11^37 = ?\n\n37 = 100101 in binary\n\n\n  \n    1 -&gt; first “One” lists number          = 11\n  \n  \n    0 -&gt; square                                    = (11)^2\n  \n  \n    0 -&gt; square                                    = ((11)^2)^2\n  \n  \n    1 -&gt; square + multiply              = (((11)^2)^2)^2*11\n  \n  \n    0 -&gt; square                                    = ((((11)^2)^2)^2*11)^2\n  \n  \n    1 -&gt; square + multiply              = (((((11)^2)^2)^2*11)^2)^2*11\n  \n\n\n\n\nSimple implementation in python\n\n# x ^ h mod n\ndef modPow(x, h, n):\n    y = 1\n    h = bin(h)[2:] # convert h into binary\n    for i in range(len(h)):\n        y = (y ** 2) % n\n        if h[i] == '1':\n            y = (y * x) % n\n    return y\n\n",
       tags: ["cryptography","security","math","algorithm"],
       id: 17
     });
@@ -315,7 +315,7 @@ var store = [{
     "image": null,
     "date": "August 29, 2019",
     "category": null,
-    "excerpt": "11^37 = ? 37 = 100101 in binary 1 -&gt; fist one list number = 11 0 -&gt; square =..."
+    "excerpt": "11^37 = ? 37 = 100101 in binary 1 -&gt; first “One” lists number = 11 0 -&gt; square =..."
 },{
     "title": "Extended Euclidean",
     "link": "/post/math/extended-euclidean-example.html",
