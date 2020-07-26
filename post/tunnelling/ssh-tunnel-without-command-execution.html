@@ -17,7 +17,7 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     
-    <meta property="og:url" content="https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-opening-shell.html" />
+    <meta property="og:url" content="https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-command-execution.html" />
 
     <meta property="og:image" content="" />
     <meta name="twitter:image" content="" />
@@ -96,7 +96,7 @@
     
     <link rel="stylesheet" href="https://www.ardikars.com/assets/css/main.css">
 
-    <link rel="canonical" href="https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-opening-shell.html">
+    <link rel="canonical" href="https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-command-execution.html">
 
     <link rel="alternate" type="application/rss+xml" title="Ardika Rommy Sanjaya" href="https://www.ardikars.com/feed.xml">
 </head>
@@ -287,17 +287,41 @@
     </header>
 
     <div class="post-content">
-        <p><code class="highlighter-rouge">ssh -D 8123 -fN cmsnesia-dev -o "ProxyCommand=nc -X connect -x 192.168.43.173:44355 %h %p"</code></p>
+        <p><code class="highlighter-rouge">ssh -D 8123 -fN root@ardikars.com</code></p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">-D</code>: Create socks proxy, listening on port 8123</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">-f</code>: Requests ssh to go to background just before command execution.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">-N</code>: Do not execute a remote command.</p>
+  </li>
+</ul>
 
     </div>
 
     <footer class="post-footer">
         <div class="share">Share
             <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=SSH tunneling without opening shell&p[summary]=ssh -D 8123 -fN cmsnesia-dev -o "ProxyCommand=nc -X connect -x 192.168.43.173:44355 %h %p"
-&p[url]=https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-opening-shell.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-opening-shell.html&text=ssh -D 8123 -fN cmsnesia-dev -o "ProxyCommand=nc -X connect -x 192.168.43.173:44355 %h %p"
-&hashtags=ssh,proxy,http," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=SSH tunneling without opening shell&p[summary]=ssh -D 8123 -fN root@ardikars.com
+
+
+  
+    -D: Create socks proxy, listening on port 8123
+  
+  
+    -f: Requests ssh to go to background ...&p[url]=https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-command-execution.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-command-execution.html&text=ssh -D 8123 -fN root@ardikars.com
+
+
+  
+    -D: Create socks proxy, listening on port 8123
+  
+  
+    -f: Requests ssh to go to background ...&hashtags=ssh,proxy,http," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
             </ul>
         </div>
         

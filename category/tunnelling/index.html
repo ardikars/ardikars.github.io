@@ -288,25 +288,49 @@
             <li><time datetime="2020-07-23T12:41:00+00:00" itemprop="datePublished">23 Jul, 2020</time></li>
             
         </ul>
-        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-opening-shell.html">SSH tunneling without opening shell</a></h2>
+        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-command-execution.html">SSH tunneling without opening shell</a></h2>
     </header>
 
     <div class="post-content">
-        <p><code class="highlighter-rouge">ssh -D 8123 -fN cmsnesia-dev -o "ProxyCommand=nc -X connect -x 192.168.43.173:44355 %h %p"</code></p>
+        <p><code class="highlighter-rouge">ssh -D 8123 -fN root@ardikars.com</code></p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">-D</code>: Create socks proxy, listening on port 8123</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">-f</code>: Requests ssh to go to background just before command execution.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">-N</code>: Do not execute a remote command.</p>
+  </li>
+</ul>
 
 
         
-            <p><a href="/post/tunnelling/ssh-tunnel-without-opening-shell.html" role="button">Read More</a></p>
+            <p><a href="/post/tunnelling/ssh-tunnel-without-command-execution.html" role="button">Read More</a></p>
         
     </div>
 
     <footer class="post-footer">
         <div class="share">Share
             <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=SSH tunneling without opening shell&p[summary]=ssh -D 8123 -fN cmsnesia-dev -o "ProxyCommand=nc -X connect -x 192.168.43.173:44355 %h %p"
-&p[url]=https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-opening-shell.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-opening-shell.html&text=ssh -D 8123 -fN cmsnesia-dev -o "ProxyCommand=nc -X connect -x 192.168.43.173:44355 %h %p"
-&hashtags=ssh,proxy,http," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=SSH tunneling without opening shell&p[summary]=ssh -D 8123 -fN root@ardikars.com
+
+
+  
+    -D: Create socks proxy, listening on port 8123
+  
+  
+    -f: Requests ssh to go to background ...&p[url]=https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-command-execution.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-command-execution.html&text=ssh -D 8123 -fN root@ardikars.com
+
+
+  
+    -D: Create socks proxy, listening on port 8123
+  
+  
+    -f: Requests ssh to go to background ...&hashtags=ssh,proxy,http," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
             </ul>
         </div>
         

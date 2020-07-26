@@ -21,7 +21,7 @@ var index = lunr(function () {
     index.add({
       title: "SSH tunneling without opening shell",
       category: null,
-      content: "ssh -D 8123 -fN cmsnesia-dev -o \"ProxyCommand=nc -X connect -x 192.168.43.173:44355 %h %p\"\n",
+      content: "ssh -D 8123 -fN root@ardikars.com\n\n\n  \n    -D: Create socks proxy, listening on port 8123\n  \n  \n    -f: Requests ssh to go to background just before command execution.\n  \n  \n    -N: Do not execute a remote command.\n  \n\n",
       tags: ["ssh","proxy","http"],
       id: 1
     });
@@ -208,11 +208,11 @@ var store = [{
     "excerpt": "sudo apt update &amp;&amp; sudo apt install gcc sudo vim http-injector-unix-client.c /* MIT License Copyright (c) [2020] [Ardika Rommy Sanjaya]..."
 },{
     "title": "SSH tunneling without opening shell",
-    "link": "/post/tunnelling/ssh-tunnel-without-opening-shell.html",
+    "link": "/post/tunnelling/ssh-tunnel-without-command-execution.html",
     "image": null,
     "date": "July 23, 2020",
     "category": null,
-    "excerpt": "ssh -D 8123 -fN cmsnesia-dev -o \"ProxyCommand=nc -X connect -x 192.168.43.173:44355 %h %p\"\n"
+    "excerpt": "ssh -D 8123 -fN root@ardikars.com -D: Create socks proxy, listening on port 8123 -f: Requests ssh to go to background..."
 },{
     "title": "Compile and Install Linux Kernel on Ubuntu 20.04",
     "link": "/post/kernel/compile-and-install-linux-kernel-on-ubuntu-20-04.html",

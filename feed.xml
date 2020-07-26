@@ -5,8 +5,8 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 26 Jul 2020 14:33:43 +0000</pubDate>
-    <lastBuildDate>Sun, 26 Jul 2020 14:33:43 +0000</lastBuildDate>
+    <pubDate>Sun, 26 Jul 2020 14:39:12 +0000</pubDate>
+    <lastBuildDate>Sun, 26 Jul 2020 14:39:12 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -285,11 +285,23 @@ SOFTWARE.
     
       <item>
         <title>SSH tunneling without opening shell</title>
-        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ssh -D 8123 -fN cmsnesia-dev -o &quot;ProxyCommand=nc -X connect -x 192.168.43.173:44355 %h %p&quot;&lt;/code&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ssh -D 8123 -fN root@ardikars.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-D&lt;/code&gt;: Create socks proxy, listening on port 8123&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-f&lt;/code&gt;: Requests ssh to go to background just before command execution.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-N&lt;/code&gt;: Do not execute a remote command.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 </description>
         <pubDate>Thu, 23 Jul 2020 12:41:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-opening-shell.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-opening-shell.html</guid>
+        <link>https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-command-execution.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-command-execution.html</guid>
         
         <category>ssh</category>
         
