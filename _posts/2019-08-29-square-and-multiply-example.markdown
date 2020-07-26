@@ -15,7 +15,7 @@ layout: post
 
 37 = 100101 in binary
 
-* 1 -> fist one list number          = 11
+* 1 -> first "One" lists number          = 11
 
 * 0 -> square                                    = (11)^2
 
