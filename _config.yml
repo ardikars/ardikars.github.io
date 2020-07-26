@@ -27,8 +27,6 @@ disqus:
 social_networks:
   - name: twitter
     url: https://twitter.com/ardikars
-  - name: linkedin
-    url: https://www.linkedin.com/in/ardika-rommy-sanjaya-85a1a673/
   - name: github
     url: https://github.com/ardikars
 show_categories: 1
