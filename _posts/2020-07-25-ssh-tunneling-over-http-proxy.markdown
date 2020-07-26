@@ -136,6 +136,15 @@ end_repl_str:
 	return ret;
 }
 
+/* connecting to http proxy */
+
+void printHelp() {
+	printf("ssh ardikars@103.129.220.168 -o ProxyCommand=\"./http-injector-client -x 192.168.43.172:44533 -P \'CONNECT 103.129.220.168:22 HTTP/1.1[crlf*2]\'\"\n\n");
+	printf("-x: HTTP Proxy.\n");
+	printf("-P: HTTP Payload.\n");
+	printf("-s: Buffer size (Optional, default: 1023).\n");
+}
+
 void *reader(void *args) {
 	int fd = *(int *) args;
 	char ch;
@@ -177,7 +186,7 @@ int main(int argc, char* argv[]) {
 				}
 				break;
 			case 'h':
-				printf ("prog -x proxy_host:proxy_port -s 1024 -P 'CONNECT 10.14.204.10:22\\r\\n\\r\\n'\n");
+				printHelp();
 				break;
 			case 's':
 				buf_size = atoi(optarg);
@@ -194,12 +203,10 @@ int main(int argc, char* argv[]) {
 	}
 	
 	if (proxy_host == NULL || proxy_port < 0 || payload == NULL) {
-		printf ("prog -x proxy_host:proxy_port -s 1024 -P 'CONNECT 10.14.204.10:22\\r\\n\\r\\n'\n");
+		printHelp();
 		exit(-1);
 	}
 
-	printf("Proxing : %s:%d %d %s\n", proxy_host, proxy_port, buf_size, payload);
-	
 	char buffer[buf_size];
 	int sent, read = 0;
 	pthread_t worker;
