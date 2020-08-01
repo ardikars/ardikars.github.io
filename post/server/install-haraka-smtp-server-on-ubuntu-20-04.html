@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Posts Tagged - bootloader | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
-    <meta property="og:title" content="Posts Tagged - bootloader | Ardika Rommy Sanjaya &mdash; Software Engineer " />
-    <meta name="twitter:title" content="Posts Tagged - bootloader | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <title>Install Haraka SMTP Server On Ubuntu 20.04 | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
+    <meta property="og:title" content="Install Haraka SMTP Server On Ubuntu 20.04 | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <meta name="twitter:title" content="Install Haraka SMTP Server On Ubuntu 20.04 | Ardika Rommy Sanjaya &mdash; Software Engineer " />
 
     <meta name="description" content="Catatan ngopek suka2.">
     <meta name="description" property="og:description" content="Catatan ngopek suka2." />
@@ -17,7 +17,7 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     
-    <meta property="og:url" content="https://www.ardikars.com/tag/bootloader/" />
+    <meta property="og:url" content="https://www.ardikars.com/post/server/install-haraka-smtp-server-on-ubuntu-20-04.html" />
 
     <meta property="og:image" content="" />
     <meta name="twitter:image" content="" />
@@ -96,7 +96,7 @@
     
     <link rel="stylesheet" href="https://www.ardikars.com/assets/css/main.css">
 
-    <link rel="canonical" href="https://www.ardikars.com/tag/bootloader/">
+    <link rel="canonical" href="https://www.ardikars.com/post/server/install-haraka-smtp-server-on-ubuntu-20-04.html">
 
     <link rel="alternate" type="application/rss+xml" title="Ardika Rommy Sanjaya" href="https://www.ardikars.com/feed.xml">
 </head>
@@ -255,8 +255,6 @@
             
                 
             
-                
-            
         </div>
         
     
@@ -287,301 +285,106 @@
 </div>
 
 
-                <h1>Posts Tagged - bootloader</h1>
+                <article class="post single" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2020-07-31T22:23:00+00:00" itemprop="datePublished">31 Jul, 2020</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline">Install Haraka SMTP Server On Ubuntu 20.04</h2>
+    </header>
 
+    <div class="post-content">
+        <p><code class="highlighter-rouge">sudo -i</code></p>
 
-    
-        
-    
-        
-    
-        
-    
+<h1 id="install-nvm-node-version-manager">Install NVM (Node Version Manager)</h1>
 
-    
-        
-    
-        
-    
-        
-    
+<p><code class="highlighter-rouge">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash</code></p>
 
-    
-        
-    
-        
-    
-        
-    
+<p><code class="highlighter-rouge">export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] &amp;&amp; printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"</code></p>
 
-    
-        
-    
-        
-    
-        
-    
+<p><code class="highlighter-rouge">[ -s "$NVM_DIR/nvm.sh" ] &amp;&amp; \. "$NVM_DIR/nvm.sh"</code></p>
 
-    
-        
-    
-        
-    
-        
-    
+<h1 id="install-node-lts">Install Node (LTS)</h1>
 
-    
-        
-    
-        
-    
-        
-    
+<p><code class="highlighter-rouge">nvm install --lts</code></p>
 
-    
-        
-    
-        
-    
-        
-    
+<h1 id="install-haraka">Install Haraka</h1>
 
-    
-        
-    
-        
-    
-        
-    
+<p><code class="highlighter-rouge">apt install build-essential</code></p>
 
-    
-        
-    
-        
-    
+<p><code class="highlighter-rouge">npm -g config set user root</code></p>
 
-    
-        
-    
-        
-    
-        
-    
+<p><code class="highlighter-rouge">npm install -g Haraka</code></p>
 
-    
-        
-    
-        
-    
-        
-    
+<p><code class="highlighter-rouge">cd /var/mail &amp;&amp; haraka -i .</code></p>
 
-    
-        
-    
-        
-    
-        
-    
+<p><code class="highlighter-rouge">vim /var/mail/config/smtp.ini</code></p>
 
-    
-        
-    
-        
-    
-        
-    
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">;</span> Server public IP
+<span class="nv">public_ip</span><span class="o">=</span>x.x.x.x
 
-    
-        
-    
-        
-    
-        
-    
+<span class="p">;</span> Daemonize
+<span class="nv">daemonize</span><span class="o">=</span><span class="nb">true
+</span><span class="nv">daemon_log_file</span><span class="o">=</span>/var/log/haraka.log
+<span class="nv">daemon_pid_file</span><span class="o">=</span>/var/run/haraka.pid
 
-    
+<span class="p">;</span> Spooling
+<span class="p">;</span> Save memory by spooling large messages to disk
+<span class="nv">spool_dir</span><span class="o">=</span>/var/spool/haraka
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">haraka -c /var/mail</code></p>
+
+<h2 id="allows-incoming-smtp-request-on-port-25-for-server-ip-address-xxxx">Allows incoming SMTP request on port 25 for server IP address x.x.x.x</h2>
+
+<p><code class="highlighter-rouge">iptables -A INPUT -p tcp -s 0/0 --sport 1024:65535 -d x.x.x.x --dport 25 -m state --state NEW,ESTABLISHED -j ACCEPT</code></p>
+
+<p><code class="highlighter-rouge">iptables -A OUTPUT -p tcp -s x.x.x.x --sport 25 -d 0/0 --dport 1024:65535 -m state --state ESTABLISHED -j ACCEPT</code></p>
+
+<h2 id="allow-outgoing-smtp-requst-for-server-ip-address-xxx">Allow outgoing SMTP requst for server IP address x.x.x.</h2>
+
+<p><code class="highlighter-rouge">iptables -A OUTPUT -p tcp -s x.x.x.x --sport 1024:65535 -d 0/0 --dport 25 -m state --state NEW,ESTABLISHED -j ACCEPT</code></p>
+
+<p><code class="highlighter-rouge">iptables -A INPUT -p tcp -s 0/0 --sport 25 -d x.x.x.x --dport 1024:65535 -m state --state ESTABLISHED -j ACCEPT</code></p>
+
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Install Haraka SMTP Server On Ubuntu 20.04&p[summary]=sudo -i
+
+Install NVM (Node Version Manager)
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+
+export NVM_...&p[url]=https://www.ardikars.com/post/server/install-haraka-smtp-server-on-ubuntu-20-04.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/server/install-haraka-smtp-server-on-ubuntu-20-04.html&text=sudo -i
+
+Install NVM (Node Version Manager)
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+
+export NVM_...&hashtags=mail,smtp,install," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
         
-        <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-            <header class="post-header">
-                <ul>
-                    <li><time datetime="2020-07-02T17:45:00+00:00" itemprop="datePublished">2 Jul, 2020</time></li>
-                    
-                </ul>
-                <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/android/unlock-nokia-3-bootloader.html">Unlock Nokia 3 Bootloader</a></h2>
-            </header>
-
-            <div class="post-content">
-                <ol>
-  <li>
-    <p>Enable developer options</p>
-  </li>
-  <li>
-    <p>Enable OEM Unlocking (OEM Unlock)</p>
-  </li>
-  <li>
-    <p>Enable USB debugging mode</p>
-  </li>
-  <li>
-    <p>Change default USB configuration, choose File Transfer (MTP)</p>
-  </li>
-  <li>
-    <p>Install adb and fastboot (<code class="highlighter-rouge">sudo apt-get install android-tools-adb android-tools-fastboot</code>)</p>
-  </li>
-  <li>
-    <p>Install nokia usb drive</p>
-  </li>
-  <li>
-    <p>Connect your phone to your PC and approve all usb connection</p>
-  </li>
-  <li>
-    <p>Type <code class="highlighter-rouge">adb devices</code>, then it will show the serial number</p>
-  </li>
-  <li>
-    <p>Type <code class="highlighter-rouge">adb reboot bootloader</code>, then your devices will boot into fastboot mode</p>
-  </li>
-  <li>
-    <p>Type <code class="highlighter-rouge">fastboot devices</code>, to make sure that your device still connected to your PC and it will show your phone serial number</p>
-  </li>
-  <li>
-    <p>Type <code class="highlighter-rouge">fastboot oem key $(echo -n "YOUR_PHONE_SERIAL_NUMBER" | md5sum | tr [a-z] [A-Z])</code></p>
-  </li>
-  <li>
-    <p>Type <code class="highlighter-rouge">fastboot flashing unlock</code>, your phone will ask you about unlocking bootloader</p>
-  </li>
-  <li>
-    <p>Press vol up (yes)</p>
-  </li>
-</ol>
-
-
+        <div class="tags">
+            <ul>
                 
-                    <p><a href="/post/android/unlock-nokia-3-bootloader.html" role="button">Read More</a></p>
+                <li><a href="https://www.ardikars.com/tag/mail">mail</a></li>
                 
-            </div>
-
-            <footer class="post-footer">
-                <div class="share">Share
-                    <ul class="social-networks">
-                        <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Unlock Nokia 3 Bootloader&p[summary]=
-  
-    Enable developer options
-  
-  
-    Enable OEM Unlocking (OEM Unlock)
-  
-  
-    Enable USB debugging mode
-  
-  
-    Change default...&p[url]=https://www.ardikars.com/post/android/unlock-nokia-3-bootloader.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                        <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/android/unlock-nokia-3-bootloader.html&text=
-  
-    Enable developer options
-  
-  
-    Enable OEM Unlocking (OEM Unlock)
-  
-  
-    Enable USB debugging mode
-  
-  
-    Change default...&hashtags=bootloader,unlocking,rooting," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
-                    </ul>
-                </div>
+                <li><a href="https://www.ardikars.com/tag/smtp">smtp</a></li>
                 
-                <div class="tags">
-                    <ul>
-                        
-                        <li><a href="https://www.ardikars.com/tag/bootloader">bootloader</a></li>
-                        
-                        <li><a href="https://www.ardikars.com/tag/unlocking">unlocking</a></li>
-                        
-                        <li><a href="https://www.ardikars.com/tag/rooting">rooting</a></li>
-                        
-                    </ul>
-                </div>
+                <li><a href="https://www.ardikars.com/tag/install">install</a></li>
                 
-            </footer>
-        </article>
+            </ul>
+        </div>
         
-    
-        
-    
-        
-    
+    </footer>
+</article>
 
-    
-        
-    
-        
-    
-
-    
-        
-    
-        
-    
-        
-    
-
-    
-        
-    
-        
-    
-        
-    
-
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-    
-        
-    
-        
-    
-        
-    
-        
-    
 
             </main>
         </div>

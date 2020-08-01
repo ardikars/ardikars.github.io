@@ -5,9 +5,79 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 01 Aug 2020 12:43:56 +0000</pubDate>
-    <lastBuildDate>Sat, 01 Aug 2020 12:43:56 +0000</lastBuildDate>
+    <pubDate>Sat, 01 Aug 2020 17:00:59 +0000</pubDate>
+    <lastBuildDate>Sat, 01 Aug 2020 17:00:59 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Install Haraka SMTP Server On Ubuntu 20.04</title>
+        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo -i&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;install-nvm-node-version-manager&quot;&gt;Install NVM (Node Version Manager)&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;export NVM_DIR=&quot;$([ -z &quot;${XDG_CONFIG_HOME-}&quot; ] &amp;amp;&amp;amp; printf %s &quot;${HOME}/.nvm&quot; || printf %s &quot;${XDG_CONFIG_HOME}/nvm&quot;)&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;amp;&amp;amp; \. &quot;$NVM_DIR/nvm.sh&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;install-node-lts&quot;&gt;Install Node (LTS)&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;nvm install --lts&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;install-haraka&quot;&gt;Install Haraka&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt install build-essential&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;npm -g config set user root&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;npm install -g Haraka&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd /var/mail &amp;amp;&amp;amp; haraka -i .&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vim /var/mail/config/smtp.ini&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; Server public IP
+&lt;span class=&quot;nv&quot;&gt;public_ip&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;x.x.x.x
+
+&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; Daemonize
+&lt;span class=&quot;nv&quot;&gt;daemonize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;daemon_log_file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/var/log/haraka.log
+&lt;span class=&quot;nv&quot;&gt;daemon_pid_file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/var/run/haraka.pid
+
+&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; Spooling
+&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; Save memory by spooling large messages to disk
+&lt;span class=&quot;nv&quot;&gt;spool_dir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/var/spool/haraka
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;haraka -c /var/mail&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;allows-incoming-smtp-request-on-port-25-for-server-ip-address-xxxx&quot;&gt;Allows incoming SMTP request on port 25 for server IP address x.x.x.x&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables -A INPUT -p tcp -s 0/0 --sport 1024:65535 -d x.x.x.x --dport 25 -m state --state NEW,ESTABLISHED -j ACCEPT&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables -A OUTPUT -p tcp -s x.x.x.x --sport 25 -d 0/0 --dport 1024:65535 -m state --state ESTABLISHED -j ACCEPT&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;allow-outgoing-smtp-requst-for-server-ip-address-xxx&quot;&gt;Allow outgoing SMTP requst for server IP address x.x.x.&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables -A OUTPUT -p tcp -s x.x.x.x --sport 1024:65535 -d 0/0 --dport 25 -m state --state NEW,ESTABLISHED -j ACCEPT&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables -A INPUT -p tcp -s 0/0 --sport 25 -d x.x.x.x --dport 1024:65535 -m state --state ESTABLISHED -j ACCEPT&lt;/code&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 31 Jul 2020 22:23:00 +0000</pubDate>
+        <link>https://www.ardikars.com/post/server/install-haraka-smtp-server-on-ubuntu-20-04.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/server/install-haraka-smtp-server-on-ubuntu-20-04.html</guid>
+        
+        <category>mail</category>
+        
+        <category>smtp</category>
+        
+        <category>install</category>
+        
+        
+        <category>server</category>
+        
+      </item>
     
       <item>
         <title>Flash the TWRP recovery to Android Device</title>
@@ -650,59 +720,6 @@ server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         <category>firefox</category>
         
         <category>video</category>
-        
-        
-        <category>linux</category>
-        
-      </item>
-    
-      <item>
-        <title>Install Docker CE on Ubuntu 20.04</title>
-        <description>&lt;h3 id=&quot;install-docker-ce&quot;&gt;Install Docker CE&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;echo &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -sc) stable&quot; &amp;gt; /etc/apt/sources.list.d/docker-ce.list&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt install docker-ce&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;enable-docker-and-containerd-to-run-on-system-boot&quot;&gt;Enable Docker and Containerd to run on system boot&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl enable --now docker containerd&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;running-docker-as-a-non-root-user&quot;&gt;Running Docker as a non-root user&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;exit&lt;/code&gt; (Back to normal user)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo usermod -aG docker ${USER}&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Done&lt;/p&gt;
-</description>
-        <pubDate>Thu, 09 Jul 2020 23:45:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/linux/install-docker-ce-on-ubuntu-20-04.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/linux/install-docker-ce-on-ubuntu-20-04.html</guid>
-        
-        <category>install</category>
-        
-        <category>docker</category>
-        
-        <category>container</category>
         
         
         <category>linux</category>
