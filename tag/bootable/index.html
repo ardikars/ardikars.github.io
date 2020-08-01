@@ -374,14 +374,33 @@
             <div class="post-content">
                 <h3 id="unmount-and-format-usb-drive-fat32">Unmount and format USB drive (FAT32)</h3>
 
-<ul>
-  <li>
-    <p><code class="highlighter-rouge"># umount /dev/sdX</code></p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge"># mkfs.vfat /dev/sdX</code></p>
-  </li>
-</ul>
+<p><code class="highlighter-rouge"># umount /dev/sd[X|Y]</code></p>
+
+<h3 id="creating-new-partition-table-on-devsdx">Creating new partition table on /dev/sdX</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>*) legacy</td>
+      <td>msdos</td>
+      <td>mbr</td>
+      <td>pc</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="highlighter-rouge"># parted --script /dev/sdX mklabel msdos</code></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>*) gpt</td>
+      <td>guid</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="highlighter-rouge"># parted --script /dev/sdX mklabel gpt</code></p>
 
 <h3 id="write-into-usb-drive">Write into USB drive</h3>
 <ul>
@@ -404,32 +423,26 @@
                     <ul class="social-networks">
                         <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Create a bootable USB on Linux&p[summary]=Unmount and format USB drive (FAT32)
 
+# umount /dev/sd[X|Y]
 
-  
-    # umount /dev/sdX
-  
-  
-    # mkfs.vfat /dev/sdX
-  
+Creating new partition table on /dev/sdX
 
 
-Write into USB drive
-
-  # dd bs=4M if...&p[url]=https://www.ardikars.com/post/linux/create-a-bootable-usb-on-linux.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+  
+    
+      *) legacy
+      msd...&p[url]=https://www.ardikars.com/post/linux/create-a-bootable-usb-on-linux.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
                         <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/linux/create-a-bootable-usb-on-linux.html&text=Unmount and format USB drive (FAT32)
 
+# umount /dev/sd[X|Y]
 
-  
-    # umount /dev/sdX
-  
-  
-    # mkfs.vfat /dev/sdX
-  
+Creating new partition table on /dev/sdX
 
 
-Write into USB drive
-
-  # dd bs=4M if...&hashtags=bootable,install,os," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+  
+    
+      *) legacy
+      msd...&hashtags=bootable,install,os," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
                     </ul>
                 </div>
                 

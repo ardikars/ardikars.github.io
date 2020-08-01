@@ -102,7 +102,7 @@ var index = lunr(function () {
     index.add({
       title: "Create a bootable USB on Linux",
       category: null,
-      content: "Unmount and format USB drive (FAT32)\n\n\n  \n    # umount /dev/sdX\n  \n  \n    # mkfs.vfat /dev/sdX\n  \n\n\nWrite into USB drive\n\n  # dd bs=4M if=ubuntu-20.04-desktop-amd64.iso of=/dev/sdX status=progress oflag=sync\n\n\nReboot\n\n  # shutdown -r 0\n\n",
+      content: "Unmount and format USB drive (FAT32)\n\n# umount /dev/sd[X|Y]\n\nCreating new partition table on /dev/sdX\n\n\n  \n    \n      *) legacy\n      msdos\n      mbr\n      pc\n    \n  \n\n\n# parted --script /dev/sdX mklabel msdos\n\n\n  \n    \n      *) gpt\n      guid\n    \n  \n\n\n# parted --script /dev/sdX mklabel gpt\n\nWrite into USB drive\n\n  # dd bs=4M if=ubuntu-20.04-desktop-amd64.iso of=/dev/sdX status=progress oflag=sync\n\n\nReboot\n\n  # shutdown -r 0\n\n",
       tags: ["bootable","install","os"],
       id: 10
     });
@@ -275,7 +275,7 @@ var store = [{
     "image": null,
     "date": "July 9, 2020",
     "category": null,
-    "excerpt": "Unmount and format USB drive (FAT32) # umount /dev/sdX # mkfs.vfat /dev/sdX Write into USB drive # dd bs=4M if=ubuntu-20.04-desktop-amd64.iso..."
+    "excerpt": "Unmount and format USB drive (FAT32) # umount /dev/sd[X|Y] Creating new partition table on /dev/sdX *) legacy msdos mbr pc..."
 },{
     "title": "Tor On Android",
     "link": "/post/android/tor-on-android.html",
