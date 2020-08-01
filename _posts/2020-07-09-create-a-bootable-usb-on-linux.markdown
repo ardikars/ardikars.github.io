@@ -12,9 +12,17 @@ layout: post
 
 ### Unmount and format USB drive (FAT32)
 
-* `# umount /dev/sdX`
+`# umount /dev/sd[X|Y]`
 
-* `# mkfs.vfat /dev/sdX`
+### Creating new partition table on /dev/sdX
+
+*) legacy|msdos|mbr|pc
+
+`# parted --script /dev/sdX mklabel msdos`
+
+*) gpt|guid
+
+`# parted --script /dev/sdX mklabel gpt`
 
 
 ### Write into USB drive
