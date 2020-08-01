@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Tor On Android | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
-    <meta property="og:title" content="Tor On Android | Ardika Rommy Sanjaya &mdash; Software Engineer " />
-    <meta name="twitter:title" content="Tor On Android | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <title>A Strict Firewall that Only Allows SSH | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
+    <meta property="og:title" content="A Strict Firewall that Only Allows SSH | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <meta name="twitter:title" content="A Strict Firewall that Only Allows SSH | Ardika Rommy Sanjaya &mdash; Software Engineer " />
 
     <meta name="description" content="Catatan ngopek suka2.">
     <meta name="description" property="og:description" content="Catatan ngopek suka2." />
@@ -17,7 +17,7 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     
-    <meta property="og:url" content="https://www.ardikars.com/post/android/tor-on-android.html" />
+    <meta property="og:url" content="https://www.ardikars.com/post/firewall/a-strict-firewall-that-only-allows-ssh.html" />
 
     <meta property="og:image" content="" />
     <meta name="twitter:image" content="" />
@@ -96,7 +96,7 @@
     
     <link rel="stylesheet" href="https://www.ardikars.com/assets/css/main.css">
 
-    <link rel="canonical" href="https://www.ardikars.com/post/android/tor-on-android.html">
+    <link rel="canonical" href="https://www.ardikars.com/post/firewall/a-strict-firewall-that-only-allows-ssh.html">
 
     <link rel="alternate" type="application/rss+xml" title="Ardika Rommy Sanjaya" href="https://www.ardikars.com/feed.xml">
 </head>
@@ -292,96 +292,83 @@
                 <article class="post single" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
-            <li><time datetime="2020-07-03T00:45:00+00:00" itemprop="datePublished">3 Jul, 2020</time></li>
+            <li><time datetime="2020-07-31T23:43:00+00:00" itemprop="datePublished">31 Jul, 2020</time></li>
             
         </ul>
-        <h2 itemprop="name headline">Tor On Android</h2>
+        <h2 itemprop="name headline">A Strict Firewall that Only Allows SSH</h2>
     </header>
 
     <div class="post-content">
-        <ol>
-  <li>
-    <p>Install Termux from Google Playstore.</p>
-  </li>
-  <li>
-    <p>Open Termux, then install tor (“pkg update &amp;&amp; pkg install”).</p>
-  </li>
-  <li>
-    <p>Run tor for tunneling:</p>
+        <p><code class="highlighter-rouge">export SERVER_IP="x.x.x.x"</code></p>
 
-    <ul>
-      <li>
-        <p>Tunneling over HTTP “tor –HTTPTunnelPort 8118”.</p>
-      </li>
-      <li>
-        <p>For more details pls read tor docs (“pkg install man &amp;&amp; man tor”).</p>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>Install Firefox browser from Google Playstore.</p>
-  </li>
-  <li>
-    <p>Open Firefox, type “about:config” in the URL bar.</p>
-  </li>
-  <li>
-    <p>Set “network.proxy.type” to “1” (Configure proxy manually).</p>
-  </li>
-  <li>
-    <p>Set “network.proxy.http” to “127.0.0.1”, and “network.proxy.http.port” to “8118”.</p>
-  </li>
-</ol>
+<h1 id="flushing-all-rules">Flushing all rules</h1>
 
-<p>Note*)</p>
+<p><code class="highlighter-rouge">iptables -F</code></p>
 
-<ul>
-  <li>
-    <p>DNS is not encrypted.</p>
-  </li>
-  <li>
-    <p>By default Tor opening socks(x) listener on 127.0.0.1:9050.</p>
-  </li>
-  <li>
-    <p>You can use Tor config file ($PREFIX/etc/tor/torrc) instead of passing Tor command line args.</p>
-  </li>
-</ul>
+<p><code class="highlighter-rouge">iptables -X</code></p>
 
-<p>Firefox =&gt; Tor local proxy (socks(x)/http/etc) =&gt; Tor network (proxy =&gt; proxy =&gt; proxy ….)</p>
+<h1 id="setting-default-filter-policy">Setting default filter policy</h1>
+
+<p><code class="highlighter-rouge">iptables -P INPUT DROP</code></p>
+
+<p><code class="highlighter-rouge">iptables -P OUTPUT DROP</code></p>
+
+<p><code class="highlighter-rouge">iptables -P FORWARD DROP</code></p>
+
+<h1 id="allow-incoming-ssh-only">Allow incoming ssh only</h1>
+
+<p><code class="highlighter-rouge">iptables -A INPUT -p tcp -s 0/0 -d $SERVER_IP --sport 513:65535 --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT</code></p>
+
+<p><code class="highlighter-rouge">iptables -A OUTPUT -p tcp -s $SERVER_IP -d 0/0 --sport 22 --dport 513:65535 -m state --state ESTABLISHED -j ACCEPT</code></p>
+
+<h1 id="make-sure-nothing-comes-or-goes-out">Make sure nothing comes or goes out</h1>
+
+<p><code class="highlighter-rouge">iptables -A INPUT -j DROP</code></p>
+
+<p><code class="highlighter-rouge">iptables -A OUTPUT -j DROP</code></p>
 
     </div>
 
     <footer class="post-footer">
         <div class="share">Share
             <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Tor On Android&p[summary]=
-  
-    Install Termux from Google Playstore.
-  
-  
-    Open Termux, then install tor (“pkg update &amp;&amp; pkg install”).
-  
-  
-    Ru...&p[url]=https://www.ardikars.com/post/android/tor-on-android.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/android/tor-on-android.html&text=
-  
-    Install Termux from Google Playstore.
-  
-  
-    Open Termux, then install tor (“pkg update &amp;&amp; pkg install”).
-  
-  
-    Ru...&hashtags=proxy,tunnel,anonymity," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=A Strict Firewall that Only Allows SSH&p[summary]=export SERVER_IP="x.x.x.x"
+
+Flushing all rules
+
+iptables -F
+
+iptables -X
+
+Setting default filter policy
+
+iptables -P INPUT DROP
+
+iptables...&p[url]=https://www.ardikars.com/post/firewall/a-strict-firewall-that-only-allows-ssh.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/firewall/a-strict-firewall-that-only-allows-ssh.html&text=export SERVER_IP="x.x.x.x"
+
+Flushing all rules
+
+iptables -F
+
+iptables -X
+
+Setting default filter policy
+
+iptables -P INPUT DROP
+
+iptables...&hashtags=ssh,network,security," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
             </ul>
         </div>
         
         <div class="tags">
             <ul>
                 
-                <li><a href="https://www.ardikars.com/tag/proxy">proxy</a></li>
+                <li><a href="https://www.ardikars.com/tag/ssh">ssh</a></li>
                 
-                <li><a href="https://www.ardikars.com/tag/tunnel">tunnel</a></li>
+                <li><a href="https://www.ardikars.com/tag/network">network</a></li>
                 
-                <li><a href="https://www.ardikars.com/tag/anonymity">anonymity</a></li>
+                <li><a href="https://www.ardikars.com/tag/security">security</a></li>
                 
             </ul>
         </div>

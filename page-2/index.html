@@ -257,6 +257,10 @@
             
                 
             
+                
+            
+                
+            
         </div>
         
     
@@ -288,6 +292,71 @@
 
 
                 
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2020-07-22T12:41:00+00:00" itemprop="datePublished">22 Jul, 2020</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/kernel/compile-and-install-linux-kernel-on-ubuntu-20-04.html">Compile and Install Linux Kernel on Ubuntu 20.04</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p><code class="highlighter-rouge">sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison</code></p>
+
+<p><code class="highlighter-rouge">wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.7.10.tar.xz</code></p>
+
+<p><code class="highlighter-rouge">tar xvf linux-5.7.10.tar.xz</code></p>
+
+<p><code class="highlighter-rouge">cd linux-5.7.10</code></p>
+
+<p><code class="highlighter-rouge">cp /boot/config-$(uname -r) .config</code></p>
+
+<p><code class="highlighter-rouge">make menuconfig</code></p>
+
+<p><code class="highlighter-rouge">make</code></p>
+
+<p><code class="highlighter-rouge">sudo make modules_install</code></p>
+
+<p><code class="highlighter-rouge">sudo make install</code></p>
+
+<p><code class="highlighter-rouge">sudo update-initramfs -c -k 5.7.10</code></p>
+
+<p><code class="highlighter-rouge">sudo update-grub</code></p>
+
+<p>*) used for trying new kernel api from linux (io_uring).</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Compile and Install Linux Kernel on Ubuntu 20.04&p[summary]=sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison
+
+wget https://cdn.kernel.org/p...&p[url]=https://www.ardikars.com/post/kernel/compile-and-install-linux-kernel-on-ubuntu-20-04.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/kernel/compile-and-install-linux-kernel-on-ubuntu-20-04.html&text=sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison
+
+wget https://cdn.kernel.org/p...&hashtags=build,install,linux," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+                <li><a href="https://www.ardikars.com/tag/build">build</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/install">install</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/linux">linux</a></li>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
 <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
@@ -666,68 +735,6 @@ Installation process
                 <li><a href="https://www.ardikars.com/tag/java">java</a></li>
                 
                 <li><a href="https://www.ardikars.com/tag/setcap">setcap</a></li>
-                
-            </ul>
-        </div>
-        
-    </footer>
-</article>
-
-<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-        <ul>
-            <li><time datetime="2020-07-10T05:45:00+00:00" itemprop="datePublished">10 Jul, 2020</time></li>
-            
-        </ul>
-        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/linux/netflix-error-F7355-on-firefox.html">Netflix error F7355 on Firefox</a></h2>
-    </header>
-
-    <div class="post-content">
-        <ol>
-  <li>
-    <p><code class="highlighter-rouge">sudo apt install libavcodec-extra</code></p>
-  </li>
-  <li>
-    <p>Enable DRM</p>
-  </li>
-</ol>
-
-
-        
-    </div>
-
-    <footer class="post-footer">
-        <div class="share">Share
-            <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Netflix error F7355 on Firefox&p[summary]=
-  
-    sudo apt install libavcodec-extra
-  
-  
-    Enable DRM
-  
-
-&p[url]=https://www.ardikars.com/post/linux/netflix-error-F7355-on-firefox.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/linux/netflix-error-F7355-on-firefox.html&text=
-  
-    sudo apt install libavcodec-extra
-  
-  
-    Enable DRM
-  
-
-&hashtags=drm,firefox,video," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
-            </ul>
-        </div>
-        
-        <div class="tags">
-            <ul>
-                
-                <li><a href="https://www.ardikars.com/tag/drm">drm</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/firefox">firefox</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/video">video</a></li>
                 
             </ul>
         </div>

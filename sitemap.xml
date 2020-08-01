@@ -93,6 +93,10 @@
 <lastmod>2020-07-31T22:23:00+00:00</lastmod>
 </url>
 <url>
+<loc>https://www.ardikars.com/post/firewall/a-strict-firewall-that-only-allows-ssh.html</loc>
+<lastmod>2020-07-31T23:43:00+00:00</lastmod>
+</url>
+<url>
 <loc>https://www.ardikars.com/404</loc>
 </url>
 <url>
@@ -219,6 +223,9 @@
 <loc>https://www.ardikars.com/tag/smtp/</loc>
 </url>
 <url>
+<loc>https://www.ardikars.com/tag/network/</loc>
+</url>
+<url>
 <loc>https://www.ardikars.com/category/security/</loc>
 </url>
 <url>
@@ -250,6 +257,9 @@
 </url>
 <url>
 <loc>https://www.ardikars.com/category/tunneling/</loc>
+</url>
+<url>
+<loc>https://www.ardikars.com/category/firewall/</loc>
 </url>
 <url>
 <loc>https://www.ardikars.com/page-2/</loc>

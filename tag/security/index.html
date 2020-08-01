@@ -257,6 +257,10 @@
             
                 
             
+                
+            
+                
+            
         </div>
         
     
@@ -289,6 +293,105 @@
 
                 <h1>Posts Tagged - security</h1>
 
+
+    
+        
+    
+        
+    
+        
+        <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <ul>
+                    <li><time datetime="2020-07-31T23:43:00+00:00" itemprop="datePublished">31 Jul, 2020</time></li>
+                    
+                </ul>
+                <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/firewall/a-strict-firewall-that-only-allows-ssh.html">A Strict Firewall that Only Allows SSH</a></h2>
+            </header>
+
+            <div class="post-content">
+                <p><code class="highlighter-rouge">export SERVER_IP="x.x.x.x"</code></p>
+
+<h1 id="flushing-all-rules">Flushing all rules</h1>
+
+<p><code class="highlighter-rouge">iptables -F</code></p>
+
+<p><code class="highlighter-rouge">iptables -X</code></p>
+
+<h1 id="setting-default-filter-policy">Setting default filter policy</h1>
+
+<p><code class="highlighter-rouge">iptables -P INPUT DROP</code></p>
+
+<p><code class="highlighter-rouge">iptables -P OUTPUT DROP</code></p>
+
+<p><code class="highlighter-rouge">iptables -P FORWARD DROP</code></p>
+
+<h1 id="allow-incoming-ssh-only">Allow incoming ssh only</h1>
+
+<p><code class="highlighter-rouge">iptables -A INPUT -p tcp -s 0/0 -d $SERVER_IP --sport 513:65535 --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT</code></p>
+
+<p><code class="highlighter-rouge">iptables -A OUTPUT -p tcp -s $SERVER_IP -d 0/0 --sport 22 --dport 513:65535 -m state --state ESTABLISHED -j ACCEPT</code></p>
+
+<h1 id="make-sure-nothing-comes-or-goes-out">Make sure nothing comes or goes out</h1>
+
+<p><code class="highlighter-rouge">iptables -A INPUT -j DROP</code></p>
+
+<p><code class="highlighter-rouge">iptables -A OUTPUT -j DROP</code></p>
+
+
+                
+                    <p><a href="/post/firewall/a-strict-firewall-that-only-allows-ssh.html" role="button">Read More</a></p>
+                
+            </div>
+
+            <footer class="post-footer">
+                <div class="share">Share
+                    <ul class="social-networks">
+                        <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=A Strict Firewall that Only Allows SSH&p[summary]=export SERVER_IP="x.x.x.x"
+
+Flushing all rules
+
+iptables -F
+
+iptables -X
+
+Setting default filter policy
+
+iptables -P INPUT DROP
+
+iptables...&p[url]=https://www.ardikars.com/post/firewall/a-strict-firewall-that-only-allows-ssh.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                        <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/firewall/a-strict-firewall-that-only-allows-ssh.html&text=export SERVER_IP="x.x.x.x"
+
+Flushing all rules
+
+iptables -F
+
+iptables -X
+
+Setting default filter policy
+
+iptables -P INPUT DROP
+
+iptables...&hashtags=ssh,network,security," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+                    </ul>
+                </div>
+                
+                <div class="tags">
+                    <ul>
+                        
+                        <li><a href="https://www.ardikars.com/tag/ssh">ssh</a></li>
+                        
+                        <li><a href="https://www.ardikars.com/tag/network">network</a></li>
+                        
+                        <li><a href="https://www.ardikars.com/tag/security">security</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </footer>
+        </article>
+        
+    
 
     
         
