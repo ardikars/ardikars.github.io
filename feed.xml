@@ -5,9 +5,28 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 01 Aug 2020 12:38:40 +0000</pubDate>
-    <lastBuildDate>Sat, 01 Aug 2020 12:38:40 +0000</lastBuildDate>
+    <pubDate>Sat, 01 Aug 2020 12:43:56 +0000</pubDate>
+    <lastBuildDate>Sat, 01 Aug 2020 12:43:56 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Flash the TWRP recovery to Android Device</title>
+        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fastboot flash recovery recovery.img&lt;/code&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 31 Jul 2020 21:23:00 +0000</pubDate>
+        <link>https://www.ardikars.com/post/android/flash-the-twrp-recovery-to-android-device.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/android/flash-the-twrp-recovery-to-android-device.html</guid>
+        
+        <category>recovery</category>
+        
+        <category>root</category>
+        
+        <category>os</category>
+        
+        
+        <category>android</category>
+        
+      </item>
     
       <item>
         <title>SSH tunneling over HTTP Proxy</title>
@@ -684,56 +703,6 @@ server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         <category>docker</category>
         
         <category>container</category>
-        
-        
-        <category>linux</category>
-        
-      </item>
-    
-      <item>
-        <title>Install GNS3 on Ubuntu 20.04</title>
-        <description>&lt;h3 id=&quot;install-gns3&quot;&gt;Install GNS3&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo add-apt-repository ppa:gns3/ppa&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt update&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install gns3-server gns3-gui&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;install-iou-support-optional&quot;&gt;Install IOU Support (Optional)&lt;/h3&gt;
-
-&lt;p&gt;IOU (IOS over Unix) is an internal Cisco tool for simulating the ASICs in Cisco Switches. This enables you to play with Layer 2 switching in your LABS.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo dpkg --add-architecture i386&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt update&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install gns3-iou&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;add-your-user-to-the-following-groups&quot;&gt;Add your user to the following groups:&lt;/h3&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;i &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;ubridge libvirt kvm wireshark&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do
-  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;usermod &lt;span class=&quot;nt&quot;&gt;-aG&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$USER&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Done.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 09 Jul 2020 22:45:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/linux/install-gns3-on-ubuntu-20-04.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/linux/install-gns3-on-ubuntu-20-04.html</guid>
-        
-        <category>install</category>
-        
-        <category>gns3</category>
-        
-        <category>networking</category>
         
         
         <category>linux</category>
