@@ -5,8 +5,8 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 01 Aug 2020 17:18:02 +0000</pubDate>
-    <lastBuildDate>Sat, 01 Aug 2020 17:18:02 +0000</lastBuildDate>
+    <pubDate>Sat, 01 Aug 2020 18:02:50 +0000</pubDate>
+    <lastBuildDate>Sat, 01 Aug 2020 18:02:50 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -27,7 +27,7 @@
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables -P FORWARD DROP&lt;/code&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;allow-incoming-ssh-only&quot;&gt;Allow incoming ssh only&lt;/h1&gt;
+&lt;h1 id=&quot;allow-incoming-and-outgoing-ssh-only&quot;&gt;Allow incoming and outgoing ssh only&lt;/h1&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables -A INPUT -p tcp -s 0/0 -d $SERVER_IP --sport 513:65535 --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT&lt;/code&gt;&lt;/p&gt;
 
@@ -38,6 +38,31 @@
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables -A INPUT -j DROP&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables -A OUTPUT -j DROP&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;save-and-load-rules&quot;&gt;Save and load rules&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables-save &amp;gt; /etc/iptables.rules&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vim /etc/network/if-pre-up.d/iptablesload&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+iptables-restore &amp;lt; /etc/iptables.rules
+&lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vim /etc/network/if-post-down.d/iptablessave &lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+iptables-save &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /etc/iptables.rules
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; /etc/iptables.downrules &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+   &lt;/span&gt;iptables-restore &amp;lt; /etc/iptables.downrules
+&lt;span class=&quot;k&quot;&gt;fi
+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;chmod +x /etc/network/if-post-down.d/iptablessave&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;chmod +x /etc/network/if-pre-up.d/iptablesload&lt;/code&gt;&lt;/p&gt;
 </description>
         <pubDate>Fri, 31 Jul 2020 23:43:00 +0000</pubDate>
         <link>https://www.ardikars.com/post/firewall/a-strict-firewall-that-only-allows-ssh.html</link>

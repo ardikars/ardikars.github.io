@@ -316,7 +316,7 @@
 
 <p><code class="highlighter-rouge">iptables -P FORWARD DROP</code></p>
 
-<h1 id="allow-incoming-ssh-only">Allow incoming ssh only</h1>
+<h1 id="allow-incoming-and-outgoing-ssh-only">Allow incoming and outgoing ssh only</h1>
 
 <p><code class="highlighter-rouge">iptables -A INPUT -p tcp -s 0/0 -d $SERVER_IP --sport 513:65535 --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT</code></p>
 
@@ -327,6 +327,31 @@
 <p><code class="highlighter-rouge">iptables -A INPUT -j DROP</code></p>
 
 <p><code class="highlighter-rouge">iptables -A OUTPUT -j DROP</code></p>
+
+<h1 id="save-and-load-rules">Save and load rules</h1>
+
+<p><code class="highlighter-rouge">iptables-save &gt; /etc/iptables.rules</code></p>
+
+<p><code class="highlighter-rouge">vim /etc/network/if-pre-up.d/iptablesload</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+iptables-restore &lt; /etc/iptables.rules
+<span class="nb">exit </span>0
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">vim /etc/network/if-post-down.d/iptablessave </code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+iptables-save <span class="nt">-c</span> <span class="o">&gt;</span> /etc/iptables.rules
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> /etc/iptables.downrules <span class="o">]</span><span class="p">;</span> <span class="k">then
+   </span>iptables-restore &lt; /etc/iptables.downrules
+<span class="k">fi
+</span><span class="nb">exit </span>0
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">chmod +x /etc/network/if-post-down.d/iptablessave</code></p>
+
+<p><code class="highlighter-rouge">chmod +x /etc/network/if-pre-up.d/iptablesload</code></p>
 
 
         
