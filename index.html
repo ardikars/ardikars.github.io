@@ -134,11 +134,17 @@
                 
             
                 
+                    <a href="https://www.ardikars.com/software/" >Software</a>
+                
+            
+                
                     <a href="https://www.ardikars.com/about/" >About</a>
                 
             
                 
-                    <a href="https://www.ardikars.com/software/" >Software</a>
+            
+                
+            
                 
             
                 
@@ -290,6 +296,101 @@
 
 
                 
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2020-08-06T08:23:00+00:00" itemprop="datePublished">6 Aug, 2020</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/libpcap/enable-dpdk-for-libpcap.html">Enable DPDK for Libpcap</a></h2>
+    </header>
+
+    <div class="post-content">
+        <h1 id="install-required-tools-and-libraries">Install required tools and libraries</h1>
+
+<p><code class="highlighter-rouge">sudo apt install git build-essential bison flex libnuma-dev libnl-3-dev libnl-genl-3-dev</code></p>
+
+<h1 id="clone-latest-dpdk-source-code-from-github">Clone latest DPDK source code from Github</h1>
+<p><code class="highlighter-rouge">git clone https://github.com/DPDK/dpdk.git</code></p>
+
+<h1 id="compile-and-install">Compile and Install</h1>
+
+<p><code class="highlighter-rouge">cd dpdk</code></p>
+
+<blockquote>
+  <p>Get a native target environment automatically</p>
+</blockquote>
+
+<p><code class="highlighter-rouge">make defconfig O=mybuild</code></p>
+
+<blockquote>
+  <p>Or get a specific target environment</p>
+</blockquote>
+
+<p><code class="highlighter-rouge">make config T=x86_64-native-linux-gcc O=mybuild</code></p>
+
+<blockquote>
+  <p>Customize the target configuration in the generated .config file. Example for enabling the shared library</p>
+</blockquote>
+
+<p><code class="highlighter-rouge">sed -ri 's,(CONFIG_RTE_BUILD_SHARED_LIB=).*,\1y,' mybuild/.config</code></p>
+
+<p><code class="highlighter-rouge">make O=mybuild</code></p>
+
+<p><code class="highlighter-rouge">sudo make install O=mybuild</code></p>
+
+<p>*) Any kernel modules to be used, e.g. igb_uio, kni, must be compiled with the same kernel as the one running on the target</p>
+
+<h1 id="install-libpcap-with-dpdk-enabled">Install libpcap with dpdk enabled</h1>
+
+<p><code class="highlighter-rouge">cd ../</code></p>
+
+<p><code class="highlighter-rouge">git clone https://github.com/the-tcpdump-group/libpcap.git</code></p>
+
+<p><code class="highlighter-rouge">cd libpcap</code></p>
+
+<p>`./configure –with-dpdk=/usr/local</p>
+
+<p><code class="highlighter-rouge">make</code></p>
+
+<p><code class="highlighter-rouge">sudo make install</code></p>
+
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Enable DPDK for Libpcap&p[summary]=Install required tools and libraries
+
+sudo apt install git build-essential bison flex libnuma-dev libnl-3-dev libnl-genl-3-dev
+
+Clone lat...&p[url]=https://www.ardikars.com/post/libpcap/enable-dpdk-for-libpcap.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/libpcap/enable-dpdk-for-libpcap.html&text=Install required tools and libraries
+
+sudo apt install git build-essential bison flex libnuma-dev libnl-3-dev libnl-genl-3-dev
+
+Clone lat...&hashtags=dpdk,integration,linux," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+                <li><a href="https://www.ardikars.com/tag/dpdk">dpdk</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/integration">integration</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/linux">linux</a></li>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
 <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
@@ -855,71 +956,6 @@ Copyright (c) [2020] [Ardika Rommy...&hashtags=http,ssh,injector," rel="noreferr
                 <li><a href="https://www.ardikars.com/tag/ssh">ssh</a></li>
                 
                 <li><a href="https://www.ardikars.com/tag/injector">injector</a></li>
-                
-            </ul>
-        </div>
-        
-    </footer>
-</article>
-
-<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-        <ul>
-            <li><time datetime="2020-07-23T12:41:00+00:00" itemprop="datePublished">23 Jul, 2020</time></li>
-            
-        </ul>
-        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-command-execution.html">SSH tunneling without opening shell</a></h2>
-    </header>
-
-    <div class="post-content">
-        <p><code class="highlighter-rouge">ssh -D 8123 -fN root@ardikars.com</code></p>
-
-<ul>
-  <li>
-    <p><code class="highlighter-rouge">-D</code>: Create socks proxy, listening on port 8123</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">-f</code>: Requests ssh to go to background just before command execution.</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">-N</code>: Do not execute a remote command.</p>
-  </li>
-</ul>
-
-
-        
-    </div>
-
-    <footer class="post-footer">
-        <div class="share">Share
-            <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=SSH tunneling without opening shell&p[summary]=ssh -D 8123 -fN root@ardikars.com
-
-
-  
-    -D: Create socks proxy, listening on port 8123
-  
-  
-    -f: Requests ssh to go to background ...&p[url]=https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-command-execution.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-command-execution.html&text=ssh -D 8123 -fN root@ardikars.com
-
-
-  
-    -D: Create socks proxy, listening on port 8123
-  
-  
-    -f: Requests ssh to go to background ...&hashtags=ssh,proxy,http," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
-            </ul>
-        </div>
-        
-        <div class="tags">
-            <ul>
-                
-                <li><a href="https://www.ardikars.com/tag/ssh">ssh</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/proxy">proxy</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/http">http</a></li>
                 
             </ul>
         </div>

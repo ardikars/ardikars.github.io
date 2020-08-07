@@ -7,17 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>ARP - MITM Detection Method | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
-    <meta property="og:title" content="ARP - MITM Detection Method | Ardika Rommy Sanjaya &mdash; Software Engineer " />
-    <meta name="twitter:title" content="ARP - MITM Detection Method | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <title>Category: libpcap | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
+    <meta property="og:title" content="Category: libpcap | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <meta name="twitter:title" content="Category: libpcap | Ardika Rommy Sanjaya &mdash; Software Engineer " />
 
-    <meta name="description" content="Catatan ngopek suka2.">
-    <meta name="description" property="og:description" content="Catatan ngopek suka2." />
-    <meta name="twitter:description" content="Catatan ngopek suka2." />
+    <meta name="description" content="Category: libpcap">
+    <meta name="description" property="og:description" content="Category: libpcap" />
+    <meta name="twitter:description" content="Category: libpcap" />
 
     <meta name="twitter:card" content="summary_large_image" />
     
-    <meta property="og:url" content="https://www.ardikars.com/post/security/arp-mitm-detaction-method.html" />
+    <meta property="og:url" content="https://www.ardikars.com/category/libpcap/" />
 
     <meta property="og:image" content="" />
     <meta name="twitter:image" content="" />
@@ -96,7 +96,7 @@
     
     <link rel="stylesheet" href="https://www.ardikars.com/assets/css/main.css">
 
-    <link rel="canonical" href="https://www.ardikars.com/post/security/arp-mitm-detaction-method.html">
+    <link rel="canonical" href="https://www.ardikars.com/category/libpcap/">
 
     <link rel="alternate" type="application/rss+xml" title="Ardika Rommy Sanjaya" href="https://www.ardikars.com/feed.xml">
 </head>
@@ -265,6 +265,8 @@
             
                 
             
+                
+            
         </div>
         
     
@@ -295,75 +297,105 @@
 </div>
 
 
-                <article class="post single" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+                <h1>Posts From Category: libpcap</h1>
+
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
-            <li><time datetime="2019-08-31T17:45:00+00:00" itemprop="datePublished">31 Aug, 2019</time></li>
+            <li><time datetime="2020-08-06T08:23:00+00:00" itemprop="datePublished">6 Aug, 2020</time></li>
             
         </ul>
-        <h2 itemprop="name headline">ARP - MITM Detection Method</h2>
+        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/libpcap/enable-dpdk-for-libpcap.html">Enable DPDK for Libpcap</a></h2>
     </header>
 
     <div class="post-content">
-        <p>Sedikit tengan ARP</p>
+        <h1 id="install-required-tools-and-libraries">Install required tools and libraries</h1>
 
-<p>ARP merupakan protokol yang digunakan untuk memetakan alamat fisik (MAC) dan logika (IP). Proses pemetaan ini sering dimanfaatkan oleh penyerang dengan cara memalsukan isi dari peta (ARP table) tersebut sehingga ia dapat menguasai komunikasi yang bergantung pada isi dari peta tersebut (routing).</p>
+<p><code class="highlighter-rouge">sudo apt install git build-essential bison flex libnuma-dev libnl-3-dev libnl-genl-3-dev</code></p>
 
-<p>Berikut metode yang saya gunakan untuk mendeteksi proses pemalsuan tersebut.</p>
+<h1 id="clone-latest-dpdk-source-code-from-github">Clone latest DPDK source code from Github</h1>
+<p><code class="highlighter-rouge">git clone https://github.com/DPDK/dpdk.git</code></p>
 
-<p>Disini saya menggunakan TCP-Syn untuk memancing penyerang. Kenapa? Karena jika menggunakan protokol seperti ICMP maka penyerang bisa saja membuat firewall untuk mem-blok semua paket ICMP yang datang.</p>
+<h1 id="compile-and-install">Compile and Install</h1>
 
-<p>Dengan menggunakan TCP-Syn dengan port yang kita buat acak, pengerang tentu tidak dapat menebak port tersebut dan memblok nya.</p>
+<p><code class="highlighter-rouge">cd dpdk</code></p>
 
-<!--more-->
+<blockquote>
+  <p>Get a native target environment automatically</p>
+</blockquote>
 
-<p>Di bawah ini adalah coret2 saya dahulu kala.</p>
+<p><code class="highlighter-rouge">make defconfig O=mybuild</code></p>
 
-<figure class="aligncenter">
-    <img src="/uploads/2019-08-31-arp-mitm-detaction-method-1.png" />
-</figure>
+<blockquote>
+  <p>Or get a specific target environment</p>
+</blockquote>
 
-<figure class="aligncenter">
-    <img src="/uploads/2019-08-31-arp-mitm-detaction-method-2.png" />
-</figure>
+<p><code class="highlighter-rouge">make config T=x86_64-native-linux-gcc O=mybuild</code></p>
 
-<figure class="aligncenter">
-    <img src="/uploads/2019-08-31-arp-mitm-detaction-method-3.png" />
-</figure>
+<blockquote>
+  <p>Customize the target configuration in the generated .config file. Example for enabling the shared library</p>
+</blockquote>
 
-<figure class="aligncenter">
-    <img src="/uploads/2019-08-31-arp-mitm-detaction-method-4.png" />
-</figure>
+<p><code class="highlighter-rouge">sed -ri 's,(CONFIG_RTE_BUILD_SHARED_LIB=).*,\1y,' mybuild/.config</code></p>
 
+<p><code class="highlighter-rouge">make O=mybuild</code></p>
+
+<p><code class="highlighter-rouge">sudo make install O=mybuild</code></p>
+
+<p>*) Any kernel modules to be used, e.g. igb_uio, kni, must be compiled with the same kernel as the one running on the target</p>
+
+<h1 id="install-libpcap-with-dpdk-enabled">Install libpcap with dpdk enabled</h1>
+
+<p><code class="highlighter-rouge">cd ../</code></p>
+
+<p><code class="highlighter-rouge">git clone https://github.com/the-tcpdump-group/libpcap.git</code></p>
+
+<p><code class="highlighter-rouge">cd libpcap</code></p>
+
+<p>`./configure –with-dpdk=/usr/local</p>
+
+<p><code class="highlighter-rouge">make</code></p>
+
+<p><code class="highlighter-rouge">sudo make install</code></p>
+
+
+
+        
+            <p><a href="/post/libpcap/enable-dpdk-for-libpcap.html" role="button">Read More</a></p>
+        
     </div>
 
     <footer class="post-footer">
         <div class="share">Share
             <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=ARP - MITM Detection Method&p[summary]=Sedikit tengan ARP
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Enable DPDK for Libpcap&p[summary]=Install required tools and libraries
 
-ARP merupakan protokol yang digunakan untuk memetakan alamat fisik (MAC) dan logika (IP). Proses pemetaan ini sering ...&p[url]=https://www.ardikars.com/post/security/arp-mitm-detaction-method.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/security/arp-mitm-detaction-method.html&text=Sedikit tengan ARP
+sudo apt install git build-essential bison flex libnuma-dev libnl-3-dev libnl-genl-3-dev
 
-ARP merupakan protokol yang digunakan untuk memetakan alamat fisik (MAC) dan logika (IP). Proses pemetaan ini sering ...&hashtags=mitm,security,networking," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+Clone lat...&p[url]=https://www.ardikars.com/post/libpcap/enable-dpdk-for-libpcap.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/libpcap/enable-dpdk-for-libpcap.html&text=Install required tools and libraries
+
+sudo apt install git build-essential bison flex libnuma-dev libnl-3-dev libnl-genl-3-dev
+
+Clone lat...&hashtags=dpdk,integration,linux," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
             </ul>
         </div>
         
         <div class="tags">
             <ul>
                 
-                <li><a href="https://www.ardikars.com/tag/mitm">mitm</a></li>
+                <li><a href="https://www.ardikars.com/tag/dpdk">dpdk</a></li>
                 
-                <li><a href="https://www.ardikars.com/tag/security">security</a></li>
+                <li><a href="https://www.ardikars.com/tag/integration">integration</a></li>
                 
-                <li><a href="https://www.ardikars.com/tag/networking">networking</a></li>
+                <li><a href="https://www.ardikars.com/tag/linux">linux</a></li>
                 
             </ul>
         </div>
         
     </footer>
 </article>
-
 
             </main>
         </div>
