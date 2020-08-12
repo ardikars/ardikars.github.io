@@ -120,7 +120,7 @@ var index = lunr(function () {
     index.add({
       title: "Install Docker CE on Ubuntu 20.04",
       category: null,
-      content: "Install Docker CE\n\n\n  \n    apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common\n  \n  \n    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -\n  \n  \n    echo \"deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -sc) stable\" &gt; /etc/apt/sources.list.d/docker-ce.list\n  \n  \n    apt update\n  \n  \n    apt install docker-ce\n  \n\n\nEnable Docker and Containerd to run on system boot\n\n\n  systemctl enable --now docker containerd\n\n\nRunning Docker as a non-root user\n\n\n  \n    exit (Back to normal user)\n  \n  \n    sudo usermod -aG docker ${USER}\n  \n\n\nDone\n",
+      content: "Install Docker CE\n\n\n  \n    apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common\n  \n  \n    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -\n  \n  \n    echo \"deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -sc) stable\" &gt; /etc/apt/sources.list.d/docker-ce.list\n  \n  \n    apt update\n  \n  \n    apt install docker-ce\n  \n\n\nEnable Docker and Containerd to run on system boot\n\n\n  systemctl enable --now docker containerd\n\n\nRunning Docker as a non-root user\n\n\n  \n    exit (Back to normal user)\n  \n  \n    sudo usermod -aG docker ${USER}\n  \n  \n    sudo chmod 666 /var/run/docker.sock\n  \n\n\nDone\n",
       tags: ["install","docker","container"],
       id: 12
     });
