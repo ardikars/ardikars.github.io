@@ -18,6 +18,8 @@ layout: post
 
 * `echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -sc) stable" > /etc/apt/sources.list.d/docker-ce.list`
 
+* `apt update`
+
 * `apt install docker-ce`
 
 
