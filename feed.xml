@@ -5,9 +5,38 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 12 Aug 2020 10:14:05 +0000</pubDate>
-    <lastBuildDate>Wed, 12 Aug 2020 10:14:05 +0000</lastBuildDate>
+    <pubDate>Wed, 12 Aug 2020 10:48:37 +0000</pubDate>
+    <lastBuildDate>Wed, 12 Aug 2020 10:48:37 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Compile and Install Ubridge for GNS3 on Linux</title>
+        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install libcap-dev git build-essential&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git clone https://github.com/GNS3/ubridge.git&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd ubridge&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;make&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo make install&lt;/code&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 11 Aug 2020 17:41:00 +0000</pubDate>
+        <link>https://www.ardikars.com/post/linux/compile-and-install-ubrige-for-gns3-on-linux.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/linux/compile-and-install-ubrige-for-gns3-on-linux.html</guid>
+        
+        <category>gns3</category>
+        
+        <category>install</category>
+        
+        <category>virtualization</category>
+        
+        <category>compile</category>
+        
+        
+        <category>linux</category>
+        
+      </item>
     
       <item>
         <title>Enable DPDK for Libpcap</title>
@@ -771,52 +800,6 @@ server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         
         
         <category>server</category>
-        
-      </item>
-    
-      <item>
-        <title>Install Mongo DB CE on Ubuntu 20.04</title>
-        <description>&lt;h1 id=&quot;import-the-public-key-used-by-the-package-management-system&quot;&gt;Import the public key used by the package management system&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install gnupg&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;add-mongo-db-repository&quot;&gt;Add Mongo DB repository&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;echo &quot;deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse&quot; | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;install-mongo-db&quot;&gt;Install Mongo DB&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install -y mongodb-org&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;start-mondo-db-on-boot&quot;&gt;Start Mondo DB on Boot&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemctl enable mongod.service&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Mon, 20 Jul 2020 08:34:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/database/install-mongo-db-ce-on-ubuntu-20-04.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/database/install-mongo-db-ce-on-ubuntu-20-04.html</guid>
-        
-        <category>nosql</category>
-        
-        <category>install</category>
-        
-        <category>linux</category>
-        
-        
-        <category>database</category>
         
       </item>
     
