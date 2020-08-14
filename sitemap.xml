@@ -105,6 +105,10 @@
 <lastmod>2020-08-11T17:41:00+00:00</lastmod>
 </url>
 <url>
+<loc>https://www.ardikars.com/post/mikrotik/mikrotik-simple-routing.html</loc>
+<lastmod>2020-08-13T17:41:00+00:00</lastmod>
+</url>
+<url>
 <loc>https://www.ardikars.com/404</loc>
 </url>
 <url>
@@ -246,6 +250,12 @@
 <loc>https://www.ardikars.com/tag/compile/</loc>
 </url>
 <url>
+<loc>https://www.ardikars.com/tag/brige/</loc>
+</url>
+<url>
+<loc>https://www.ardikars.com/tag/routing/</loc>
+</url>
+<url>
 <loc>https://www.ardikars.com/category/security/</loc>
 </url>
 <url>
@@ -283,6 +293,9 @@
 </url>
 <url>
 <loc>https://www.ardikars.com/category/libpcap/</loc>
+</url>
+<url>
+<loc>https://www.ardikars.com/category/mikrotik/</loc>
 </url>
 <url>
 <loc>https://www.ardikars.com/page-2/</loc>

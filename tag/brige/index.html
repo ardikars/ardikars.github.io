@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>SSH tunneling without opening shell | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
-    <meta property="og:title" content="SSH tunneling without opening shell | Ardika Rommy Sanjaya &mdash; Software Engineer " />
-    <meta name="twitter:title" content="SSH tunneling without opening shell | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <title>Posts Tagged - brige | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
+    <meta property="og:title" content="Posts Tagged - brige | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <meta name="twitter:title" content="Posts Tagged - brige | Ardika Rommy Sanjaya &mdash; Software Engineer " />
 
     <meta name="description" content="Catatan ngopek suka2.">
     <meta name="description" property="og:description" content="Catatan ngopek suka2." />
@@ -17,7 +17,7 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     
-    <meta property="og:url" content="https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-command-execution.html" />
+    <meta property="og:url" content="https://www.ardikars.com/tag/brige/" />
 
     <meta property="og:image" content="" />
     <meta name="twitter:image" content="" />
@@ -96,7 +96,7 @@
     
     <link rel="stylesheet" href="https://www.ardikars.com/assets/css/main.css">
 
-    <link rel="canonical" href="https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-command-execution.html">
+    <link rel="canonical" href="https://www.ardikars.com/tag/brige/">
 
     <link rel="alternate" type="application/rss+xml" title="Ardika Rommy Sanjaya" href="https://www.ardikars.com/feed.xml">
 </head>
@@ -277,6 +277,8 @@
             
                 
             
+                
+            
         </div>
         
     
@@ -307,69 +309,395 @@
 </div>
 
 
-                <article class="post single" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-        <ul>
-            <li><time datetime="2020-07-23T12:41:00+00:00" itemprop="datePublished">23 Jul, 2020</time></li>
-            
-        </ul>
-        <h2 itemprop="name headline">SSH tunneling without opening shell</h2>
-    </header>
+                <h1>Posts Tagged - brige</h1>
 
-    <div class="post-content">
-        <p><code class="highlighter-rouge">ssh -D 8123 -fN root@ardikars.com</code></p>
+
+    
+        
+    
+        
+        <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <ul>
+                    <li><time datetime="2020-08-13T17:41:00+00:00" itemprop="datePublished">13 Aug, 2020</time></li>
+                    
+                </ul>
+                <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/mikrotik/mikrotik-simple-routing.html">Mikrotik Simple Routing</a></h2>
+            </header>
+
+            <div class="post-content">
+                <h1 id="mikrotik">Mikrotik</h1>
 
 <ul>
-  <li>
-    <p><code class="highlighter-rouge">-D</code>: Create socks proxy, listening on port 8123</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">-f</code>: Requests ssh to go to background just before command execution.</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">-N</code>: Do not execute a remote command.</p>
-  </li>
+  <li>Show IP</li>
 </ul>
 
-    </div>
+<p><code class="highlighter-rouge">/ip dhcp-client print</code></p>
 
-    <footer class="post-footer">
-        <div class="share">Share
-            <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=SSH tunneling without opening shell&p[summary]=ssh -D 8123 -fN root@ardikars.com
+<ul>
+  <li>Get IP from dhcp</li>
+</ul>
+
+<p><code class="highlighter-rouge">/ip dhcp-client add interface=ether1 disable=no</code></p>
+
+<ul>
+  <li>Add bridge interface</li>
+</ul>
+
+<p><code class="highlighter-rouge">/interface bridge add name=bridge1</code></p>
+
+<p><code class="highlighter-rouge">/interface bridge port</code></p>
+
+<p><code class="highlighter-rouge">add bridge=bridge1 interface=ether2</code></p>
+
+<p><code class="highlighter-rouge">add bridge=bridge1 interface=ether3</code></p>
+
+<ul>
+  <li>Assign ip to bridge interface</li>
+</ul>
+
+<p><code class="highlighter-rouge">/ip address add interface=bridge1 address=192.168.100.1/24</code></p>
+
+<p><code class="highlighter-rouge">/ip route add gateway=bridge1</code></p>
+
+<p><code class="highlighter-rouge">/ip dns set servers=8.8.8.8</code></p>
+
+<p><code class="highlighter-rouge">/ip dns set allow-remote-request=yes</code></p>
+
+<ul>
+  <li>Configure firewall</li>
+</ul>
+
+<p><code class="highlighter-rouge">/ip firewall nat add chain=srcnat out-interface=ether1 action=masquerade</code></p>
+
+<p><code class="highlighter-rouge">/ip firewall nat print</code></p>
+
+<ul>
+  <li>Setup DHCP Server</li>
+</ul>
+
+<p><code class="highlighter-rouge">/ip dhcp-server setup</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Select interface to run DHCP server on 
+dhcp server interface: bridge1
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Select network for DHCP addresses 
+dhcp address space: 192.168.100.0/24
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Select gateway for given network 
+gateway for dhcp network: 192.168.100.1
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Select pool of ip addresses given out by DHCP server 
+addresses to give out: 192.168.100.2-192.168.100.254
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Select DNS servers 
+dns servers: 8.8.8.8
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Select lease time 
+lease time: 10m 
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">/ip dhcp-server enable</code></p>
+
+<p><code class="highlighter-rouge">/ip dhcp-server print</code></p>
+
+<h1 id="ubuntu-client-2004">Ubuntu Client 20.04</h1>
+
+<ul>
+  <li>Using DHCP client</li>
+</ul>
+
+<p><code class="highlighter-rouge">dhclient eth0</code></p>
+
+<ul>
+  <li>Static IP</li>
+</ul>
+
+<p><code class="highlighter-rouge">ip 192.168.100.2/24 192.168.100.1</code></p>
 
 
-  
-    -D: Create socks proxy, listening on port 8123
-  
-  
-    -f: Requests ssh to go to background ...&p[url]=https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-command-execution.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-command-execution.html&text=ssh -D 8123 -fN root@ardikars.com
+                
+                    <p><a href="/post/mikrotik/mikrotik-simple-routing.html" role="button">Read More</a></p>
+                
+            </div>
+
+            <footer class="post-footer">
+                <div class="share">Share
+                    <ul class="social-networks">
+                        <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Mikrotik Simple Routing&p[summary]=Mikrotik
 
 
-  
-    -D: Create socks proxy, listening on port 8123
-  
-  
-    -f: Requests ssh to go to background ...&hashtags=ssh,proxy,http," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
-            </ul>
-        </div>
+  Show IP
+
+
+/ip dhcp-client print
+
+
+  Get IP from dhcp
+
+
+/ip dhcp-client add interface=ether1 disable=no
+
+
+  Add bridge interf...&p[url]=https://www.ardikars.com/post/mikrotik/mikrotik-simple-routing.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                        <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/mikrotik/mikrotik-simple-routing.html&text=Mikrotik
+
+
+  Show IP
+
+
+/ip dhcp-client print
+
+
+  Get IP from dhcp
+
+
+/ip dhcp-client add interface=ether1 disable=no
+
+
+  Add bridge interf...&hashtags=networking,brige,routing," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+                    </ul>
+                </div>
+                
+                <div class="tags">
+                    <ul>
+                        
+                        <li><a href="https://www.ardikars.com/tag/networking">networking</a></li>
+                        
+                        <li><a href="https://www.ardikars.com/tag/brige">brige</a></li>
+                        
+                        <li><a href="https://www.ardikars.com/tag/routing">routing</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </footer>
+        </article>
         
-        <div class="tags">
-            <ul>
-                
-                <li><a href="https://www.ardikars.com/tag/ssh">ssh</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/proxy">proxy</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/http">http</a></li>
-                
-            </ul>
-        </div>
+    
         
-    </footer>
-</article>
+    
 
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
 
             </main>
         </div>

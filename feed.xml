@@ -5,9 +5,120 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 12 Aug 2020 10:48:37 +0000</pubDate>
-    <lastBuildDate>Wed, 12 Aug 2020 10:48:37 +0000</lastBuildDate>
+    <pubDate>Fri, 14 Aug 2020 11:51:30 +0000</pubDate>
+    <lastBuildDate>Fri, 14 Aug 2020 11:51:30 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Mikrotik Simple Routing</title>
+        <description>&lt;h1 id=&quot;mikrotik&quot;&gt;Mikrotik&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Show IP&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/ip dhcp-client print&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Get IP from dhcp&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/ip dhcp-client add interface=ether1 disable=no&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Add bridge interface&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/interface bridge add name=bridge1&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/interface bridge port&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;add bridge=bridge1 interface=ether2&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;add bridge=bridge1 interface=ether3&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Assign ip to bridge interface&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/ip address add interface=bridge1 address=192.168.100.1/24&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/ip route add gateway=bridge1&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/ip dns set servers=8.8.8.8&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/ip dns set allow-remote-request=yes&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Configure firewall&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/ip firewall nat add chain=srcnat out-interface=ether1 action=masquerade&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/ip firewall nat print&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Setup DHCP Server&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/ip dhcp-server setup&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Select interface to run DHCP server on 
+dhcp server interface: bridge1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Select network for DHCP addresses 
+dhcp address space: 192.168.100.0/24
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Select gateway for given network 
+gateway for dhcp network: 192.168.100.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Select pool of ip addresses given out by DHCP server 
+addresses to give out: 192.168.100.2-192.168.100.254
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Select DNS servers 
+dns servers: 8.8.8.8
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Select lease time 
+lease time: 10m 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/ip dhcp-server enable&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/ip dhcp-server print&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;ubuntu-client-2004&quot;&gt;Ubuntu Client 20.04&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Using DHCP client&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dhclient eth0&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Static IP&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ip 192.168.100.2/24 192.168.100.1&lt;/code&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 13 Aug 2020 17:41:00 +0000</pubDate>
+        <link>https://www.ardikars.com/post/mikrotik/mikrotik-simple-routing.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/mikrotik/mikrotik-simple-routing.html</guid>
+        
+        <category>networking</category>
+        
+        <category>brige</category>
+        
+        <category>routing</category>
+        
+        
+        <category>mikrotik</category>
+        
+      </item>
     
       <item>
         <title>Compile and Install Ubridge for GNS3 on Linux</title>
@@ -652,154 +763,6 @@ SOFTWARE.
         
         
         <category>scaling</category>
-        
-      </item>
-    
-      <item>
-        <title>Install Nginx and Let's Encrypt on Ubuntu 20.04</title>
-        <description>&lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;You have domain name pointing to your server public IP.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;installation-process&quot;&gt;Installation process&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt update&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install nginx&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemctl enable nginx&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install certbot&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo mkdir -p /var/lib/letsencrypt/.well-known&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo chgrp www-data /var/lib/letsencrypt&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo chmod g+s /var/lib/letsencrypt&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo vim /etc/nginx/snippets/letsencrypt.conf&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;location ^~ /.well-known/acme-challenge/ &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-  allow all&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  root /var/lib/letsencrypt/&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  default_type &lt;span class=&quot;s2&quot;&gt;&quot;text/plain&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  try_files &lt;span class=&quot;nv&quot;&gt;$uri&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;404&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo vim /etc/nginx/snippets/ssl.conf&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssl_dhparam /etc/ssl/certs/dhparam.pem&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-ssl_session_timeout 1d&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-ssl_session_cache shared:SSL:50m&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-ssl_session_tickets off&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-ssl_protocols TLSv1 TLSv1.1 TLSv1.2&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-ssl_ciphers &lt;span class=&quot;s1&quot;&gt;'ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:ECDHE-ECDSA-DES-CBC3-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:DES-CBC3-SHA:!DSS'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-ssl_prefer_server_ciphers on&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-ssl_stapling on&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-ssl_stapling_verify on&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-resolver 8.8.8.8 8.8.4.4 &lt;span class=&quot;nv&quot;&gt;valid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;300s&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-resolver_timeout 30s&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-add_header Strict-Transport-Security &lt;span class=&quot;s2&quot;&gt;&quot;max-age=15768000; includeSubdomains; preload&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-add_header X-Frame-Options SAMEORIGIN&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-add_header X-Content-Type-Options nosniff&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo vim /etc/nginx/sites-available/dev.cmsnesia.com.conf&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-  listen 80&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  listen &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;::]:80&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  server_name dev.cmsnesia.com&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  
-  root /var/www/html
-  
-  include snippets/letsencrypt.conf&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo ln -s /etc/nginx/sites-available/dev.cmsnesia.com.conf /etc/nginx/sites-enabled/&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemctl restart nginx&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo certbot certonly --agree-tos --email cmsnesia@gmail.com --webroot -w /var/lib/letsencrypt/ -d dev.cmsnesia.com&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo vim /etc/nginx/sites-available/dev.cmsnesia.com.conf&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    listen 80&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    listen &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;::]:80&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    server_name dev.cmsnesia.com&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  
-    root /var/www/html
-    include snippets/letsencrypt.conf&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return &lt;/span&gt;301 https://dev.cmsnesia.com&lt;span class=&quot;nv&quot;&gt;$request_uri&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# redirect http to https&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    listen 443 ssl http2&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    server_name dev.cmsnesia.com&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-    ssl_certificate /etc/letsencrypt/live/dev.cmsnesia.com/fullchain.pem&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    ssl_certificate_key /etc/letsencrypt/live/dev.cmsnesia.com/privkey.pem&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    ssl_trusted_certificate /etc/letsencrypt/live/dev.cmsnesia.com/chain.pem&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    include snippets/ssl.conf&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    include snippets/letsencrypt.conf&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo vim /etc/cron.d/certbot&lt;/code&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/12 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; root &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-x&lt;/span&gt; /usr/bin/certbot &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\!&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; /run/systemd/system &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; perl &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'sleep int(rand(3600))'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; certbot &lt;span class=&quot;nt&quot;&gt;-q&lt;/span&gt; renew &lt;span class=&quot;nt&quot;&gt;--renew-hook&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;systemctl reload nginx&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo certbot renew --dry-run&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Mon, 20 Jul 2020 09:41:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/server/install-nginx-and-lets-encrypt-on-ubuntu-20-04.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/server/install-nginx-and-lets-encrypt-on-ubuntu-20-04.html</guid>
-        
-        <category>https</category>
-        
-        <category>linux</category>
-        
-        <category>proxy</category>
-        
-        
-        <category>server</category>
         
       </item>
     
