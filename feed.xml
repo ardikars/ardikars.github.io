@@ -5,9 +5,30 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 14 Aug 2020 11:51:30 +0000</pubDate>
-    <lastBuildDate>Fri, 14 Aug 2020 11:51:30 +0000</lastBuildDate>
+    <pubDate>Wed, 19 Aug 2020 00:43:48 +0000</pubDate>
+    <lastBuildDate>Wed, 19 Aug 2020 00:43:48 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Build JDK from source on Ubuntu 20.04</title>
+        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;./configure --with-num-cores=4 --with-memory-size=4096&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;make images&lt;/code&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 18 Aug 2020 07:41:00 +0000</pubDate>
+        <link>https://www.ardikars.com/post/java/build-jdk-from-source-on-ubuntu-20.04.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/java/build-jdk-from-source-on-ubuntu-20.04.html</guid>
+        
+        <category>jdk</category>
+        
+        <category>build</category>
+        
+        <category>linux</category>
+        
+        
+        <category>java</category>
+        
+      </item>
     
       <item>
         <title>Mikrotik Simple Routing</title>
@@ -725,44 +746,6 @@ SOFTWARE.
         
         
         <category>kernel</category>
-        
-      </item>
-    
-      <item>
-        <title>Nginx HTTP Load Balancer</title>
-        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo vim /etc/nginx/nginx.conf&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;c&quot;&gt;# round robin&lt;/span&gt;
-  upstream rumahpemuridan &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      server 127.0.0.1:8081 &lt;span class=&quot;nv&quot;&gt;weight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-      server 127.0.0.1:8082 &lt;span class=&quot;nv&quot;&gt;max_conns&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-      queue 100 &lt;span class=&quot;nb&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;70&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    listen 80&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    server_name rumahpemuridan.com&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    location / &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      proxy_pass http://rumahpemuridan&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Mon, 20 Jul 2020 12:41:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/scaling/nginx-http-load-balancer.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/scaling/nginx-http-load-balancer.html</guid>
-        
-        <category>load-balancer</category>
-        
-        <category>nginx</category>
-        
-        <category>proxy</category>
-        
-        
-        <category>scaling</category>
         
       </item>
     
