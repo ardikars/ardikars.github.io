@@ -9,7 +9,8 @@ tags:
 - linux
 layout: post
 ---
+``
 
-`./configure --with-num-cores=4 --with-memory-size=4096`
+`./configure --with-num-cores=4 --with-memory-size=4096 --with-toolchain-type=clang --with-toolchain-path=/home/iconplus/Downloads/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04/bin --with-libclang=/home/iconplus/Downloads/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04`
 
 `make images`
