@@ -107,9 +107,9 @@ public class HttpProxy {
     @Override
     public void run() {
       byte[] buffer = new byte[2048];
+      int recv = 1;
       while (recv > 0) {
         try {
-          int recv = 1;
           recv = remoteSocket.getInputStream().read(buffer);
           if (recv > 0 && remoteSocket != null) {
             socket.getOutputStream().write(buffer, 0, recv);
