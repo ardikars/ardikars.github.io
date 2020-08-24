@@ -21,7 +21,7 @@ var index = lunr(function () {
     index.add({
       title: "Build JDK from source on Ubuntu 20.04",
       category: null,
-      content: "``\n\n./configure --with-num-cores=4 --with-memory-size=4096 --with-toolchain-type=clang --with-toolchain-path=/home/iconplus/Downloads/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04/bin --with-libclang=/home/iconplus/Downloads/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04\n\nmake images\n",
+      content: "cd /home/iconplus/Download\n\nwget -c https://releases.llvm.org/9.0.0/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz\n\ntar -xvf clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz\n\n./configure --with-num-cores=4 --with-memory-size=4096 --with-toolchain-type=clang --with-toolchain-path=/home/iconplus/Downloads/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04/bin --with-libclang=/home/iconplus/Downloads/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04\n\nmake images\n",
       tags: ["jdk","build","linux"],
       id: 1
     });
@@ -284,7 +284,7 @@ var store = [{
     "image": null,
     "date": "August 18, 2020",
     "category": null,
-    "excerpt": "``\n\n./configure --with-num-cores=4 --with-memory-size=4096 --with-toolchain-type=clang --with-toolchain-path=/home/iconplus/Downloads/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04/bin --with-libclang=/home/iconplus/Downloads/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04\n\nmake images\n"
+    "excerpt": "cd /home/iconplus/Download\n\nwget -c https://releases.llvm.org/9.0.0/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz\n\ntar -xvf clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz\n\n./configure --with-num-cores=4 --with-memory-size=4096 --with-toolchain-type=clang --with-toolchain-path=/home/iconplus/Downloads/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04/bin --with-libclang=/home/iconplus/Downloads/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04\n\nmake images\n"
 },{
     "title": "Mikrotik Simple Routing",
     "link": "/post/mikrotik/mikrotik-simple-routing.html",
