@@ -5,9 +5,30 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 24 Aug 2020 10:53:50 +0000</pubDate>
-    <lastBuildDate>Mon, 24 Aug 2020 10:53:50 +0000</lastBuildDate>
+    <pubDate>Wed, 02 Sep 2020 03:05:35 +0000</pubDate>
+    <lastBuildDate>Wed, 02 Sep 2020 03:05:35 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>NATO phonetic alphabet and Morse code</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/e/e0/FAA_Phonetic_and_Morse_Chart2.svg&quot; alt=&quot;alt text&quot; title=&quot;FAA Phonetic and Morse Chart&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 01 Sep 2020 09:54:00 +0000</pubDate>
+        <link>https://www.ardikars.com/post/alphabet/nato-phonetic-alphabet-and-morse-code.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/alphabet/nato-phonetic-alphabet-and-morse-code.html</guid>
+        
+        <category>nato</category>
+        
+        <category>radio</category>
+        
+        <category>morse</category>
+        
+        <category>communication</category>
+        
+        
+        <category>alphabet</category>
+        
+      </item>
     
       <item>
         <title>Java Damn Simple HTTP Proxy</title>
@@ -810,37 +831,6 @@ SOFTWARE.
         
         
         <category>tunneling</category>
-        
-      </item>
-    
-      <item>
-        <title>SSH tunneling without opening shell</title>
-        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ssh -D 8123 -fN root@ardikars.com&lt;/code&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-D&lt;/code&gt;: Create socks proxy, listening on port 8123&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-f&lt;/code&gt;: Requests ssh to go to background just before command execution.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-N&lt;/code&gt;: Do not execute a remote command.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Thu, 23 Jul 2020 12:41:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-command-execution.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/tunnelling/ssh-tunnel-without-command-execution.html</guid>
-        
-        <category>ssh</category>
-        
-        <category>proxy</category>
-        
-        <category>http</category>
-        
-        
-        <category>tunnelling</category>
         
       </item>
     
