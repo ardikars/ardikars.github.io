@@ -1,6 +1,6 @@
 ---
 title: Linux Endianess Check
-date: 2020-12-15 10:41:00 Z
+date: 2020-12-14 10:41:00 Z
 categories:
 - linux
 tags:
