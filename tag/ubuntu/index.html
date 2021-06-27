@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Nginx HTTP Load Balancer | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
-    <meta property="og:title" content="Nginx HTTP Load Balancer | Ardika Rommy Sanjaya &mdash; Software Engineer " />
-    <meta name="twitter:title" content="Nginx HTTP Load Balancer | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <title>Posts Tagged - ubuntu | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
+    <meta property="og:title" content="Posts Tagged - ubuntu | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <meta name="twitter:title" content="Posts Tagged - ubuntu | Ardika Rommy Sanjaya &mdash; Software Engineer " />
 
     <meta name="description" content="Catatan ngopek suka2.">
     <meta name="description" property="og:description" content="Catatan ngopek suka2." />
@@ -17,7 +17,7 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     
-    <meta property="og:url" content="https://www.ardikars.com/post/scaling/nginx-http-load-balancer.html" />
+    <meta property="og:url" content="https://www.ardikars.com/tag/ubuntu/" />
 
     <meta property="og:image" content="" />
     <meta name="twitter:image" content="" />
@@ -96,7 +96,7 @@
     
     <link rel="stylesheet" href="https://www.ardikars.com/assets/css/main.css">
 
-    <link rel="canonical" href="https://www.ardikars.com/post/scaling/nginx-http-load-balancer.html">
+    <link rel="canonical" href="https://www.ardikars.com/tag/ubuntu/">
 
     <link rel="alternate" type="application/rss+xml" title="Ardika Rommy Sanjaya" href="https://www.ardikars.com/feed.xml">
 </head>
@@ -297,6 +297,8 @@
             
                 
             
+                
+            
         </div>
         
     
@@ -327,76 +329,323 @@
 </div>
 
 
-                <article class="post single" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-        <ul>
-            <li><time datetime="2020-07-20T12:41:00+00:00" itemprop="datePublished">20 Jul, 2020</time></li>
-            
-        </ul>
-        <h2 itemprop="name headline">Nginx HTTP Load Balancer</h2>
-    </header>
+                <h1>Posts Tagged - ubuntu</h1>
 
-    <div class="post-content">
-        <p><code class="highlighter-rouge">$ sudo vim /etc/nginx/nginx.conf</code></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http <span class="o">{</span>
+    
+        
+    
+        
+        <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <ul>
+                    <li><time datetime="2021-06-26T10:41:00+00:00" itemprop="datePublished">26 Jun, 2021</time></li>
+                    
+                </ul>
+                <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/linux/ubuntu-20-04-youtube-stream-client-not-working-on-firefox.html">Ubuntu - Youtube Stream Client Not Working on Firefox</a></h2>
+            </header>
 
-  <span class="c"># round robin</span>
-  upstream rumahpemuridan <span class="o">{</span>
-      server 127.0.0.1:8081 <span class="nv">weight</span><span class="o">=</span>3<span class="p">;</span>
-      server 127.0.0.1:8082 <span class="nv">max_conns</span><span class="o">=</span>2<span class="p">;</span>
-      queue 100 <span class="nb">timeout</span><span class="o">=</span>70<span class="p">;</span>
-  <span class="o">}</span>
+            <div class="post-content">
+                <p><a href="https://www.theverge.com/2015/1/27/7926001/youtube-drops-flash-for-html5-video-default">Youtube drops Flash for HTML5 video as default</a></p>
 
-  server <span class="o">{</span>
-    listen 80<span class="p">;</span>
-    server_name rumahpemuridan.com<span class="p">;</span>
-    location / <span class="o">{</span>
-      proxy_pass http://rumahpemuridan<span class="p">;</span>
-    <span class="o">}</span>
-  <span class="o">}</span>
-<span class="o">}</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt update
+<span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>ubuntu-restricted-extras
 </code></pre></div></div>
 
-    </div>
 
-    <footer class="post-footer">
-        <div class="share">Share
-            <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Nginx HTTP Load Balancer&p[summary]=$ sudo vim /etc/nginx/nginx.conf
+                
+                    <p><a href="/post/linux/ubuntu-20-04-youtube-stream-client-not-working-on-firefox.html" role="button">Read More</a></p>
+                
+            </div>
 
-http {
+            <footer class="post-footer">
+                <div class="share">Share
+                    <ul class="social-networks">
+                        <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Ubuntu - Youtube Stream Client Not Working on Firefox&p[summary]=Youtube drops Flash for HTML5 video as default
 
-  # round robin
-  upstream rumahpemuridan {
-      server 127.0.0.1:8081 weight=3;
-      server ...&p[url]=https://www.ardikars.com/post/scaling/nginx-http-load-balancer.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/scaling/nginx-http-load-balancer.html&text=$ sudo vim /etc/nginx/nginx.conf
+$ sudo apt update
+$ sudo apt install ubuntu-restricted-extras
 
-http {
+&p[url]=https://www.ardikars.com/post/linux/ubuntu-20-04-youtube-stream-client-not-working-on-firefox.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                        <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/linux/ubuntu-20-04-youtube-stream-client-not-working-on-firefox.html&text=Youtube drops Flash for HTML5 video as default
 
-  # round robin
-  upstream rumahpemuridan {
-      server 127.0.0.1:8081 weight=3;
-      server ...&hashtags=load-balancer,nginx,proxy," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
-            </ul>
-        </div>
+$ sudo apt update
+$ sudo apt install ubuntu-restricted-extras
+
+&hashtags=os,ubuntu," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+                    </ul>
+                </div>
+                
+                <div class="tags">
+                    <ul>
+                        
+                        <li><a href="https://www.ardikars.com/tag/os">os</a></li>
+                        
+                        <li><a href="https://www.ardikars.com/tag/ubuntu">ubuntu</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </footer>
+        </article>
         
-        <div class="tags">
-            <ul>
-                
-                <li><a href="https://www.ardikars.com/tag/load-balancer">load-balancer</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/nginx">nginx</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/proxy">proxy</a></li>
-                
-            </ul>
-        </div>
-        
-    </footer>
-</article>
+    
 
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
 
             </main>
         </div>

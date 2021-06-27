@@ -134,11 +134,13 @@
                 
             
                 
-                    <a href="https://www.ardikars.com/software/" >Software</a>
+                    <a href="https://www.ardikars.com/about/" >About</a>
                 
             
                 
-                    <a href="https://www.ardikars.com/about/" >About</a>
+                    <a href="https://www.ardikars.com/software/" >Software</a>
+                
+            
                 
             
                 
@@ -328,6 +330,47 @@
 
 
                 
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2020-07-31T21:23:00+00:00" itemprop="datePublished">31 Jul, 2020</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/android/flash-the-twrp-recovery-to-android-device.html">Flash the TWRP recovery to Android Device</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p><code class="highlighter-rouge">fastboot flash recovery recovery.img</code></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Flash the TWRP recovery to Android Device&p[summary]=fastboot flash recovery recovery.img
+&p[url]=https://www.ardikars.com/post/android/flash-the-twrp-recovery-to-android-device.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/android/flash-the-twrp-recovery-to-android-device.html&text=fastboot flash recovery recovery.img
+&hashtags=recovery,root,os," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+                <li><a href="https://www.ardikars.com/tag/recovery">recovery</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/root">root</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/os">os</a></li>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
 <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
@@ -836,200 +879,6 @@ http {
                 <li><a href="https://www.ardikars.com/tag/load-balancer">load-balancer</a></li>
                 
                 <li><a href="https://www.ardikars.com/tag/nginx">nginx</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/proxy">proxy</a></li>
-                
-            </ul>
-        </div>
-        
-    </footer>
-</article>
-
-<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-        <ul>
-            <li><time datetime="2020-07-20T09:41:00+00:00" itemprop="datePublished">20 Jul, 2020</time></li>
-            
-        </ul>
-        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/server/install-nginx-and-lets-encrypt-on-ubuntu-20-04.html">Install Nginx and Let's Encrypt on Ubuntu 20.04</a></h2>
-    </header>
-
-    <div class="post-content">
-        <h1 id="prerequisites">Prerequisites</h1>
-
-<ul>
-  <li>You have domain name pointing to your server public IP.</li>
-</ul>
-
-<h1 id="installation-process">Installation process</h1>
-
-<ul>
-  <li>
-    <p><code class="highlighter-rouge">sudo apt update</code></p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">sudo apt install nginx</code></p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">sudo systemctl enable nginx</code></p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">sudo apt install certbot</code></p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048</code></p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">sudo mkdir -p /var/lib/letsencrypt/.well-known</code></p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">sudo chgrp www-data /var/lib/letsencrypt</code></p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">sudo chmod g+s /var/lib/letsencrypt</code></p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">sudo vim /etc/nginx/snippets/letsencrypt.conf</code></p>
-  </li>
-</ul>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location ^~ /.well-known/acme-challenge/ <span class="o">{</span>
-  allow all<span class="p">;</span>
-  root /var/lib/letsencrypt/<span class="p">;</span>
-  default_type <span class="s2">"text/plain"</span><span class="p">;</span>
-  try_files <span class="nv">$uri</span> <span class="o">=</span>404<span class="p">;</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<ul>
-  <li><code class="highlighter-rouge">sudo vim /etc/nginx/snippets/ssl.conf</code></li>
-</ul>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssl_dhparam /etc/ssl/certs/dhparam.pem<span class="p">;</span>
-
-ssl_session_timeout 1d<span class="p">;</span>
-ssl_session_cache shared:SSL:50m<span class="p">;</span>
-ssl_session_tickets off<span class="p">;</span>
-
-ssl_protocols TLSv1 TLSv1.1 TLSv1.2<span class="p">;</span>
-ssl_ciphers <span class="s1">'ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:ECDHE-ECDSA-DES-CBC3-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:DES-CBC3-SHA:!DSS'</span><span class="p">;</span>
-ssl_prefer_server_ciphers on<span class="p">;</span>
-
-ssl_stapling on<span class="p">;</span>
-ssl_stapling_verify on<span class="p">;</span>
-resolver 8.8.8.8 8.8.4.4 <span class="nv">valid</span><span class="o">=</span>300s<span class="p">;</span>
-resolver_timeout 30s<span class="p">;</span>
-
-add_header Strict-Transport-Security <span class="s2">"max-age=15768000; includeSubdomains; preload"</span><span class="p">;</span>
-add_header X-Frame-Options SAMEORIGIN<span class="p">;</span>
-add_header X-Content-Type-Options nosniff<span class="p">;</span>
-</code></pre></div></div>
-
-<ul>
-  <li><code class="highlighter-rouge">sudo vim /etc/nginx/sites-available/dev.cmsnesia.com.conf</code></li>
-</ul>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server <span class="o">{</span>
-  listen 80<span class="p">;</span>
-  listen <span class="o">[</span>::]:80<span class="p">;</span>
-  server_name dev.cmsnesia.com<span class="p">;</span>
-  
-  root /var/www/html
-  
-  include snippets/letsencrypt.conf<span class="p">;</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<ul>
-  <li>
-    <p><code class="highlighter-rouge">sudo ln -s /etc/nginx/sites-available/dev.cmsnesia.com.conf /etc/nginx/sites-enabled/</code></p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">sudo systemctl restart nginx</code></p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">sudo certbot certonly --agree-tos --email cmsnesia@gmail.com --webroot -w /var/lib/letsencrypt/ -d dev.cmsnesia.com</code></p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">sudo vim /etc/nginx/sites-available/dev.cmsnesia.com.conf</code></p>
-  </li>
-</ul>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server <span class="o">{</span>
-    listen 80<span class="p">;</span>
-    listen <span class="o">[</span>::]:80<span class="p">;</span>
-    server_name dev.cmsnesia.com<span class="p">;</span>
-  
-    root /var/www/html
-    include snippets/letsencrypt.conf<span class="p">;</span>
-    <span class="k">return </span>301 https://dev.cmsnesia.com<span class="nv">$request_uri</span><span class="p">;</span> <span class="c"># redirect http to https</span>
-<span class="o">}</span>
-
-server <span class="o">{</span>
-    listen 443 ssl http2<span class="p">;</span>
-    server_name dev.cmsnesia.com<span class="p">;</span>
-
-    ssl_certificate /etc/letsencrypt/live/dev.cmsnesia.com/fullchain.pem<span class="p">;</span>
-    ssl_certificate_key /etc/letsencrypt/live/dev.cmsnesia.com/privkey.pem<span class="p">;</span>
-    ssl_trusted_certificate /etc/letsencrypt/live/dev.cmsnesia.com/chain.pem<span class="p">;</span>
-    include snippets/ssl.conf<span class="p">;</span>
-    include snippets/letsencrypt.conf<span class="p">;</span>
-<span class="o">}</span>
-
-</code></pre></div></div>
-
-<ul>
-  <li><code class="highlighter-rouge">sudo vim /etc/cron.d/certbot</code>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 <span class="k">*</span>/12 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> root <span class="nb">test</span> <span class="nt">-x</span> /usr/bin/certbot <span class="nt">-a</span> <span class="se">\!</span> <span class="nt">-d</span> /run/systemd/system <span class="o">&amp;&amp;</span> perl <span class="nt">-e</span> <span class="s1">'sleep int(rand(3600))'</span> <span class="o">&amp;&amp;</span> certbot <span class="nt">-q</span> renew <span class="nt">--renew-hook</span> <span class="s2">"systemctl reload nginx"</span>
-</code></pre></div>    </div>
-  </li>
-  <li><code class="highlighter-rouge">sudo certbot renew --dry-run</code></li>
-</ul>
-
-
-        
-    </div>
-
-    <footer class="post-footer">
-        <div class="share">Share
-            <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Install Nginx and Let's Encrypt on Ubuntu 20.04&p[summary]=Prerequisites
-
-
-  You have domain name pointing to your server public IP.
-
-
-Installation process
-
-
-  
-    sudo apt update
-  
-  
-    sudo ...&p[url]=https://www.ardikars.com/post/server/install-nginx-and-lets-encrypt-on-ubuntu-20-04.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/server/install-nginx-and-lets-encrypt-on-ubuntu-20-04.html&text=Prerequisites
-
-
-  You have domain name pointing to your server public IP.
-
-
-Installation process
-
-
-  
-    sudo apt update
-  
-  
-    sudo ...&hashtags=https,linux,proxy," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
-            </ul>
-        </div>
-        
-        <div class="tags">
-            <ul>
-                
-                <li><a href="https://www.ardikars.com/tag/https">https</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/linux">linux</a></li>
                 
                 <li><a href="https://www.ardikars.com/tag/proxy">proxy</a></li>
                 
