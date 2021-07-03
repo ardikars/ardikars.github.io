@@ -16,5 +16,5 @@ $ cd ~/.local/share
 
 $ sudo mount -t ecryptfs python_keyring python_keyring
 
-$ sudo umount secret_directory
+$ sudo umount python_keyring
 ```
