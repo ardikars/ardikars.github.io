@@ -12,7 +12,7 @@ var index = lunr(function () {
     index.add({
       title: "Encrypt Linux Directory",
       category: null,
-      content: "$ mkdir -p ~/.local/share/python_keyring\n\n$ cd ~/.local/share\n\n$ sudo mount -t ecryptfs python_keyring python_keyring\n\n$ sudo umount secret_directory\n\n",
+      content: "$ mkdir -p ~/.local/share/python_keyring\n\n$ cd ~/.local/share\n\n$ sudo mount -t ecryptfs python_keyring python_keyring\n\n$ sudo umount python_keyring\n\n",
       tags: ["security","disk"],
       id: 0
     });
@@ -313,7 +313,7 @@ var store = [{
     "image": null,
     "date": "July 2, 2021",
     "category": null,
-    "excerpt": "$ mkdir -p ~/.local/share/python_keyring\n\n$ cd ~/.local/share\n\n$ sudo mount -t ecryptfs python_keyring python_keyring\n\n$ sudo umount secret_directory\n\n"
+    "excerpt": "$ mkdir -p ~/.local/share/python_keyring\n\n$ cd ~/.local/share\n\n$ sudo mount -t ecryptfs python_keyring python_keyring\n\n$ sudo umount python_keyring\n\n"
 },{
     "title": "Ubuntu - Youtube Stream Client Not Working on Firefox",
     "link": "/post/linux/ubuntu-20-04-youtube-stream-client-not-working-on-firefox.html",

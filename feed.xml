@@ -5,8 +5,8 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 03 Jul 2021 13:03:43 +0000</pubDate>
-    <lastBuildDate>Sat, 03 Jul 2021 13:03:43 +0000</lastBuildDate>
+    <pubDate>Sat, 03 Jul 2021 13:15:21 +0000</pubDate>
+    <lastBuildDate>Sat, 03 Jul 2021 13:15:21 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -17,7 +17,7 @@
 
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;mount &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; ecryptfs python_keyring python_keyring
 
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;umount secret_directory
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;umount python_keyring
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Fri, 02 Jul 2021 10:41:00 +0000</pubDate>
