@@ -301,6 +301,8 @@
             
                 
             
+                
+            
         </div>
         
     
@@ -333,6 +335,63 @@
 
                 <h1>Posts Tagged - disk</h1>
 
+
+    
+        
+    
+        
+        <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="post-header">
+                <ul>
+                    <li><time datetime="2021-07-10T10:41:00+00:00" itemprop="datePublished">10 Jul, 2021</time></li>
+                    
+                </ul>
+                <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/raid/linux-raid-0.html">Linux RAID 0</a></h2>
+            </header>
+
+            <div class="post-content">
+                <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>blkid
+<span class="nv">$ </span><span class="nb">sudo </span>mdadm <span class="nt">--create</span> <span class="nt">--verbose</span> /dev/md0 <span class="nt">--level</span><span class="o">=</span>0 <span class="nt">--raid-devices</span><span class="o">=</span>2 /dev/sda1 /dev/sdb1
+<span class="nv">$ </span><span class="nb">sudo cat</span> /proc/mdstat
+<span class="nv">$ </span><span class="nb">sudo </span>mkfs.ext4 /dev/md0
+<span class="nv">$ </span><span class="nb">sudo mkdir</span> <span class="nt">-p</span> /mnt/raid0
+<span class="nv">$ </span><span class="nb">sudo </span>mount /dev/md0 /mnt/raid0
+</code></pre></div></div>
+
+
+                
+                    <p><a href="/post/raid/linux-raid-0.html" role="button">Read More</a></p>
+                
+            </div>
+
+            <footer class="post-footer">
+                <div class="share">Share
+                    <ul class="social-networks">
+                        <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Linux RAID 0&p[summary]=$ sudo blkid
+$ sudo mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sda1 /dev/sdb1
+$ sudo cat /proc/mdstat
+$ sudo mkfs....&p[url]=https://www.ardikars.com/post/raid/linux-raid-0.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                        <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/raid/linux-raid-0.html&text=$ sudo blkid
+$ sudo mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sda1 /dev/sdb1
+$ sudo cat /proc/mdstat
+$ sudo mkfs....&hashtags=linux,disk," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+                    </ul>
+                </div>
+                
+                <div class="tags">
+                    <ul>
+                        
+                        <li><a href="https://www.ardikars.com/tag/linux">linux</a></li>
+                        
+                        <li><a href="https://www.ardikars.com/tag/disk">disk</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </footer>
+        </article>
+        
+    
 
     
         

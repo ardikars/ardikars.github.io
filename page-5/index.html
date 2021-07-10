@@ -301,6 +301,8 @@
             
                 
             
+                
+            
         </div>
         
     
@@ -332,6 +334,68 @@
 
 
                 
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2020-07-10T05:45:00+00:00" itemprop="datePublished">10 Jul, 2020</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/linux/netflix-error-F7355-on-firefox.html">Netflix error F7355 on Firefox</a></h2>
+    </header>
+
+    <div class="post-content">
+        <ol>
+  <li>
+    <p><code class="highlighter-rouge">sudo apt install libavcodec-extra</code></p>
+  </li>
+  <li>
+    <p>Enable DRM</p>
+  </li>
+</ol>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Netflix error F7355 on Firefox&p[summary]=
+  
+    sudo apt install libavcodec-extra
+  
+  
+    Enable DRM
+  
+
+&p[url]=https://www.ardikars.com/post/linux/netflix-error-F7355-on-firefox.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/linux/netflix-error-F7355-on-firefox.html&text=
+  
+    sudo apt install libavcodec-extra
+  
+  
+    Enable DRM
+  
+
+&hashtags=drm,firefox,video," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+                <li><a href="https://www.ardikars.com/tag/drm">drm</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/firefox">firefox</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/video">video</a></li>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
 <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
@@ -713,107 +777,6 @@ Creating new partition table on /dev/sdX
                 <li><a href="https://www.ardikars.com/tag/tunnel">tunnel</a></li>
                 
                 <li><a href="https://www.ardikars.com/tag/anonymity">anonymity</a></li>
-                
-            </ul>
-        </div>
-        
-    </footer>
-</article>
-
-<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-        <ul>
-            <li><time datetime="2020-07-02T17:45:00+00:00" itemprop="datePublished">2 Jul, 2020</time></li>
-            
-        </ul>
-        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/android/unlock-nokia-3-bootloader.html">Unlock Nokia 3 Bootloader</a></h2>
-    </header>
-
-    <div class="post-content">
-        <ol>
-  <li>
-    <p>Enable developer options</p>
-  </li>
-  <li>
-    <p>Enable OEM Unlocking (OEM Unlock)</p>
-  </li>
-  <li>
-    <p>Enable USB debugging mode</p>
-  </li>
-  <li>
-    <p>Change default USB configuration, choose File Transfer (MTP)</p>
-  </li>
-  <li>
-    <p>Install adb and fastboot (<code class="highlighter-rouge">sudo apt-get install android-tools-adb android-tools-fastboot</code>)</p>
-  </li>
-  <li>
-    <p>Install nokia usb drive</p>
-  </li>
-  <li>
-    <p>Connect your phone to your PC and approve all usb connection</p>
-  </li>
-  <li>
-    <p>Type <code class="highlighter-rouge">adb devices</code>, then it will show the serial number</p>
-  </li>
-  <li>
-    <p>Type <code class="highlighter-rouge">adb reboot bootloader</code>, then your devices will boot into fastboot mode</p>
-  </li>
-  <li>
-    <p>Type <code class="highlighter-rouge">fastboot devices</code>, to make sure that your device still connected to your PC and it will show your phone serial number</p>
-  </li>
-  <li>
-    <p>Type <code class="highlighter-rouge">fastboot oem key $(echo -n "YOUR_PHONE_SERIAL_NUMBER" | md5sum | tr [a-z] [A-Z])</code></p>
-  </li>
-  <li>
-    <p>Type <code class="highlighter-rouge">fastboot flashing unlock</code>, your phone will ask you about unlocking bootloader</p>
-  </li>
-  <li>
-    <p>Press vol up (yes)</p>
-  </li>
-</ol>
-
-
-        
-    </div>
-
-    <footer class="post-footer">
-        <div class="share">Share
-            <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Unlock Nokia 3 Bootloader&p[summary]=
-  
-    Enable developer options
-  
-  
-    Enable OEM Unlocking (OEM Unlock)
-  
-  
-    Enable USB debugging mode
-  
-  
-    Change default...&p[url]=https://www.ardikars.com/post/android/unlock-nokia-3-bootloader.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/android/unlock-nokia-3-bootloader.html&text=
-  
-    Enable developer options
-  
-  
-    Enable OEM Unlocking (OEM Unlock)
-  
-  
-    Enable USB debugging mode
-  
-  
-    Change default...&hashtags=bootloader,unlocking,rooting," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
-            </ul>
-        </div>
-        
-        <div class="tags">
-            <ul>
-                
-                <li><a href="https://www.ardikars.com/tag/bootloader">bootloader</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/unlocking">unlocking</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/rooting">rooting</a></li>
                 
             </ul>
         </div>

@@ -301,6 +301,8 @@
             
                 
             
+                
+            
         </div>
         
     
@@ -332,6 +334,164 @@
 
 
                 
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2020-08-20T13:41:00+00:00" itemprop="datePublished">20 Aug, 2020</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/java/java-damn-simple-http-proxy.html">Java Damn Simple HTTP Proxy</a></h2>
+    </header>
+
+    <div class="post-content">
+        <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.ServerSocket</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.Socket</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.ExecutorService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.Executors</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HttpProxy</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kt">byte</span><span class="o">[]</span> <span class="no">CONNECTION_ESTABLISHED</span> <span class="o">=</span>
+      <span class="s">"HTTP/1.0 200 Connection established\r\nProxy-Agent: HTTP Proxy/1.0\r\n\r\n"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">();</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+    <span class="nc">ExecutorService</span> <span class="n">threadPool</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newCachedThreadPool</span><span class="o">();</span>
+    <span class="nc">ServerSocket</span> <span class="n">serverSocket</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ServerSocket</span><span class="o">(</span><span class="mi">8080</span><span class="o">);</span>
+    <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">threadPool</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="k">new</span> <span class="nc">UpstramHandler</span><span class="o">(</span><span class="n">serverSocket</span><span class="o">.</span><span class="na">accept</span><span class="o">()));</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="kd">static</span> <span class="kd">class</span> <span class="nc">UpstramHandler</span> <span class="kd">implements</span> <span class="nc">Runnable</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Socket</span> <span class="n">socket</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">ExecutorService</span> <span class="n">executorService</span><span class="o">;</span>
+
+    <span class="nc">UpstramHandler</span><span class="o">(</span><span class="nc">Socket</span> <span class="n">socket</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">executorService</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newSingleThreadExecutor</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+      <span class="kt">byte</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">2048</span><span class="o">];</span>
+      <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+          <span class="nc">Socket</span> <span class="n">remoteSocket</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+          <span class="kt">int</span> <span class="n">recv</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+          <span class="k">while</span> <span class="o">(</span><span class="n">recv</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">recv</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">().</span><span class="na">read</span><span class="o">(</span><span class="n">buffer</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">recv</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+              <span class="k">if</span> <span class="o">(</span><span class="n">recv</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">8</span><span class="o">);</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"CONNECT"</span><span class="o">))</span> <span class="o">{</span>
+                  <span class="kt">int</span> <span class="n">endlIndx</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+                  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">recv</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">buffer</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'\r'</span> <span class="o">&amp;&amp;</span> <span class="n">buffer</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'\n'</span><span class="o">)</span> <span class="o">{</span>
+                      <span class="n">endlIndx</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+                      <span class="k">break</span><span class="o">;</span>
+                    <span class="o">}</span>
+                  <span class="o">}</span>
+                  <span class="k">if</span> <span class="o">(</span><span class="n">endlIndx</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="nc">String</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">endlIndx</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+                    <span class="kt">int</span> <span class="n">connectIndex</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="s">"CONNECT"</span><span class="o">);</span>
+                    <span class="kt">int</span> <span class="n">startIndex</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="s">" "</span><span class="o">,</span> <span class="n">connectIndex</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+                    <span class="kt">int</span> <span class="n">endIndex</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="s">" "</span><span class="o">,</span> <span class="n">startIndex</span><span class="o">);</span>
+                    <span class="nc">String</span><span class="o">[]</span> <span class="n">hostnameAndPort</span><span class="o">;</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">endIndex</span> <span class="o">&lt;</span> <span class="n">startIndex</span><span class="o">)</span> <span class="o">{</span>
+                      <span class="n">hostnameAndPort</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">startIndex</span><span class="o">).</span><span class="na">split</span><span class="o">(</span><span class="s">":"</span><span class="o">);</span>
+                    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                      <span class="n">hostnameAndPort</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">startIndex</span><span class="o">,</span> <span class="n">endIndex</span><span class="o">).</span><span class="na">split</span><span class="o">(</span><span class="s">":"</span><span class="o">);</span>
+                    <span class="o">}</span>
+                    <span class="nc">String</span> <span class="n">hostname</span> <span class="o">=</span> <span class="n">hostnameAndPort</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+                    <span class="kt">int</span> <span class="n">port</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">hostnameAndPort</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+                    <span class="n">remoteSocket</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Socket</span><span class="o">(</span><span class="n">hostname</span><span class="o">,</span> <span class="n">port</span><span class="o">);</span>
+                    <span class="n">socket</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">().</span><span class="na">write</span><span class="o">(</span><span class="no">CONNECTION_ESTABLISHED</span><span class="o">);</span>
+                    <span class="n">socket</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">().</span><span class="na">flush</span><span class="o">();</span>
+                    <span class="n">executorService</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="k">new</span> <span class="nc">DownstreamHandler</span><span class="o">(</span><span class="n">socket</span><span class="o">,</span> <span class="n">remoteSocket</span><span class="o">));</span>
+                    <span class="k">continue</span><span class="o">;</span>
+                  <span class="o">}</span>
+                <span class="o">}</span>
+              <span class="o">}</span>
+              <span class="k">if</span> <span class="o">(</span><span class="n">remoteSocket</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">remoteSocket</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">().</span><span class="na">write</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">recv</span><span class="o">);</span>
+                <span class="n">remoteSocket</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">().</span><span class="na">flush</span><span class="o">();</span>
+              <span class="o">}</span>
+            <span class="o">}</span>
+          <span class="o">}</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+          <span class="nc">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="kd">static</span> <span class="kd">class</span> <span class="nc">DownstreamHandler</span> <span class="kd">implements</span> <span class="nc">Runnable</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Socket</span> <span class="n">socket</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Socket</span> <span class="n">remoteSocket</span><span class="o">;</span>
+
+    <span class="nc">DownstreamHandler</span><span class="o">(</span><span class="nc">Socket</span> <span class="n">socket</span><span class="o">,</span> <span class="nc">Socket</span> <span class="n">remoteSocket</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">remoteSocket</span> <span class="o">=</span> <span class="n">remoteSocket</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+      <span class="kt">byte</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">2048</span><span class="o">];</span>
+      <span class="kt">int</span> <span class="n">recv</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+      <span class="k">while</span> <span class="o">(</span><span class="n">recv</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+          <span class="n">recv</span> <span class="o">=</span> <span class="n">remoteSocket</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">().</span><span class="na">read</span><span class="o">(</span><span class="n">buffer</span><span class="o">);</span>
+          <span class="k">if</span> <span class="o">(</span><span class="n">recv</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">remoteSocket</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">socket</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">().</span><span class="na">write</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">recv</span><span class="o">);</span>
+            <span class="n">socket</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">().</span><span class="na">flush</span><span class="o">();</span>
+          <span class="o">}</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+          <span class="nc">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Java Damn Simple HTTP Proxy&p[summary]=import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import jav...&p[url]=https://www.ardikars.com/post/java/java-damn-simple-http-proxy.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/java/java-damn-simple-http-proxy.html&text=import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import jav...&hashtags=proxy,http,networking," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+                <li><a href="https://www.ardikars.com/tag/proxy">proxy</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/http">http</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/networking">networking</a></li>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
 <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
@@ -703,120 +863,6 @@ Clone lat...&hashtags=dpdk,integration,linux," rel="noreferrer" target="_blank" 
                 <li><a href="https://www.ardikars.com/tag/integration">integration</a></li>
                 
                 <li><a href="https://www.ardikars.com/tag/linux">linux</a></li>
-                
-            </ul>
-        </div>
-        
-    </footer>
-</article>
-
-<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-        <ul>
-            <li><time datetime="2020-07-31T23:43:00+00:00" itemprop="datePublished">31 Jul, 2020</time></li>
-            
-        </ul>
-        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/firewall/a-strict-firewall-that-only-allows-ssh.html">A Strict Firewall that Only Allows SSH</a></h2>
-    </header>
-
-    <div class="post-content">
-        <p><code class="highlighter-rouge">export SERVER_IP="x.x.x.x"</code></p>
-
-<h1 id="flushing-all-rules">Flushing all rules</h1>
-
-<p><code class="highlighter-rouge">iptables -F</code></p>
-
-<p><code class="highlighter-rouge">iptables -X</code></p>
-
-<h1 id="setting-default-filter-policy">Setting default filter policy</h1>
-
-<p><code class="highlighter-rouge">iptables -P INPUT DROP</code></p>
-
-<p><code class="highlighter-rouge">iptables -P OUTPUT DROP</code></p>
-
-<p><code class="highlighter-rouge">iptables -P FORWARD DROP</code></p>
-
-<h1 id="allow-incoming-and-outgoing-ssh-only">Allow incoming and outgoing ssh only</h1>
-
-<p><code class="highlighter-rouge">iptables -A INPUT -p tcp -s 0/0 -d $SERVER_IP --sport 513:65535 --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT</code></p>
-
-<p><code class="highlighter-rouge">iptables -A OUTPUT -p tcp -s $SERVER_IP -d 0/0 --sport 22 --dport 513:65535 -m state --state ESTABLISHED -j ACCEPT</code></p>
-
-<h1 id="make-sure-nothing-comes-or-goes-out">Make sure nothing comes or goes out</h1>
-
-<p><code class="highlighter-rouge">iptables -A INPUT -j DROP</code></p>
-
-<p><code class="highlighter-rouge">iptables -A OUTPUT -j DROP</code></p>
-
-<h1 id="save-and-load-rules">Save and load rules</h1>
-
-<p><code class="highlighter-rouge">iptables-save &gt; /etc/iptables.rules</code></p>
-
-<p><code class="highlighter-rouge">vim /etc/network/if-pre-up.d/iptablesload</code></p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
-iptables-restore &lt; /etc/iptables.rules
-<span class="nb">exit </span>0
-</code></pre></div></div>
-
-<p><code class="highlighter-rouge">vim /etc/network/if-post-down.d/iptablessave </code></p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
-iptables-save <span class="nt">-c</span> <span class="o">&gt;</span> /etc/iptables.rules
-<span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> /etc/iptables.downrules <span class="o">]</span><span class="p">;</span> <span class="k">then
-   </span>iptables-restore &lt; /etc/iptables.downrules
-<span class="k">fi
-</span><span class="nb">exit </span>0
-</code></pre></div></div>
-
-<p><code class="highlighter-rouge">chmod +x /etc/network/if-post-down.d/iptablessave</code></p>
-
-<p><code class="highlighter-rouge">chmod +x /etc/network/if-pre-up.d/iptablesload</code></p>
-
-
-        
-    </div>
-
-    <footer class="post-footer">
-        <div class="share">Share
-            <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=A Strict Firewall that Only Allows SSH&p[summary]=export SERVER_IP="x.x.x.x"
-
-Flushing all rules
-
-iptables -F
-
-iptables -X
-
-Setting default filter policy
-
-iptables -P INPUT DROP
-
-iptables...&p[url]=https://www.ardikars.com/post/firewall/a-strict-firewall-that-only-allows-ssh.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/firewall/a-strict-firewall-that-only-allows-ssh.html&text=export SERVER_IP="x.x.x.x"
-
-Flushing all rules
-
-iptables -F
-
-iptables -X
-
-Setting default filter policy
-
-iptables -P INPUT DROP
-
-iptables...&hashtags=ssh,network,security," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
-            </ul>
-        </div>
-        
-        <div class="tags">
-            <ul>
-                
-                <li><a href="https://www.ardikars.com/tag/ssh">ssh</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/network">network</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/security">security</a></li>
                 
             </ul>
         </div>

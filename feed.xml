@@ -5,9 +5,32 @@
     <description>Catatan ngopek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 03 Jul 2021 13:15:21 +0000</pubDate>
-    <lastBuildDate>Sat, 03 Jul 2021 13:15:21 +0000</lastBuildDate>
+    <pubDate>Sat, 10 Jul 2021 23:05:25 +0000</pubDate>
+    <lastBuildDate>Sat, 10 Jul 2021 23:05:25 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Linux RAID 0</title>
+        <description>&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;blkid
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;mdadm &lt;span class=&quot;nt&quot;&gt;--create&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt; /dev/md0 &lt;span class=&quot;nt&quot;&gt;--level&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0 &lt;span class=&quot;nt&quot;&gt;--raid-devices&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2 /dev/sda1 /dev/sdb1
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo cat&lt;/span&gt; /proc/mdstat
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;mkfs.ext4 /dev/md0
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; /mnt/raid0
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;mount /dev/md0 /mnt/raid0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Sat, 10 Jul 2021 10:41:00 +0000</pubDate>
+        <link>https://www.ardikars.com/post/raid/linux-raid-0.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/raid/linux-raid-0.html</guid>
+        
+        <category>linux</category>
+        
+        <category>disk</category>
+        
+        
+        <category>raid</category>
+        
+      </item>
     
       <item>
         <title>Encrypt Linux Directory</title>
@@ -455,76 +478,6 @@ lease time: 10m
         
         
         <category>libpcap</category>
-        
-      </item>
-    
-      <item>
-        <title>A Strict Firewall that Only Allows SSH</title>
-        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;export SERVER_IP=&quot;x.x.x.x&quot;&lt;/code&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;flushing-all-rules&quot;&gt;Flushing all rules&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables -F&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables -X&lt;/code&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;setting-default-filter-policy&quot;&gt;Setting default filter policy&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables -P INPUT DROP&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables -P OUTPUT DROP&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables -P FORWARD DROP&lt;/code&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;allow-incoming-and-outgoing-ssh-only&quot;&gt;Allow incoming and outgoing ssh only&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables -A INPUT -p tcp -s 0/0 -d $SERVER_IP --sport 513:65535 --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables -A OUTPUT -p tcp -s $SERVER_IP -d 0/0 --sport 22 --dport 513:65535 -m state --state ESTABLISHED -j ACCEPT&lt;/code&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;make-sure-nothing-comes-or-goes-out&quot;&gt;Make sure nothing comes or goes out&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables -A INPUT -j DROP&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables -A OUTPUT -j DROP&lt;/code&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;save-and-load-rules&quot;&gt;Save and load rules&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables-save &amp;gt; /etc/iptables.rules&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vim /etc/network/if-pre-up.d/iptablesload&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
-iptables-restore &amp;lt; /etc/iptables.rules
-&lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vim /etc/network/if-post-down.d/iptablessave &lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
-iptables-save &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /etc/iptables.rules
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; /etc/iptables.downrules &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
-   &lt;/span&gt;iptables-restore &amp;lt; /etc/iptables.downrules
-&lt;span class=&quot;k&quot;&gt;fi
-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;chmod +x /etc/network/if-post-down.d/iptablessave&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;chmod +x /etc/network/if-pre-up.d/iptablesload&lt;/code&gt;&lt;/p&gt;
-</description>
-        <pubDate>Fri, 31 Jul 2020 23:43:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/firewall/a-strict-firewall-that-only-allows-ssh.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/firewall/a-strict-firewall-that-only-allows-ssh.html</guid>
-        
-        <category>ssh</category>
-        
-        <category>network</category>
-        
-        <category>security</category>
-        
-        
-        <category>firewall</category>
         
       </item>
     
