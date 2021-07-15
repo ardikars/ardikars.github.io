@@ -12,7 +12,7 @@ var index = lunr(function () {
     index.add({
       title: "Linux RAID 0",
       category: null,
-      content: "$ sudo blkid\n$ sudo mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sda1 /dev/sdb1\n$ sudo cat /proc/mdstat\n$ sudo mkfs.ext4 /dev/md0\n$ sudo mkdir -p /mnt/raid0\n$ sudo mount /dev/md0 /mnt/raid0\n\n",
+      content: "Create RAID-0\n\n$ sudo blkid\n$ sudo mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sda1 /dev/sdb1\n$ sudo cat /proc/mdstat\n$ sudo mkfs.ext4 /dev/md0\n$ sudo mkdir -p /mnt/raid0\n$ sudo mount /dev/md0 /mnt/raid0\n\nRemote RAID-0\n\n$ sudo mdadm --stop /dev/md0\n$ sudo mdadm --remove /dev/md0 # mdadm: error opening /dev/md0: No such file or directory\n$ sudo mdadm --zero-superblock /dev/sda1 /dev/sdb1\n$ sudo cat /proc/mdstat # verify RAID device was removed\n\n",
       tags: ["linux","disk"],
       id: 0
     });
@@ -322,7 +322,7 @@ var store = [{
     "image": null,
     "date": "July 10, 2021",
     "category": null,
-    "excerpt": "$ sudo blkid $ sudo mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sda1 /dev/sdb1 $ sudo cat /proc/mdstat $ sudo mkfs.ext4..."
+    "excerpt": "Create RAID-0 $ sudo blkid $ sudo mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sda1 /dev/sdb1 $ sudo cat /proc/mdstat $..."
 },{
     "title": "Encrypt Linux Directory",
     "link": "/post/linux/encrypt-linux-directory.html",

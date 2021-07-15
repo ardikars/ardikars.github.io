@@ -346,12 +346,21 @@
     </header>
 
     <div class="post-content">
-        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>blkid
+        <h4 id="create-raid-0">Create RAID-0</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>blkid
 <span class="nv">$ </span><span class="nb">sudo </span>mdadm <span class="nt">--create</span> <span class="nt">--verbose</span> /dev/md0 <span class="nt">--level</span><span class="o">=</span>0 <span class="nt">--raid-devices</span><span class="o">=</span>2 /dev/sda1 /dev/sdb1
 <span class="nv">$ </span><span class="nb">sudo cat</span> /proc/mdstat
 <span class="nv">$ </span><span class="nb">sudo </span>mkfs.ext4 /dev/md0
 <span class="nv">$ </span><span class="nb">sudo mkdir</span> <span class="nt">-p</span> /mnt/raid0
 <span class="nv">$ </span><span class="nb">sudo </span>mount /dev/md0 /mnt/raid0
+</code></pre></div></div>
+<h4 id="remote-raid-0">Remote RAID-0</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>mdadm <span class="nt">--stop</span> /dev/md0
+<span class="nv">$ </span><span class="nb">sudo </span>mdadm <span class="nt">--remove</span> /dev/md0 <span class="c"># mdadm: error opening /dev/md0: No such file or directory</span>
+<span class="nv">$ </span><span class="nb">sudo </span>mdadm <span class="nt">--zero-superblock</span> /dev/sda1 /dev/sdb1
+<span class="nv">$ </span><span class="nb">sudo cat</span> /proc/mdstat <span class="c"># verify RAID device was removed</span>
 </code></pre></div></div>
 
 
@@ -363,14 +372,16 @@
     <footer class="post-footer">
         <div class="share">Share
             <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Linux RAID 0&p[summary]=$ sudo blkid
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Linux RAID 0&p[summary]=Create RAID-0
+
+$ sudo blkid
 $ sudo mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sda1 /dev/sdb1
-$ sudo cat /proc/mdstat
-$ sudo mkfs....&p[url]=https://www.ardikars.com/post/raid/linux-raid-0.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/raid/linux-raid-0.html&text=$ sudo blkid
+$ sudo cat /proc/mdst...&p[url]=https://www.ardikars.com/post/raid/linux-raid-0.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/raid/linux-raid-0.html&text=Create RAID-0
+
+$ sudo blkid
 $ sudo mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sda1 /dev/sdb1
-$ sudo cat /proc/mdstat
-$ sudo mkfs....&hashtags=linux,disk," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+$ sudo cat /proc/mdst...&hashtags=linux,disk," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
             </ul>
         </div>
         
