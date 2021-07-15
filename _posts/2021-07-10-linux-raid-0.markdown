@@ -9,6 +9,8 @@ tags:
 layout: post
 ---
 
+#### Create RAID-0
+
 ```bash
 $ sudo blkid
 $ sudo mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sda1 /dev/sdb1
@@ -16,4 +18,12 @@ $ sudo cat /proc/mdstat
 $ sudo mkfs.ext4 /dev/md0
 $ sudo mkdir -p /mnt/raid0
 $ sudo mount /dev/md0 /mnt/raid0
+```
+#### Remote RAID-0
+
+```bash
+$ sudo mdadm --stop /dev/md0
+$ sudo mdadm --remove /dev/md0 # mdadm: error opening /dev/md0: No such file or directory
+$ sudo mdadm --zero-superblock /dev/sda1 /dev/sdb1
+$ sudo cat /proc/mdstat # verify RAID device was removed
 ```
