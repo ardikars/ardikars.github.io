@@ -19,7 +19,7 @@ $ sudo mkfs.ext4 /dev/md0
 $ sudo mkdir -p /mnt/raid0
 $ sudo mount /dev/md0 /mnt/raid0
 ```
-#### Remote RAID-0
+#### Remove RAID-0
 
 ```bash
 $ sudo mdadm --stop /dev/md0
