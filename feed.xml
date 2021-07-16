@@ -5,8 +5,8 @@
     <description>Catatan ngoprek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 15 Jul 2021 03:52:47 +0000</pubDate>
-    <lastBuildDate>Thu, 15 Jul 2021 03:52:47 +0000</lastBuildDate>
+    <pubDate>Fri, 16 Jul 2021 13:30:48 +0000</pubDate>
+    <lastBuildDate>Fri, 16 Jul 2021 13:30:48 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -20,7 +20,7 @@
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; /mnt/raid0
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;mount /dev/md0 /mnt/raid0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h4 id=&quot;remote-raid-0&quot;&gt;Remote RAID-0&lt;/h4&gt;
+&lt;h4 id=&quot;remove-raid-0&quot;&gt;Remove RAID-0&lt;/h4&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;mdadm &lt;span class=&quot;nt&quot;&gt;--stop&lt;/span&gt; /dev/md0
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;mdadm &lt;span class=&quot;nt&quot;&gt;--remove&lt;/span&gt; /dev/md0 &lt;span class=&quot;c&quot;&gt;# mdadm: error opening /dev/md0: No such file or directory&lt;/span&gt;

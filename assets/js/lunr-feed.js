@@ -12,7 +12,7 @@ var index = lunr(function () {
     index.add({
       title: "Linux RAID 0",
       category: null,
-      content: "Create RAID-0\n\n$ sudo blkid\n$ sudo mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sda1 /dev/sdb1\n$ sudo cat /proc/mdstat\n$ sudo mkfs.ext4 /dev/md0\n$ sudo mkdir -p /mnt/raid0\n$ sudo mount /dev/md0 /mnt/raid0\n\nRemote RAID-0\n\n$ sudo mdadm --stop /dev/md0\n$ sudo mdadm --remove /dev/md0 # mdadm: error opening /dev/md0: No such file or directory\n$ sudo mdadm --zero-superblock /dev/sda1 /dev/sdb1\n$ sudo cat /proc/mdstat # verify RAID device was removed\n\n",
+      content: "Create RAID-0\n\n$ sudo blkid\n$ sudo mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sda1 /dev/sdb1\n$ sudo cat /proc/mdstat\n$ sudo mkfs.ext4 /dev/md0\n$ sudo mkdir -p /mnt/raid0\n$ sudo mount /dev/md0 /mnt/raid0\n\nRemove RAID-0\n\n$ sudo mdadm --stop /dev/md0\n$ sudo mdadm --remove /dev/md0 # mdadm: error opening /dev/md0: No such file or directory\n$ sudo mdadm --zero-superblock /dev/sda1 /dev/sdb1\n$ sudo cat /proc/mdstat # verify RAID device was removed\n\n",
       tags: ["linux","disk"],
       id: 0
     });
