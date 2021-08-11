@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>About | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
-    <meta property="og:title" content="About | Ardika Rommy Sanjaya &mdash; Software Engineer " />
-    <meta name="twitter:title" content="About | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <title>Mikrotik Wireless Client Mode | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
+    <meta property="og:title" content="Mikrotik Wireless Client Mode | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <meta name="twitter:title" content="Mikrotik Wireless Client Mode | Ardika Rommy Sanjaya &mdash; Software Engineer " />
 
     <meta name="description" content="Catatan ngoprek suka2.">
     <meta name="description" property="og:description" content="Catatan ngoprek suka2." />
@@ -17,7 +17,7 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     
-    <meta property="og:url" content="https://www.ardikars.com/about/" />
+    <meta property="og:url" content="https://www.ardikars.com/post/networking/mikrotik-wireless-client-mode.html" />
 
     <meta property="og:image" content="" />
     <meta name="twitter:image" content="" />
@@ -96,7 +96,7 @@
     
     <link rel="stylesheet" href="https://www.ardikars.com/assets/css/main.css">
 
-    <link rel="canonical" href="https://www.ardikars.com/about/">
+    <link rel="canonical" href="https://www.ardikars.com/post/networking/mikrotik-wireless-client-mode.html">
 
     <link rel="alternate" type="application/rss+xml" title="Ardika Rommy Sanjaya" href="https://www.ardikars.com/feed.xml">
 </head>
@@ -134,7 +134,7 @@
                 
             
                 
-                    <a href="https://www.ardikars.com/about/" class="active">About</a>
+                    <a href="https://www.ardikars.com/about/" >About</a>
                 
             
                 
@@ -337,16 +337,125 @@
 </div>
 
 
-                <article class="post page single" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+                <article class="post single" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
-        <h2 itemprop="name headline">About</h2>
+        <ul>
+            <li><time datetime="2021-08-10T10:41:00+00:00" itemprop="datePublished">10 Aug, 2021</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline">Mikrotik Wireless Client Mode</h2>
     </header>
 
     <div class="post-content">
-        <p>https://github.com/ardikars/ardikars/blob/master/README.md</p>
+        <h4 id="reset-mikrotik">Reset Mikrotik</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/system reset-configuration
+</code></pre></div></div>
+
+<h4 id="login-to-mikrotik">Login to Mikrotik</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh admin@192.168.88.1
+</code></pre></div></div>
+
+<h4 id="scan-wi-fi">Scan Wi-Fi</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/interface wireless scan wlan1
+</code></pre></div></div>
+
+<h4 id="configure-wi-fi">Configure Wi-Fi</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/interface wireless security-profiles
+add authentication-types<span class="o">=</span>wpa-psk,wpa2-psk <span class="se">\</span>
+    management-protection<span class="o">=</span>allowed <span class="se">\</span>
+    <span class="nv">mode</span><span class="o">=</span>dynamic-keys <span class="se">\</span>
+    unicast-ciphers<span class="o">=</span>tkip,aes-ccm <span class="se">\</span>
+    group-ciphers<span class="o">=</span>tkip,aes-ccm <span class="se">\</span>
+    <span class="nv">name</span><span class="o">=</span>Bless2Profile <span class="se">\</span>
+    supplicant-identity<span class="o">=</span>Bless2 <span class="se">\</span>
+    wpa-pre-shared-key<span class="o">=</span>mysecretpassword <span class="se">\</span>
+    wpa2-pre-shared-key<span class="o">=</span>mysecretpassword
+
+/interface wireless
+<span class="nb">set</span> <span class="o">[</span> find default-name<span class="o">=</span>wlan1 <span class="o">]</span> <span class="se">\</span>
+    <span class="nv">disabled</span><span class="o">=</span>no <span class="se">\</span>
+    <span class="nv">mode</span><span class="o">=</span>station <span class="se">\</span>
+    security-profile<span class="o">=</span>Bless2Profile <span class="se">\</span>
+    <span class="nv">ssid</span><span class="o">=</span>Bless2
+
+/ip dhcp-client
+add <span class="nv">comment</span><span class="o">=</span>defconf <span class="se">\</span>
+    add-default-route<span class="o">=</span><span class="nb">yes</span> <span class="se">\</span>
+    <span class="nv">disabled</span><span class="o">=</span>no <span class="se">\</span>
+    <span class="nv">interface</span><span class="o">=</span>wlan1
+</code></pre></div></div>
+
+<h4 id="remove-wlan1-from-bridge-interface">Remove wlan1 from bridge interface</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/interface bridge port print
+/interface bridge port remove <span class="nv">numbers</span><span class="o">=</span>1
+</code></pre></div></div>
+
+<h4 id="setup-nat">Setup NAT</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/ip firewall nat add <span class="nv">chain</span><span class="o">=</span>srcnat <span class="nv">action</span><span class="o">=</span>masquerade out-interface<span class="o">=</span>wlan1
+</code></pre></div></div>
 
     </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Mikrotik Wireless Client Mode&p[summary]=Reset Mikrotik
+
+/system reset-configuration
+
+
+Login to Mikrotik
+
+ssh admin@192.168.88.1
+
+
+Scan Wi-Fi
+
+/interface wireless scan wlan1
+
+
+Co...&p[url]=https://www.ardikars.com/post/networking/mikrotik-wireless-client-mode.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/networking/mikrotik-wireless-client-mode.html&text=Reset Mikrotik
+
+/system reset-configuration
+
+
+Login to Mikrotik
+
+ssh admin@192.168.88.1
+
+
+Scan Wi-Fi
+
+/interface wireless scan wlan1
+
+
+Co...&hashtags=wireless,mikrotik,routing," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+                <li><a href="https://www.ardikars.com/tag/wireless">wireless</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/mikrotik">mikrotik</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/routing">routing</a></li>
+                
+            </ul>
+        </div>
+        
+    </footer>
 </article>
+
+
             </main>
         </div>
 

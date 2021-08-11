@@ -5,9 +5,79 @@
     <description>Catatan ngoprek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 16 Jul 2021 13:30:48 +0000</pubDate>
-    <lastBuildDate>Fri, 16 Jul 2021 13:30:48 +0000</lastBuildDate>
+    <pubDate>Wed, 11 Aug 2021 06:15:49 +0000</pubDate>
+    <lastBuildDate>Wed, 11 Aug 2021 06:15:49 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Mikrotik Wireless Client Mode</title>
+        <description>&lt;h4 id=&quot;reset-mikrotik&quot;&gt;Reset Mikrotik&lt;/h4&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/system reset-configuration
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;login-to-mikrotik&quot;&gt;Login to Mikrotik&lt;/h4&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh admin@192.168.88.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;scan-wi-fi&quot;&gt;Scan Wi-Fi&lt;/h4&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/interface wireless scan wlan1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;configure-wi-fi&quot;&gt;Configure Wi-Fi&lt;/h4&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/interface wireless security-profiles
+add authentication-types&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;wpa-psk,wpa2-psk &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    management-protection&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;allowed &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;dynamic-keys &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    unicast-ciphers&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;tkip,aes-ccm &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    group-ciphers&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;tkip,aes-ccm &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Bless2Profile &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    supplicant-identity&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Bless2 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    wpa-pre-shared-key&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mysecretpassword &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    wpa2-pre-shared-key&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mysecretpassword
+
+/interface wireless
+&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; find default-name&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;wlan1 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;disabled&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;no &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;station &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    security-profile&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Bless2Profile &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;ssid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Bless2
+
+/ip dhcp-client
+add &lt;span class=&quot;nv&quot;&gt;comment&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;defconf &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    add-default-route&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;yes&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;disabled&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;no &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;interface&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;wlan1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;remove-wlan1-from-bridge-interface&quot;&gt;Remove wlan1 from bridge interface&lt;/h4&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/interface bridge port print
+/interface bridge port remove &lt;span class=&quot;nv&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;setup-nat&quot;&gt;Setup NAT&lt;/h4&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/ip firewall nat add &lt;span class=&quot;nv&quot;&gt;chain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;srcnat &lt;span class=&quot;nv&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;masquerade out-interface&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;wlan1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Tue, 10 Aug 2021 10:41:00 +0000</pubDate>
+        <link>https://www.ardikars.com/post/networking/mikrotik-wireless-client-mode.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/networking/mikrotik-wireless-client-mode.html</guid>
+        
+        <category>wireless</category>
+        
+        <category>mikrotik</category>
+        
+        <category>routing</category>
+        
+        
+        <category>networking</category>
+        
+      </item>
     
       <item>
         <title>Linux RAID 0</title>
@@ -420,73 +490,6 @@ lease time: 10m
         
         
         <category>linux</category>
-        
-      </item>
-    
-      <item>
-        <title>Enable DPDK for Libpcap</title>
-        <description>&lt;h1 id=&quot;install-required-tools-and-libraries&quot;&gt;Install required tools and libraries&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install git build-essential bison flex libnuma-dev libnl-3-dev libnl-genl-3-dev&lt;/code&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;clone-latest-dpdk-source-code-from-github&quot;&gt;Clone latest DPDK source code from Github&lt;/h1&gt;
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git clone https://github.com/DPDK/dpdk.git&lt;/code&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;compile-and-install&quot;&gt;Compile and Install&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd dpdk&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Get a native target environment automatically&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;make defconfig O=mybuild&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Or get a specific target environment&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;make config T=x86_64-native-linux-gcc O=mybuild&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Customize the target configuration in the generated .config file. Example for enabling the shared library&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sed -ri 's,(CONFIG_RTE_BUILD_SHARED_LIB=).*,\1y,' mybuild/.config&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;make O=mybuild&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo make install O=mybuild&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;*) Any kernel modules to be used, e.g. igb_uio, kni, must be compiled with the same kernel as the one running on the target&lt;/p&gt;
-
-&lt;h1 id=&quot;install-libpcap-with-dpdk-enabled&quot;&gt;Install libpcap with dpdk enabled&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd ../&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git clone https://github.com/the-tcpdump-group/libpcap.git&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd libpcap&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;`./configure –with-dpdk=/usr/local&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;make&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo make install&lt;/code&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Thu, 06 Aug 2020 08:23:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/libpcap/enable-dpdk-for-libpcap.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/libpcap/enable-dpdk-for-libpcap.html</guid>
-        
-        <category>dpdk</category>
-        
-        <category>integration</category>
-        
-        <category>linux</category>
-        
-        
-        <category>libpcap</category>
         
       </item>
     
