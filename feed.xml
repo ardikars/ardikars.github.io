@@ -5,28 +5,28 @@
     <description>Catatan ngoprek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 11 Aug 2021 06:15:49 +0000</pubDate>
-    <lastBuildDate>Wed, 11 Aug 2021 06:15:49 +0000</lastBuildDate>
+    <pubDate>Fri, 13 Aug 2021 18:18:38 +0000</pubDate>
+    <lastBuildDate>Fri, 13 Aug 2021 18:18:38 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
         <title>Mikrotik Wireless Client Mode</title>
-        <description>&lt;h4 id=&quot;reset-mikrotik&quot;&gt;Reset Mikrotik&lt;/h4&gt;
+        <description>&lt;h4 id=&quot;reset&quot;&gt;Reset&lt;/h4&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/system reset-configuration
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;login-to-mikrotik&quot;&gt;Login to Mikrotik&lt;/h4&gt;
+&lt;h4 id=&quot;login&quot;&gt;Login&lt;/h4&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh admin@192.168.88.1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;scan-wi-fi&quot;&gt;Scan Wi-Fi&lt;/h4&gt;
+&lt;h4 id=&quot;scan&quot;&gt;Scan&lt;/h4&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/interface wireless scan wlan1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;configure-wi-fi&quot;&gt;Configure Wi-Fi&lt;/h4&gt;
+&lt;h4 id=&quot;configure&quot;&gt;Configure&lt;/h4&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/interface wireless security-profiles
 add authentication-types&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;wpa-psk,wpa2-psk &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
@@ -59,7 +59,14 @@ add &lt;span class=&quot;nv&quot;&gt;comment&lt;/span&gt;&lt;span class=&quot;o&
 /interface bridge port remove &lt;span class=&quot;nv&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;setup-nat&quot;&gt;Setup NAT&lt;/h4&gt;
+&lt;h4 id=&quot;add-ether1-4-to-bridge-interface&quot;&gt;Add ether1-4 to bridge interface&lt;/h4&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/interface bridge port add &lt;span class=&quot;nv&quot;&gt;bridge&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;bridge &lt;span class=&quot;nv&quot;&gt;interface&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ether2
+/interface bridge port add &lt;span class=&quot;nv&quot;&gt;bridge&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;bridge &lt;span class=&quot;nv&quot;&gt;interface&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ether3
+/interface bridge port add &lt;span class=&quot;nv&quot;&gt;bridge&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;bridge &lt;span class=&quot;nv&quot;&gt;interface&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ether4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;nat&quot;&gt;NAT&lt;/h4&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/ip firewall nat add &lt;span class=&quot;nv&quot;&gt;chain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;srcnat &lt;span class=&quot;nv&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;masquerade out-interface&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;wlan1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;

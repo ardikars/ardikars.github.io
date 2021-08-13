@@ -348,22 +348,22 @@
     </header>
 
     <div class="post-content">
-        <h4 id="reset-mikrotik">Reset Mikrotik</h4>
+        <h4 id="reset">Reset</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/system reset-configuration
 </code></pre></div></div>
 
-<h4 id="login-to-mikrotik">Login to Mikrotik</h4>
+<h4 id="login">Login</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh admin@192.168.88.1
 </code></pre></div></div>
 
-<h4 id="scan-wi-fi">Scan Wi-Fi</h4>
+<h4 id="scan">Scan</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/interface wireless scan wlan1
 </code></pre></div></div>
 
-<h4 id="configure-wi-fi">Configure Wi-Fi</h4>
+<h4 id="configure">Configure</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/interface wireless security-profiles
 add authentication-types<span class="o">=</span>wpa-psk,wpa2-psk <span class="se">\</span>
@@ -396,7 +396,14 @@ add <span class="nv">comment</span><span class="o">=</span>defconf <span class="
 /interface bridge port remove <span class="nv">numbers</span><span class="o">=</span>1
 </code></pre></div></div>
 
-<h4 id="setup-nat">Setup NAT</h4>
+<h4 id="add-ether1-4-to-bridge-interface">Add ether1-4 to bridge interface</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/interface bridge port add <span class="nv">bridge</span><span class="o">=</span>bridge <span class="nv">interface</span><span class="o">=</span>ether2
+/interface bridge port add <span class="nv">bridge</span><span class="o">=</span>bridge <span class="nv">interface</span><span class="o">=</span>ether3
+/interface bridge port add <span class="nv">bridge</span><span class="o">=</span>bridge <span class="nv">interface</span><span class="o">=</span>ether4
+</code></pre></div></div>
+
+<h4 id="nat">NAT</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/ip firewall nat add <span class="nv">chain</span><span class="o">=</span>srcnat <span class="nv">action</span><span class="o">=</span>masquerade out-interface<span class="o">=</span>wlan1
 </code></pre></div></div>
@@ -408,38 +415,42 @@ add <span class="nv">comment</span><span class="o">=</span>defconf <span class="
     <footer class="post-footer">
         <div class="share">Share
             <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Mikrotik Wireless Client Mode&p[summary]=Reset Mikrotik
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Mikrotik Wireless Client Mode&p[summary]=Reset
 
 /system reset-configuration
 
 
-Login to Mikrotik
+Login
 
 ssh admin@192.168.88.1
 
 
-Scan Wi-Fi
+Scan
 
 /interface wireless scan wlan1
 
 
-Co...&p[url]=https://www.ardikars.com/post/networking/mikrotik-wireless-client-mode.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/networking/mikrotik-wireless-client-mode.html&text=Reset Mikrotik
+Configure
+
+/interface wireles...&p[url]=https://www.ardikars.com/post/networking/mikrotik-wireless-client-mode.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/networking/mikrotik-wireless-client-mode.html&text=Reset
 
 /system reset-configuration
 
 
-Login to Mikrotik
+Login
 
 ssh admin@192.168.88.1
 
 
-Scan Wi-Fi
+Scan
 
 /interface wireless scan wlan1
 
 
-Co...&hashtags=wireless,mikrotik,routing," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+Configure
+
+/interface wireles...&hashtags=wireless,mikrotik,routing," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
             </ul>
         </div>
         

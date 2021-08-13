@@ -12,7 +12,7 @@ var index = lunr(function () {
     index.add({
       title: "Mikrotik Wireless Client Mode",
       category: null,
-      content: "Reset Mikrotik\n\n/system reset-configuration\n\n\nLogin to Mikrotik\n\nssh admin@192.168.88.1\n\n\nScan Wi-Fi\n\n/interface wireless scan wlan1\n\n\nConfigure Wi-Fi\n\n/interface wireless security-profiles\nadd authentication-types=wpa-psk,wpa2-psk \\\n    management-protection=allowed \\\n    mode=dynamic-keys \\\n    unicast-ciphers=tkip,aes-ccm \\\n    group-ciphers=tkip,aes-ccm \\\n    name=Bless2Profile \\\n    supplicant-identity=Bless2 \\\n    wpa-pre-shared-key=mysecretpassword \\\n    wpa2-pre-shared-key=mysecretpassword\n\n/interface wireless\nset [ find default-name=wlan1 ] \\\n    disabled=no \\\n    mode=station \\\n    security-profile=Bless2Profile \\\n    ssid=Bless2\n\n/ip dhcp-client\nadd comment=defconf \\\n    add-default-route=yes \\\n    disabled=no \\\n    interface=wlan1\n\n\nRemove wlan1 from bridge interface\n\n/interface bridge port print\n/interface bridge port remove numbers=1\n\n\nSetup NAT\n\n/ip firewall nat add chain=srcnat action=masquerade out-interface=wlan1\n\n",
+      content: "Reset\n\n/system reset-configuration\n\n\nLogin\n\nssh admin@192.168.88.1\n\n\nScan\n\n/interface wireless scan wlan1\n\n\nConfigure\n\n/interface wireless security-profiles\nadd authentication-types=wpa-psk,wpa2-psk \\\n    management-protection=allowed \\\n    mode=dynamic-keys \\\n    unicast-ciphers=tkip,aes-ccm \\\n    group-ciphers=tkip,aes-ccm \\\n    name=Bless2Profile \\\n    supplicant-identity=Bless2 \\\n    wpa-pre-shared-key=mysecretpassword \\\n    wpa2-pre-shared-key=mysecretpassword\n\n/interface wireless\nset [ find default-name=wlan1 ] \\\n    disabled=no \\\n    mode=station \\\n    security-profile=Bless2Profile \\\n    ssid=Bless2\n\n/ip dhcp-client\nadd comment=defconf \\\n    add-default-route=yes \\\n    disabled=no \\\n    interface=wlan1\n\n\nRemove wlan1 from bridge interface\n\n/interface bridge port print\n/interface bridge port remove numbers=1\n\n\nAdd ether1-4 to bridge interface\n\n/interface bridge port add bridge=bridge interface=ether2\n/interface bridge port add bridge=bridge interface=ether3\n/interface bridge port add bridge=bridge interface=ether4\n\n\nNAT\n\n/ip firewall nat add chain=srcnat action=masquerade out-interface=wlan1\n\n",
       tags: ["wireless","mikrotik","routing"],
       id: 0
     });
@@ -331,7 +331,7 @@ var store = [{
     "image": null,
     "date": "August 10, 2021",
     "category": null,
-    "excerpt": "Reset Mikrotik /system reset-configuration Login to Mikrotik ssh admin@192.168.88.1 Scan Wi-Fi /interface wireless scan wlan1 Configure Wi-Fi /interface wireless security-profiles..."
+    "excerpt": "Reset /system reset-configuration Login ssh admin@192.168.88.1 Scan /interface wireless scan wlan1 Configure /interface wireless security-profiles add authentication-types=wpa-psk,wpa2-psk \\ management-protection=allowed \\..."
 },{
     "title": "Linux RAID 0",
     "link": "/post/raid/linux-raid-0.html",
