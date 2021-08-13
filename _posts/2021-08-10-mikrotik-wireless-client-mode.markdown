@@ -10,27 +10,27 @@ tags:
 layout: post
 ---
 
-#### Reset Mikrotik
+#### Reset
 
 ```bash
 /system reset-configuration
 ```
 
 
-#### Login to Mikrotik
+#### Login
 
 ```bash
 ssh admin@192.168.88.1
 ```
 
 
-#### Scan Wi-Fi
+#### Scan
 
 ```bash
 /interface wireless scan wlan1
 ```
 
-#### Configure Wi-Fi
+#### Configure
 
 ```bash
 /interface wireless security-profiles
@@ -66,7 +66,16 @@ add comment=defconf \
 ```
 
 
-#### Setup NAT
+#### Add ether1-4 to bridge interface
+
+```bash
+/interface bridge port add bridge=bridge interface=ether2
+/interface bridge port add bridge=bridge interface=ether3
+/interface bridge port add bridge=bridge interface=ether4
+```
+
+
+#### NAT
 
 ```bash
 /ip firewall nat add chain=srcnat action=masquerade out-interface=wlan1
