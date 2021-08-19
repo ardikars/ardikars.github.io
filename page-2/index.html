@@ -309,6 +309,10 @@
             
                 
             
+                
+            
+                
+            
         </div>
         
     
@@ -340,6 +344,51 @@
 
 
                 
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2020-12-14T10:41:00+00:00" itemprop="datePublished">14 Dec, 2020</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/linux/linux-endianess-check.html">Linux Endianess Check</a></h2>
+    </header>
+
+    <div class="post-content">
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="nt">-n</span> I | hexdump <span class="nt">-o</span> | <span class="nb">awk</span> <span class="s1">'{ print substr($2,6,1); exit}'</span>
+<span class="c"># 0 for BE, 1 for LE</span>
+</code></pre></div></div>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Linux Endianess Check&p[summary]=echo -n I | hexdump -o | awk '{ print substr($2,6,1); exit}'
+# 0 for BE, 1 for LE
+
+&p[url]=https://www.ardikars.com/post/linux/linux-endianess-check.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/linux/linux-endianess-check.html&text=echo -n I | hexdump -o | awk '{ print substr($2,6,1); exit}'
+# 0 for BE, 1 for LE
+
+&hashtags=os,endianess," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+                <li><a href="https://www.ardikars.com/tag/os">os</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/endianess">endianess</a></li>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
 <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
@@ -757,73 +806,6 @@ lease time: 10m
     </footer>
 </article>
 
-<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-        <ul>
-            <li><time datetime="2020-08-11T17:41:00+00:00" itemprop="datePublished">11 Aug, 2020</time></li>
-            
-        </ul>
-        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/linux/compile-and-install-ubrige-for-gns3-on-linux.html">Compile and Install Ubridge for GNS3 on Linux</a></h2>
-    </header>
-
-    <div class="post-content">
-        <p><code class="highlighter-rouge">sudo apt install libcap-dev git build-essential</code></p>
-
-<p><code class="highlighter-rouge">git clone https://github.com/GNS3/ubridge.git</code></p>
-
-<p><code class="highlighter-rouge">cd ubridge</code></p>
-
-<p><code class="highlighter-rouge">make</code></p>
-
-<p><code class="highlighter-rouge">sudo make install</code></p>
-
-
-        
-    </div>
-
-    <footer class="post-footer">
-        <div class="share">Share
-            <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Compile and Install Ubridge for GNS3 on Linux&p[summary]=sudo apt install libcap-dev git build-essential
-
-git clone https://github.com/GNS3/ubridge.git
-
-cd ubridge
-
-make
-
-sudo make install
-&p[url]=https://www.ardikars.com/post/linux/compile-and-install-ubrige-for-gns3-on-linux.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/linux/compile-and-install-ubrige-for-gns3-on-linux.html&text=sudo apt install libcap-dev git build-essential
-
-git clone https://github.com/GNS3/ubridge.git
-
-cd ubridge
-
-make
-
-sudo make install
-&hashtags=gns3,install,virtualization,compile," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
-            </ul>
-        </div>
-        
-        <div class="tags">
-            <ul>
-                
-                <li><a href="https://www.ardikars.com/tag/gns3">gns3</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/install">install</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/virtualization">virtualization</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/compile">compile</a></li>
-                
-            </ul>
-        </div>
-        
-    </footer>
-</article>
-
 
 
 
@@ -832,7 +814,7 @@ sudo make install
         <a href="/" class="previous">&larr; Previous</a>
     
 
-    <span class="page_number">Page 2 of 7</span>
+    <span class="page_number">Page 2 of 8</span>
 
     
         <a href="/page-3/" class="next">Next &rarr;</a>
