@@ -134,11 +134,13 @@
                 
             
                 
-                    <a href="https://www.ardikars.com/about/" >About</a>
+                    <a href="https://www.ardikars.com/software/" >Software</a>
                 
             
                 
-                    <a href="https://www.ardikars.com/software/" >Software</a>
+                    <a href="https://www.ardikars.com/about/" >About</a>
+                
+            
                 
             
                 
@@ -345,6 +347,84 @@
 
                 <h1>Posts From Category: math</h1>
 
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2021-10-23T10:41:00+00:00" itemprop="datePublished">23 Oct, 2021</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/prime/math/prime-factor.html">Prime Factor</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p>Simple prime factorization</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">prime_factor</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">factors</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">factors</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">num</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="c1"># 3, 5, 7, ...
+</span>        <span class="k">while</span> <span class="n">num</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">factors</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">/</span> <span class="n">i</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">factors</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">factors</span>
+
+
+<span class="n">num</span> <span class="o">=</span> <span class="mi">1000003</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">factors</span> <span class="o">=</span> <span class="n">prime_factor</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">factors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">+</span> <span class="s">" is prime"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">+</span> <span class="s">" = multiply("</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">factors</span><span class="p">)</span> <span class="o">+</span> <span class="s">")"</span><span class="p">)</span>
+</code></pre></div></div>
+
+
+        
+            <p><a href="/post/prime/math/prime-factor.html" role="button">Read More</a></p>
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Prime Factor&p[summary]=Simple prime factorization
+
+import math
+
+def prime_factor(num):
+    factors = []
+    while num % 2 == 0:
+        factors.append(2)
+      ...&p[url]=https://www.ardikars.com/post/prime/math/prime-factor.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/prime/math/prime-factor.html&text=Simple prime factorization
+
+import math
+
+def prime_factor(num):
+    factors = []
+    while num % 2 == 0:
+        factors.append(2)
+      ...&hashtags=cryptography," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+                <li><a href="https://www.ardikars.com/tag/cryptography">cryptography</a></li>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
 
 <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">

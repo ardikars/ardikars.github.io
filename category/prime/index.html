@@ -7,17 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Fix RTL8822BE driver on Debian based system | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
-    <meta property="og:title" content="Fix RTL8822BE driver on Debian based system | Ardika Rommy Sanjaya &mdash; Software Engineer " />
-    <meta name="twitter:title" content="Fix RTL8822BE driver on Debian based system | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <title>Category: prime | Ardika Rommy Sanjaya &mdash; Software Engineer </title>
+    <meta property="og:title" content="Category: prime | Ardika Rommy Sanjaya &mdash; Software Engineer " />
+    <meta name="twitter:title" content="Category: prime | Ardika Rommy Sanjaya &mdash; Software Engineer " />
 
-    <meta name="description" content="Catatan ngoprek suka2.">
-    <meta name="description" property="og:description" content="Catatan ngoprek suka2." />
-    <meta name="twitter:description" content="Catatan ngoprek suka2." />
+    <meta name="description" content="Category: prime">
+    <meta name="description" property="og:description" content="Category: prime" />
+    <meta name="twitter:description" content="Category: prime" />
 
     <meta name="twitter:card" content="summary_large_image" />
     
-    <meta property="og:url" content="https://www.ardikars.com/post/linux/fix-rtl8822be-driver-on-debian-based-system.html" />
+    <meta property="og:url" content="https://www.ardikars.com/category/prime/" />
 
     <meta property="og:image" content="" />
     <meta name="twitter:image" content="" />
@@ -96,7 +96,7 @@
     
     <link rel="stylesheet" href="https://www.ardikars.com/assets/css/main.css">
 
-    <link rel="canonical" href="https://www.ardikars.com/post/linux/fix-rtl8822be-driver-on-debian-based-system.html">
+    <link rel="canonical" href="https://www.ardikars.com/category/prime/">
 
     <link rel="alternate" type="application/rss+xml" title="Ardika Rommy Sanjaya" href="https://www.ardikars.com/feed.xml">
 </head>
@@ -313,6 +313,8 @@
             
                 
             
+                
+            
         </div>
         
     
@@ -343,53 +345,86 @@
 </div>
 
 
-                <article class="post single" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+                <h1>Posts From Category: prime</h1>
+
+
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
-            <li><time datetime="2020-04-16T06:45:00+00:00" itemprop="datePublished">16 Apr, 2020</time></li>
+            <li><time datetime="2021-10-23T10:41:00+00:00" itemprop="datePublished">23 Oct, 2021</time></li>
             
         </ul>
-        <h2 itemprop="name headline">Fix RTL8822BE driver on Debian based system</h2>
+        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/prime/math/prime-factor.html">Prime Factor</a></h2>
     </header>
 
     <div class="post-content">
-        <p>Below script tested on Kali Linux 2020.1b (Kernel 5.4.0)</p>
+        <p>Simple prime factorization</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo mkdir</span> <span class="nt">-p</span> /lib/firmware/rtw88
-<span class="nb">sudo cp</span> /lib/firmware/rtlwifi/rtl8822befw.bin /lib/firmware/rtw88/rtw8822b_fw.bin
-<span class="nb">sudo </span>reboot
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">prime_factor</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">factors</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">factors</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">num</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="c1"># 3, 5, 7, ...
+</span>        <span class="k">while</span> <span class="n">num</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">factors</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">/</span> <span class="n">i</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">factors</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">factors</span>
+
+
+<span class="n">num</span> <span class="o">=</span> <span class="mi">1000003</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">factors</span> <span class="o">=</span> <span class="n">prime_factor</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">factors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">+</span> <span class="s">" is prime"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">+</span> <span class="s">" = multiply("</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">factors</span><span class="p">)</span> <span class="o">+</span> <span class="s">")"</span><span class="p">)</span>
 </code></pre></div></div>
-<!--more-->
 
+
+        
+            <p><a href="/post/prime/math/prime-factor.html" role="button">Read More</a></p>
+        
     </div>
 
     <footer class="post-footer">
         <div class="share">Share
             <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Fix RTL8822BE driver on Debian based system&p[summary]=Below script tested on Kali Linux 2020.1b (Kernel 5.4.0)
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Prime Factor&p[summary]=Simple prime factorization
 
-sudo mkdir -p /lib/firmware/rtw88
-sudo cp /lib/firmware/rtlwifi/rtl8822befw.bin...&p[url]=https://www.ardikars.com/post/linux/fix-rtl8822be-driver-on-debian-based-system.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/linux/fix-rtl8822be-driver-on-debian-based-system.html&text=Below script tested on Kali Linux 2020.1b (Kernel 5.4.0)
+import math
 
-sudo mkdir -p /lib/firmware/rtw88
-sudo cp /lib/firmware/rtlwifi/rtl8822befw.bin...&hashtags=driver,wifi," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+def prime_factor(num):
+    factors = []
+    while num % 2 == 0:
+        factors.append(2)
+      ...&p[url]=https://www.ardikars.com/post/prime/math/prime-factor.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/prime/math/prime-factor.html&text=Simple prime factorization
+
+import math
+
+def prime_factor(num):
+    factors = []
+    while num % 2 == 0:
+        factors.append(2)
+      ...&hashtags=cryptography," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
             </ul>
         </div>
         
         <div class="tags">
             <ul>
                 
-                <li><a href="https://www.ardikars.com/tag/driver">driver</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/wifi">wifi</a></li>
+                <li><a href="https://www.ardikars.com/tag/cryptography">cryptography</a></li>
                 
             </ul>
         </div>
         
     </footer>
 </article>
-
 
             </main>
         </div>
