@@ -5,8 +5,8 @@
     <description>Catatan ngoprek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 24 Nov 2021 12:50:39 +0000</pubDate>
-    <lastBuildDate>Wed, 24 Nov 2021 12:50:39 +0000</lastBuildDate>
+    <pubDate>Wed, 24 Nov 2021 12:56:41 +0000</pubDate>
+    <lastBuildDate>Wed, 24 Nov 2021 12:56:41 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -47,7 +47,7 @@
             &lt;span class=&quot;n&quot;&gt;channel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
             &lt;span class=&quot;n&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;incrementAndGet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;printStackTrace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// do something&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;FileNotFoundException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
@@ -72,6 +72,8 @@
 &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Done: takes {} minutes.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;between&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;entityManagerB&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;*) Inserting more then 400k data takes less the a minutes.&lt;/p&gt;
 </description>
         <pubDate>Wed, 24 Nov 2021 10:41:00 +0000</pubDate>
         <link>https://www.ardikars.com/post/java/mariadb/largedata/mariadb-insert-large-dataset-java.html</link>

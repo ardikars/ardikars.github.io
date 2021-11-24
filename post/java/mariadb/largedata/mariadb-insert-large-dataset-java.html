@@ -397,7 +397,7 @@
             <span class="n">channel</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">buff</span><span class="o">);</span>
             <span class="n">total</span><span class="o">.</span><span class="na">incrementAndGet</span><span class="o">();</span>
         <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+            <span class="c1">// do something</span>
         <span class="o">}</span>
     <span class="o">});</span>
 <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">FileNotFoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
@@ -422,6 +422,8 @@
 <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Done: takes {} minutes."</span><span class="o">,</span> <span class="n">between</span><span class="o">);</span>
 <span class="n">entityManagerB</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
 </code></pre></div></div>
+
+<p>*) Inserting more then 400k data takes less the a minutes.</p>
 
     </div>
 
