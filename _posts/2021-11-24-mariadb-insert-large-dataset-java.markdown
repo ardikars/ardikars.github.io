@@ -38,7 +38,7 @@ log.info("Writing to file: {}", file);
 final AtomicLong total = new AtomicLong();
 try (RandomAccessFile writer = new RandomAccessFile(file, "rw");
      FileChannel channel = writer.getChannel()) {
-    final ByteBuffer buff = ByteBuffer.allocate(655535);
+    final ByteBuffer buff = ByteBuffer.allocate(65535);
     query.stream().forEach(paymentResponse -> {
         buff.clear();
         String line = String.format("%s;%s;%s;%s;%d;%s\n", paymentResponse.getAmount(), DateTimes.format(paymentResponse.getTanggalBayar()), paymentResponse.getIdtrx(), paymentResponse.getProduk(), pullPlnId, paymentResponse.getRefnum());
@@ -75,3 +75,9 @@ entityManagerB.close();
 ```
 
 *) Inserting more then 400k data takes less the a minutes.
+
+Refs:
+
+https://mariadb.com/kb/en/how-to-quickly-insert-data-into-mariadb/
+
+https://mariadb.com/kb/en/load-data-infile/
