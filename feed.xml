@@ -5,8 +5,8 @@
     <description>Catatan ngoprek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 24 Nov 2021 13:00:19 +0000</pubDate>
-    <lastBuildDate>Wed, 24 Nov 2021 13:00:19 +0000</lastBuildDate>
+    <pubDate>Wed, 24 Nov 2021 14:21:53 +0000</pubDate>
+    <lastBuildDate>Wed, 24 Nov 2021 14:21:53 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -80,6 +80,8 @@
 &lt;p&gt;https://mariadb.com/kb/en/how-to-quickly-insert-data-into-mariadb/&lt;/p&gt;
 
 &lt;p&gt;https://mariadb.com/kb/en/load-data-infile/&lt;/p&gt;
+
+&lt;p&gt;https://mariadb.com/kb/en/unsafe-statements-for-statement-based-replication/&lt;/p&gt;
 </description>
         <pubDate>Wed, 24 Nov 2021 10:41:00 +0000</pubDate>
         <link>https://www.ardikars.com/post/java/mariadb/largedata/mariadb-insert-large-dataset-java.html</link>
