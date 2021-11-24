@@ -134,11 +134,19 @@
                 
             
                 
+                    <a href="https://www.ardikars.com/about/" >About</a>
+                
+            
+                
                     <a href="https://www.ardikars.com/software/" >Software</a>
                 
             
                 
-                    <a href="https://www.ardikars.com/about/" >About</a>
+            
+                
+            
+                
+            
                 
             
                 
@@ -346,6 +354,61 @@
 
 
                 
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2020-08-18T07:41:00+00:00" itemprop="datePublished">18 Aug, 2020</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/java/build-jdk-from-source-on-ubuntu-20.04.html">Build JDK from source on Ubuntu 20.04</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p><code class="highlighter-rouge">cd /home/iconplus/Download</code></p>
+
+<p><code class="highlighter-rouge">wget -c https://releases.llvm.org/9.0.0/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz</code></p>
+
+<p><code class="highlighter-rouge">tar -xvf clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz</code></p>
+
+<p><code class="highlighter-rouge">./configure --with-num-cores=4 --with-memory-size=4096 --with-toolchain-type=clang --with-toolchain-path=/home/iconplus/Downloads/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04/bin --with-libclang=/home/iconplus/Downloads/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04</code></p>
+
+<p><code class="highlighter-rouge">make images</code></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Build JDK from source on Ubuntu 20.04&p[summary]=cd /home/iconplus/Download
+
+wget -c https://releases.llvm.org/9.0.0/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
+
+tar -xvf clang...&p[url]=https://www.ardikars.com/post/java/build-jdk-from-source-on-ubuntu-20.04.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/java/build-jdk-from-source-on-ubuntu-20.04.html&text=cd /home/iconplus/Download
+
+wget -c https://releases.llvm.org/9.0.0/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
+
+tar -xvf clang...&hashtags=jdk,build,linux," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+                <li><a href="https://www.ardikars.com/tag/jdk">jdk</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/build">build</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/linux">linux</a></li>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
 <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
@@ -776,108 +839,6 @@ iptables...&hashtags=ssh,network,security," rel="noreferrer" target="_blank" onc
                 <li><a href="https://www.ardikars.com/tag/network">network</a></li>
                 
                 <li><a href="https://www.ardikars.com/tag/security">security</a></li>
-                
-            </ul>
-        </div>
-        
-    </footer>
-</article>
-
-<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-        <ul>
-            <li><time datetime="2020-07-31T22:23:00+00:00" itemprop="datePublished">31 Jul, 2020</time></li>
-            
-        </ul>
-        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/server/install-haraka-smtp-server-on-ubuntu-20-04.html">Install Haraka SMTP Server On Ubuntu 20.04</a></h2>
-    </header>
-
-    <div class="post-content">
-        <p><code class="highlighter-rouge">sudo -i</code></p>
-
-<h1 id="install-nvm-node-version-manager">Install NVM (Node Version Manager)</h1>
-
-<p><code class="highlighter-rouge">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash</code></p>
-
-<p><code class="highlighter-rouge">export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] &amp;&amp; printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"</code></p>
-
-<p><code class="highlighter-rouge">[ -s "$NVM_DIR/nvm.sh" ] &amp;&amp; \. "$NVM_DIR/nvm.sh"</code></p>
-
-<h1 id="install-node-lts">Install Node (LTS)</h1>
-
-<p><code class="highlighter-rouge">nvm install --lts</code></p>
-
-<h1 id="install-haraka">Install Haraka</h1>
-
-<p><code class="highlighter-rouge">apt install build-essential</code></p>
-
-<p><code class="highlighter-rouge">npm -g config set user root</code></p>
-
-<p><code class="highlighter-rouge">npm install -g Haraka</code></p>
-
-<p><code class="highlighter-rouge">cd /var/mail &amp;&amp; haraka -i .</code></p>
-
-<p><code class="highlighter-rouge">vim /var/mail/config/smtp.ini</code></p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">;</span> Server public IP
-<span class="nv">public_ip</span><span class="o">=</span>x.x.x.x
-
-<span class="p">;</span> Daemonize
-<span class="nv">daemonize</span><span class="o">=</span><span class="nb">true
-</span><span class="nv">daemon_log_file</span><span class="o">=</span>/var/log/haraka.log
-<span class="nv">daemon_pid_file</span><span class="o">=</span>/var/run/haraka.pid
-
-<span class="p">;</span> Spooling
-<span class="p">;</span> Save memory by spooling large messages to disk
-<span class="nv">spool_dir</span><span class="o">=</span>/var/spool/haraka
-</code></pre></div></div>
-
-<p><code class="highlighter-rouge">haraka -c /var/mail</code></p>
-
-<h2 id="allows-incoming-smtp-request-on-port-25-for-server-ip-address-xxxx">Allows incoming SMTP request on port 25 for server IP address x.x.x.x</h2>
-
-<p><code class="highlighter-rouge">iptables -A INPUT -p tcp -s 0/0 --sport 1024:65535 -d x.x.x.x --dport 25 -m state --state NEW,ESTABLISHED -j ACCEPT</code></p>
-
-<p><code class="highlighter-rouge">iptables -A OUTPUT -p tcp -s x.x.x.x --sport 25 -d 0/0 --dport 1024:65535 -m state --state ESTABLISHED -j ACCEPT</code></p>
-
-<h2 id="allow-outgoing-smtp-requst-for-server-ip-address-xxx">Allow outgoing SMTP requst for server IP address x.x.x.</h2>
-
-<p><code class="highlighter-rouge">iptables -A OUTPUT -p tcp -s x.x.x.x --sport 1024:65535 -d 0/0 --dport 25 -m state --state NEW,ESTABLISHED -j ACCEPT</code></p>
-
-<p><code class="highlighter-rouge">iptables -A INPUT -p tcp -s 0/0 --sport 25 -d x.x.x.x --dport 1024:65535 -m state --state ESTABLISHED -j ACCEPT</code></p>
-
-
-        
-    </div>
-
-    <footer class="post-footer">
-        <div class="share">Share
-            <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Install Haraka SMTP Server On Ubuntu 20.04&p[summary]=sudo -i
-
-Install NVM (Node Version Manager)
-
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-
-export NVM_...&p[url]=https://www.ardikars.com/post/server/install-haraka-smtp-server-on-ubuntu-20-04.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/server/install-haraka-smtp-server-on-ubuntu-20-04.html&text=sudo -i
-
-Install NVM (Node Version Manager)
-
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-
-export NVM_...&hashtags=mail,smtp,install," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
-            </ul>
-        </div>
-        
-        <div class="tags">
-            <ul>
-                
-                <li><a href="https://www.ardikars.com/tag/mail">mail</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/smtp">smtp</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/install">install</a></li>
                 
             </ul>
         </div>

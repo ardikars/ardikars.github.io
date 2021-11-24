@@ -134,11 +134,19 @@
                 
             
                 
+                    <a href="https://www.ardikars.com/about/" >About</a>
+                
+            
+                
                     <a href="https://www.ardikars.com/software/" >Software</a>
                 
             
                 
-                    <a href="https://www.ardikars.com/about/" >About</a>
+            
+                
+            
+                
+            
                 
             
                 
@@ -346,6 +354,99 @@
 
 
                 
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2020-07-09T23:45:00+00:00" itemprop="datePublished">9 Jul, 2020</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/linux/install-docker-ce-on-ubuntu-20-04.html">Install Docker CE on Ubuntu 20.04</a></h2>
+    </header>
+
+    <div class="post-content">
+        <h3 id="install-docker-ce">Install Docker CE</h3>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -sc) stable" &gt; /etc/apt/sources.list.d/docker-ce.list</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">apt update</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">apt install docker-ce</code></p>
+  </li>
+</ul>
+
+<h3 id="enable-docker-and-containerd-to-run-on-system-boot">Enable Docker and Containerd to run on system boot</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">systemctl enable --now docker containerd</code></li>
+</ul>
+
+<h3 id="running-docker-as-a-non-root-user">Running Docker as a non-root user</h3>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">exit</code> (Back to normal user)</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">sudo usermod -aG docker ${USER}</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">sudo chmod 666 /var/run/docker.sock</code></p>
+  </li>
+</ul>
+
+<p>Done</p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Install Docker CE on Ubuntu 20.04&p[summary]=Install Docker CE
+
+
+  
+    apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+  
+  
+    curl -fs...&p[url]=https://www.ardikars.com/post/linux/install-docker-ce-on-ubuntu-20-04.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/linux/install-docker-ce-on-ubuntu-20-04.html&text=Install Docker CE
+
+
+  
+    apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+  
+  
+    curl -fs...&hashtags=install,docker,container," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+                <li><a href="https://www.ardikars.com/tag/install">install</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/docker">docker</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/container">container</a></li>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
 <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
@@ -735,56 +836,6 @@ Creating new partition table on /dev/sdX
                 <li><a href="https://www.ardikars.com/tag/unlocking">unlocking</a></li>
                 
                 <li><a href="https://www.ardikars.com/tag/rooting">rooting</a></li>
-                
-            </ul>
-        </div>
-        
-    </footer>
-</article>
-
-<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-        <ul>
-            <li><time datetime="2020-04-16T06:45:00+00:00" itemprop="datePublished">16 Apr, 2020</time></li>
-            
-        </ul>
-        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/linux/fix-rtl8822be-driver-on-debian-based-system.html">Fix RTL8822BE driver on Debian based system</a></h2>
-    </header>
-
-    <div class="post-content">
-        <p>Below script tested on Kali Linux 2020.1b (Kernel 5.4.0)</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo mkdir</span> <span class="nt">-p</span> /lib/firmware/rtw88
-<span class="nb">sudo cp</span> /lib/firmware/rtlwifi/rtl8822befw.bin /lib/firmware/rtw88/rtw8822b_fw.bin
-<span class="nb">sudo </span>reboot
-</code></pre></div></div>
-
-
-        
-            <p><a href="https://www.ardikars.com/post/linux/fix-rtl8822be-driver-on-debian-based-system.html" role="button">Read More</a></p>
-        
-    </div>
-
-    <footer class="post-footer">
-        <div class="share">Share
-            <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Fix RTL8822BE driver on Debian based system&p[summary]=Below script tested on Kali Linux 2020.1b (Kernel 5.4.0)
-
-sudo mkdir -p /lib/firmware/rtw88
-sudo cp /lib/firmware/rtlwifi/rtl8822befw.bin...&p[url]=https://www.ardikars.com/post/linux/fix-rtl8822be-driver-on-debian-based-system.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/linux/fix-rtl8822be-driver-on-debian-based-system.html&text=Below script tested on Kali Linux 2020.1b (Kernel 5.4.0)
-
-sudo mkdir -p /lib/firmware/rtw88
-sudo cp /lib/firmware/rtlwifi/rtl8822befw.bin...&hashtags=driver,wifi," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
-            </ul>
-        </div>
-        
-        <div class="tags">
-            <ul>
-                
-                <li><a href="https://www.ardikars.com/tag/driver">driver</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/wifi">wifi</a></li>
                 
             </ul>
         </div>
