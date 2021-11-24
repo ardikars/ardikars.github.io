@@ -394,7 +394,7 @@
 <span class="kd">final</span> <span class="nc">AtomicLong</span> <span class="n">total</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AtomicLong</span><span class="o">();</span>
 <span class="k">try</span> <span class="o">(</span><span class="nc">RandomAccessFile</span> <span class="n">writer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RandomAccessFile</span><span class="o">(</span><span class="n">file</span><span class="o">,</span> <span class="s">"rw"</span><span class="o">);</span>
      <span class="nc">FileChannel</span> <span class="n">channel</span> <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="na">getChannel</span><span class="o">())</span> <span class="o">{</span>
-    <span class="kd">final</span> <span class="nc">ByteBuffer</span> <span class="n">buff</span> <span class="o">=</span> <span class="nc">ByteBuffer</span><span class="o">.</span><span class="na">allocate</span><span class="o">(</span><span class="mi">655535</span><span class="o">);</span>
+    <span class="kd">final</span> <span class="nc">ByteBuffer</span> <span class="n">buff</span> <span class="o">=</span> <span class="nc">ByteBuffer</span><span class="o">.</span><span class="na">allocate</span><span class="o">(</span><span class="mi">65535</span><span class="o">);</span>
     <span class="n">query</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">paymentResponse</span> <span class="o">-&gt;</span> <span class="o">{</span>
         <span class="n">buff</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
         <span class="nc">String</span> <span class="n">line</span> <span class="o">=</span> <span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"%s;%s;%s;%s;%d;%s\n"</span><span class="o">,</span> <span class="n">paymentResponse</span><span class="o">.</span><span class="na">getAmount</span><span class="o">(),</span> <span class="nc">DateTimes</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">paymentResponse</span><span class="o">.</span><span class="na">getTanggalBayar</span><span class="o">()),</span> <span class="n">paymentResponse</span><span class="o">.</span><span class="na">getIdtrx</span><span class="o">(),</span> <span class="n">paymentResponse</span><span class="o">.</span><span class="na">getProduk</span><span class="o">(),</span> <span class="n">pullPlnId</span><span class="o">,</span> <span class="n">paymentResponse</span><span class="o">.</span><span class="na">getRefnum</span><span class="o">());</span>
@@ -431,6 +431,12 @@
 </code></pre></div></div>
 
 <p>*) Inserting more then 400k data takes less the a minutes.</p>
+
+<p>Refs:</p>
+
+<p>https://mariadb.com/kb/en/how-to-quickly-insert-data-into-mariadb/</p>
+
+<p>https://mariadb.com/kb/en/load-data-infile/</p>
 
 
                 
