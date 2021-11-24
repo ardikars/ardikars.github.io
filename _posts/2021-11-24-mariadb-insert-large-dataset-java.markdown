@@ -48,7 +48,7 @@ try (RandomAccessFile writer = new RandomAccessFile(file, "rw");
             channel.write(buff);
             total.incrementAndGet();
         } catch (IOException e) {
-            e.printStackTrace();
+            // do something
         }
     });
 } catch (FileNotFoundException e) {
@@ -73,3 +73,5 @@ long between = ChronoUnit.MINUTES.between(now, DateTimes.now());
 log.info("Done: takes {} minutes.", between);
 entityManagerB.close();
 ```
+
+*) Inserting more then 400k data takes less the a minutes.
