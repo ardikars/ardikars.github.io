@@ -81,3 +81,5 @@ Refs:
 https://mariadb.com/kb/en/how-to-quickly-insert-data-into-mariadb/
 
 https://mariadb.com/kb/en/load-data-infile/
+
+https://mariadb.com/kb/en/unsafe-statements-for-statement-based-replication/
