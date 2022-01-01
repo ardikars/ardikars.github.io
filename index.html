@@ -134,11 +134,17 @@
                 
             
                 
+                    <a href="https://www.ardikars.com/software/" >Software</a>
+                
+            
+                
                     <a href="https://www.ardikars.com/about/" >About</a>
                 
             
                 
-                    <a href="https://www.ardikars.com/software/" >Software</a>
+            
+                
+            
                 
             
                 
@@ -352,6 +358,54 @@
 
 
                 
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2022-01-01T10:41:00+00:00" itemprop="datePublished">1 Jan, 2022</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/linux/cli/usb/eject-usb-from-command-line.html">Eject USB from command line</a></h2>
+    </header>
+
+    <div class="post-content">
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># udisksctl unmount --block-device /dev/sdXY</span>
+
+<span class="c"># udisksctl power-off  --block-device  /dev/sdX</span>
+</code></pre></div></div>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Eject USB from command line&p[summary]=# udisksctl unmount --block-device /dev/sdXY
+
+# udisksctl power-off  --block-device  /dev/sdX
+
+&p[url]=https://www.ardikars.com/post/linux/cli/usb/eject-usb-from-command-line.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/linux/cli/usb/eject-usb-from-command-line.html&text=# udisksctl unmount --block-device /dev/sdXY
+
+# udisksctl power-off  --block-device  /dev/sdX
+
+&hashtags=linux,usb," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+                <li><a href="https://www.ardikars.com/tag/linux">linux</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/usb">usb</a></li>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
 <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
@@ -703,66 +757,6 @@ Configure
                 <li><a href="https://www.ardikars.com/tag/mikrotik">mikrotik</a></li>
                 
                 <li><a href="https://www.ardikars.com/tag/routing">routing</a></li>
-                
-            </ul>
-        </div>
-        
-    </footer>
-</article>
-
-<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-        <ul>
-            <li><time datetime="2021-07-10T10:41:00+00:00" itemprop="datePublished">10 Jul, 2021</time></li>
-            
-        </ul>
-        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/raid/linux-raid-0.html">Linux RAID 0</a></h2>
-    </header>
-
-    <div class="post-content">
-        <h4 id="create-raid-0">Create RAID-0</h4>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>blkid
-<span class="nv">$ </span><span class="nb">sudo </span>mdadm <span class="nt">--create</span> <span class="nt">--verbose</span> /dev/md0 <span class="nt">--level</span><span class="o">=</span>0 <span class="nt">--raid-devices</span><span class="o">=</span>2 /dev/sda1 /dev/sdb1
-<span class="nv">$ </span><span class="nb">sudo cat</span> /proc/mdstat
-<span class="nv">$ </span><span class="nb">sudo </span>mkfs.ext4 /dev/md0
-<span class="nv">$ </span><span class="nb">sudo mkdir</span> <span class="nt">-p</span> /mnt/raid0
-<span class="nv">$ </span><span class="nb">sudo </span>mount /dev/md0 /mnt/raid0
-</code></pre></div></div>
-<h4 id="remove-raid-0">Remove RAID-0</h4>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>mdadm <span class="nt">--stop</span> /dev/md0
-<span class="nv">$ </span><span class="nb">sudo </span>mdadm <span class="nt">--remove</span> /dev/md0 <span class="c"># mdadm: error opening /dev/md0: No such file or directory</span>
-<span class="nv">$ </span><span class="nb">sudo </span>mdadm <span class="nt">--zero-superblock</span> /dev/sda1 /dev/sdb1
-<span class="nv">$ </span><span class="nb">sudo cat</span> /proc/mdstat <span class="c"># verify RAID device was removed</span>
-</code></pre></div></div>
-
-
-        
-    </div>
-
-    <footer class="post-footer">
-        <div class="share">Share
-            <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Linux RAID 0&p[summary]=Create RAID-0
-
-$ sudo blkid
-$ sudo mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sda1 /dev/sdb1
-$ sudo cat /proc/mdst...&p[url]=https://www.ardikars.com/post/raid/linux-raid-0.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/raid/linux-raid-0.html&text=Create RAID-0
-
-$ sudo blkid
-$ sudo mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sda1 /dev/sdb1
-$ sudo cat /proc/mdst...&hashtags=linux,disk," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
-            </ul>
-        </div>
-        
-        <div class="tags">
-            <ul>
-                
-                <li><a href="https://www.ardikars.com/tag/linux">linux</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/disk">disk</a></li>
                 
             </ul>
         </div>

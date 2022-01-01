@@ -134,11 +134,17 @@
                 
             
                 
+                    <a href="https://www.ardikars.com/software/" >Software</a>
+                
+            
+                
                     <a href="https://www.ardikars.com/about/" >About</a>
                 
             
                 
-                    <a href="https://www.ardikars.com/software/" >Software</a>
+            
+                
+            
                 
             
                 
@@ -354,6 +360,120 @@
 
 
                 
+<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <ul>
+            <li><time datetime="2020-07-31T23:43:00+00:00" itemprop="datePublished">31 Jul, 2020</time></li>
+            
+        </ul>
+        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/firewall/a-strict-firewall-that-only-allows-ssh.html">A Strict Firewall that Only Allows SSH</a></h2>
+    </header>
+
+    <div class="post-content">
+        <p><code class="highlighter-rouge">export SERVER_IP="x.x.x.x"</code></p>
+
+<h1 id="flushing-all-rules">Flushing all rules</h1>
+
+<p><code class="highlighter-rouge">iptables -F</code></p>
+
+<p><code class="highlighter-rouge">iptables -X</code></p>
+
+<h1 id="setting-default-filter-policy">Setting default filter policy</h1>
+
+<p><code class="highlighter-rouge">iptables -P INPUT DROP</code></p>
+
+<p><code class="highlighter-rouge">iptables -P OUTPUT DROP</code></p>
+
+<p><code class="highlighter-rouge">iptables -P FORWARD DROP</code></p>
+
+<h1 id="allow-incoming-and-outgoing-ssh-only">Allow incoming and outgoing ssh only</h1>
+
+<p><code class="highlighter-rouge">iptables -A INPUT -p tcp -s 0/0 -d $SERVER_IP --sport 513:65535 --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT</code></p>
+
+<p><code class="highlighter-rouge">iptables -A OUTPUT -p tcp -s $SERVER_IP -d 0/0 --sport 22 --dport 513:65535 -m state --state ESTABLISHED -j ACCEPT</code></p>
+
+<h1 id="make-sure-nothing-comes-or-goes-out">Make sure nothing comes or goes out</h1>
+
+<p><code class="highlighter-rouge">iptables -A INPUT -j DROP</code></p>
+
+<p><code class="highlighter-rouge">iptables -A OUTPUT -j DROP</code></p>
+
+<h1 id="save-and-load-rules">Save and load rules</h1>
+
+<p><code class="highlighter-rouge">iptables-save &gt; /etc/iptables.rules</code></p>
+
+<p><code class="highlighter-rouge">vim /etc/network/if-pre-up.d/iptablesload</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+iptables-restore &lt; /etc/iptables.rules
+<span class="nb">exit </span>0
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">vim /etc/network/if-post-down.d/iptablessave </code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+iptables-save <span class="nt">-c</span> <span class="o">&gt;</span> /etc/iptables.rules
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> /etc/iptables.downrules <span class="o">]</span><span class="p">;</span> <span class="k">then
+   </span>iptables-restore &lt; /etc/iptables.downrules
+<span class="k">fi
+</span><span class="nb">exit </span>0
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">chmod +x /etc/network/if-post-down.d/iptablessave</code></p>
+
+<p><code class="highlighter-rouge">chmod +x /etc/network/if-pre-up.d/iptablesload</code></p>
+
+
+        
+    </div>
+
+    <footer class="post-footer">
+        <div class="share">Share
+            <ul class="social-networks">
+                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=A Strict Firewall that Only Allows SSH&p[summary]=export SERVER_IP="x.x.x.x"
+
+Flushing all rules
+
+iptables -F
+
+iptables -X
+
+Setting default filter policy
+
+iptables -P INPUT DROP
+
+iptables...&p[url]=https://www.ardikars.com/post/firewall/a-strict-firewall-that-only-allows-ssh.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
+                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/firewall/a-strict-firewall-that-only-allows-ssh.html&text=export SERVER_IP="x.x.x.x"
+
+Flushing all rules
+
+iptables -F
+
+iptables -X
+
+Setting default filter policy
+
+iptables -P INPUT DROP
+
+iptables...&hashtags=ssh,network,security," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
+            </ul>
+        </div>
+        
+        <div class="tags">
+            <ul>
+                
+                <li><a href="https://www.ardikars.com/tag/ssh">ssh</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/network">network</a></li>
+                
+                <li><a href="https://www.ardikars.com/tag/security">security</a></li>
+                
+            </ul>
+        </div>
+        
+    </footer>
+</article>
+
 <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
@@ -870,71 +990,6 @@ Copyright (c) [2020] [Ardika Rommy...&hashtags=http,ssh,injector," rel="noreferr
                 <li><a href="https://www.ardikars.com/tag/proxy">proxy</a></li>
                 
                 <li><a href="https://www.ardikars.com/tag/http">http</a></li>
-                
-            </ul>
-        </div>
-        
-    </footer>
-</article>
-
-<article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-        <ul>
-            <li><time datetime="2020-07-22T12:41:00+00:00" itemprop="datePublished">22 Jul, 2020</time></li>
-            
-        </ul>
-        <h2 itemprop="name headline"><a href="https://www.ardikars.com/post/kernel/compile-and-install-linux-kernel-on-ubuntu-20-04.html">Compile and Install Linux Kernel on Ubuntu 20.04</a></h2>
-    </header>
-
-    <div class="post-content">
-        <p><code class="highlighter-rouge">sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison</code></p>
-
-<p><code class="highlighter-rouge">wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.7.10.tar.xz</code></p>
-
-<p><code class="highlighter-rouge">tar xvf linux-5.7.10.tar.xz</code></p>
-
-<p><code class="highlighter-rouge">cd linux-5.7.10</code></p>
-
-<p><code class="highlighter-rouge">cp /boot/config-$(uname -r) .config</code></p>
-
-<p><code class="highlighter-rouge">make menuconfig</code></p>
-
-<p><code class="highlighter-rouge">make</code></p>
-
-<p><code class="highlighter-rouge">sudo make modules_install</code></p>
-
-<p><code class="highlighter-rouge">sudo make install</code></p>
-
-<p><code class="highlighter-rouge">sudo update-initramfs -c -k 5.7.10</code></p>
-
-<p><code class="highlighter-rouge">sudo update-grub</code></p>
-
-<p>*) used for trying new kernel api from linux (io_uring).</p>
-
-
-        
-    </div>
-
-    <footer class="post-footer">
-        <div class="share">Share
-            <ul class="social-networks">
-                <li class="share-facebook"><a href="https://www.facebook.com/sharer.php?s=100&p[title]=Compile and Install Linux Kernel on Ubuntu 20.04&p[summary]=sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison
-
-wget https://cdn.kernel.org/p...&p[url]=https://www.ardikars.com/post/kernel/compile-and-install-linux-kernel-on-ubuntu-20-04.html" class="s_facebook" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#facebook-icon"></use></svg></a></a></li>
-                <li class="share-twitter"><a href="http://twitter.com/share?url=https://www.ardikars.com/post/kernel/compile-and-install-linux-kernel-on-ubuntu-20-04.html&text=sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison
-
-wget https://cdn.kernel.org/p...&hashtags=build,install,linux," rel="noreferrer" target="_blank" onclick="window.open(this.href, '','width=700,height=300');return false;"><svg title="" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ardikars.com/assets/svg/social-icons.svg#twitter-icon"></use></svg></a></li>
-            </ul>
-        </div>
-        
-        <div class="tags">
-            <ul>
-                
-                <li><a href="https://www.ardikars.com/tag/build">build</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/install">install</a></li>
-                
-                <li><a href="https://www.ardikars.com/tag/linux">linux</a></li>
                 
             </ul>
         </div>
