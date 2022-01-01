@@ -1,5 +1,5 @@
 ---
-title: Eject USB from command line
+title: Eject USB using command line
 date: 2022-01-01 10:41:00 Z
 categories:
 - linux
