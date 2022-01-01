@@ -5,20 +5,20 @@
     <description>Catatan ngoprek suka2.</description>
     <link>https://www.ardikars.com/</link>
     <atom:link href="https://www.ardikars.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 01 Jan 2022 12:06:31 +0000</pubDate>
-    <lastBuildDate>Sat, 01 Jan 2022 12:06:31 +0000</lastBuildDate>
+    <pubDate>Sat, 01 Jan 2022 21:34:08 +0000</pubDate>
+    <lastBuildDate>Sat, 01 Jan 2022 21:34:08 +0000</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
-        <title>Eject USB from command line</title>
+        <title>Eject USB using command line</title>
         <description>&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# udisksctl unmount --block-device /dev/sdXY&lt;/span&gt;
 
 &lt;span class=&quot;c&quot;&gt;# udisksctl power-off  --block-device  /dev/sdX&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Sat, 01 Jan 2022 10:41:00 +0000</pubDate>
-        <link>https://www.ardikars.com/post/linux/cli/usb/eject-usb-from-command-line.html</link>
-        <guid isPermaLink="true">https://www.ardikars.com/post/linux/cli/usb/eject-usb-from-command-line.html</guid>
+        <link>https://www.ardikars.com/post/linux/cli/usb/eject-usb-using-command-line.html</link>
+        <guid isPermaLink="true">https://www.ardikars.com/post/linux/cli/usb/eject-usb-using-command-line.html</guid>
         
         <category>linux</category>
         

@@ -10,7 +10,7 @@ var index = lunr(function () {
 
 
     index.add({
-      title: "Eject USB from command line",
+      title: "Eject USB using command line",
       category: null,
       content: "# udisksctl unmount --block-device /dev/sdXY\n\n# udisksctl power-off  --block-device  /dev/sdX\n\n",
       tags: ["linux","usb"],
@@ -362,8 +362,8 @@ var index = lunr(function () {
 
 
 var store = [{
-    "title": "Eject USB from command line",
-    "link": "/post/linux/cli/usb/eject-usb-from-command-line.html",
+    "title": "Eject USB using command line",
+    "link": "/post/linux/cli/usb/eject-usb-using-command-line.html",
     "image": null,
     "date": "January 1, 2022",
     "category": null,
