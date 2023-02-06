@@ -46,3 +46,10 @@ int main() {
 	return 0;
 }
 ```
+
+*Update java example
+```java
+long x = 50000L; // 64 bits
+long y = new BigInteger("2").pow(64).add(BigInteger.valueOf(x)).longValue();
+System.out.printf("x(%d) = y(%d) = %b", x, y, x == y);
+```
